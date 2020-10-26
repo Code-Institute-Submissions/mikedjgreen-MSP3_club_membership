@@ -1,11 +1,11 @@
 # MSP3_club_membership
 
-A project to capture and collect mebership details for an art club.
-This will enable the art club to stay in touch with it's members and organise activities that the members will be interested in.
-It is hoped to be a help with the annual summer exhibition of member's works, providing a listing of each year's contributuions.
+A project to capture and collect membership details for an art club.
+This will enable the art club to stay in touch with its members and organise activities that the members will be interested in.
+It is hoped to be a help with the annual summer exhibition of member's works, providing a listing of each year's contributions.
 A volunteer roster for the exhibition would be easier to set up.
-Evening and weekend activities set up by the members, for the members at other times of the year would be recorded.
-
+Evening and weekend activities set up by the members, for the members, at other times of the year would be recorded.
+Club administrators will be able to keep up-to-date contact details, creating, updating and deleting lapsed memberships.
 
 ## UX
  
@@ -39,9 +39,23 @@ In addition, you may also use this section to discuss plans for additional featu
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
+- [JavaScript](https://www.javascript.com/)
+    - For dynamic, front-end interaction on HTML forms.
+
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
+- [Python 3](https://www.python.org/about/)    
+    - Programming language used to interact with a MongoDB database
+
+- [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/)
+    - A python framework that uses JINJA template engine.
+
+- [Materialize Framework](https://materializecss.com/)
+    - A front-end, responsive design framework with a unified 'look and feel'.
+
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+    -  Global cloud database service.
 
 ## Testing
 
@@ -86,3 +100,4 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Acknowledgements
 
 - I received inspiration for this project from X
+- Further help was found with [w3schools](https://www.w3schools.com/default.asp)
