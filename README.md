@@ -1,6 +1,6 @@
 # MSP3_club_membership
 
-A project to capture and collect membership details for an art club.
+A project designed to capture and collect membership details for an art club.
 This will enable the art club to stay in touch with its members and organise activities that the members will be interested in.
 It is hoped to be a help with the annual summer exhibition of member's works, providing a listing of each year's contributions.
 A volunteer roster for the exhibition would be easier to set up.
@@ -21,27 +21,30 @@ Use this section to provide insight into your UX process, focusing on who this w
 ### Strategy
 
 Provide the initial membership request form. 
-From the request form the administrative processes of reporting, updating and, if need be, deleting art club members.
-Administrators also need the ability to enter mebership details if the requestor does not have access to the web site.
+From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
+Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
 
 ### Scope
 
-Following administrative CRUD procedures. Storing membership details with limited access. Associate the members with details, including stored images, of their work.
+Following administrative CRUD procedures. 
+* Storing membership details with limited access. 
+* Associate the members with details, including stored images, of their work.
 
 
 ### Structure
 
-The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
-The information architecture is one of tables of data holding member details, another holding artwork details, another holding exhibition and activity details.
+* The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
+*The information architecture is one of tables of data holding member details, another holding artwork details, another holding exhibition and another activity details.
 
 ### Skeleton
 
-A wireframe is provided.
+* Public link to wireframes used as mockups : [Balsamiq](https://balsamiq.cloud/)
+* [Wireframes in PDF](static/docs/club_administration.pdf) are provided covering a number of different sized viewports.
 
 ### Surface
 
-The backround colour will be the muted pale blue of #D9E6F3.
-The font chose will be Roboto.
+* The backround colour will be the muted pale blue of #D9E6F3.
+* The font chosen will be Roboto.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
