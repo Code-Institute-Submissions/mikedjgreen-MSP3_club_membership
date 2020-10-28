@@ -1,11 +1,7 @@
-.nav-wrapper{
-    background-color: #D9E6F3;
+.responsive-img {
+    max-width: 30%;
 }
 
 body {
-  background-color : #D9E6F3;  
-}
-
-.page-footer{
-    background-color : #D9E6F3;
+    background-color: red;
 }
