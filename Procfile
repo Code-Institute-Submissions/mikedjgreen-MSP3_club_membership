@@ -1,0 +1,1 @@
+web: python club_admin.py
