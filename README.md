@@ -77,7 +77,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - Programming language used to interact with a MongoDB database
 
 - [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/)
-    - A python framework that uses JINJA template engine.
+    - A python framework that uses **[JINJA](https://www.fullstackpython.com/jinja2.html)** template engine.
 
 - [Materialize Framework](https://materializecss.com/)
     - A front-end, responsive design framework with a unified 'look and feel'.
