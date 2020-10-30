@@ -22,9 +22,28 @@
 <body>
     <!-- Header -->
     <header>
-
+        <div class="page-header blue lighten-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4">
+                         <a href="#" class="left"><img class="img-icon" src="{{ url_for('static', filename='img/artclub.ico') }}"/></a>
+                    </div>
+                    <div class="col s8">
+                        <h3>Prickwillow Art Club</h3>
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        {% block headercontent %} 
+                        <h4>{{ page_title }}</h4>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <nav class="nav-wrapper blue lighten-3">
-            <a href="#" class="left"><img class="img-icon" src="{{ url_for('static', filename='img/artclub.ico') }}"/></a>
+            
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('membership') }}">membership</a></li>
                 <li><a href="{{ url_for('members') }}">members</a></li>
