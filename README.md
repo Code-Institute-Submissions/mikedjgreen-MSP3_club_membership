@@ -75,6 +75,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 - [Python 3](https://www.python.org/about/)    
     - Programming language used to interact with a MongoDB database
+    - Password security via [werkzeug WSGI library](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security)
 
 - [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/)
     - A python framework that uses **[JINJA](https://www.fullstackpython.com/jinja2.html)** template engine.
