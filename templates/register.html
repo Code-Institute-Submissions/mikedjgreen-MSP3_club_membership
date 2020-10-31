@@ -11,21 +11,34 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-          <input id="username" name="username" type="text" class="validate" />
-          <label for="username">Username</label>
+            <input id="username" name="username" type="text" 
+                minlength="5" maxlength="15" 
+                placeholder="min 5 chars, max 15 chars"
+                pattern="^[a-zA-Z0-9]{5,15}$" class="validate" />
+            <label for="username" 
+                title="Should only contain lower and uppercase alpha and numbers">
+                Username
+            </label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+                Should only contain lower and uppercase alpha and numbers
+            </span>
         </div>
       </div>
-      <!-- passowrd -->
+      <!-- password -->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            class="validate"
-          />
-          <label for="password">Password</label>
+            <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+            <input id="password" name="password" type="password" 
+                minlength="5" maxlength="15" 
+                placeholder="min 5 chars, max 15 chars"
+                pattern="^[a-zA-Z0-9]{5,15}$" class="validate"/>
+            <label for="password" 
+                title="Should only contain lower and uppercase alpha and numbers">
+                Password
+            </label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+                Should only contain lower and uppercase alpha and numbers
+            </span>
         </div>
       </div>
       <!-- register -->
