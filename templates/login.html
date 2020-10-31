@@ -4,7 +4,7 @@
   <form
     class="col s12 m8 offset-m2"
     method="POST"
-    action="{{ url_for('register') }}"
+    action="{{ url_for('login') }}"
   >
     <div class="card-panel">
       <!-- username -->
@@ -19,7 +19,7 @@
                 title="Should only contain lower and uppercase alpha and numbers">
                 Username
             </label>
-            <span class="helper-text" data-error="wrong" data-success="right">
+            <span class="helper-text" data-error="wrong: a-z,A-Z,0-9" data-success="right">
                 Should only contain lower and uppercase alpha and numbers
             </span>
         </div>
@@ -41,28 +41,13 @@
             </span>
         </div>
       </div>
-      <!-- readonly -->
-            <div class="row">
-                <p>
-                    <label>
-                        <input name="group1" id="readonly" type="radio" value="true" checked />
-                        <span>Read Only</span>
-                    </label>
-    
-                    <label>
-                        <input name="group1" id="update" type="radio" value="false" disabled="disabled" />
-                        <span>Update</span>
-                    </label>
-                </p>
-        </div>
-      </div>
       <!-- register -->
       <div class="row">
         <button
           type="submit"
-          class="col s12 btn-large red darken-4 text-shadow"
+          class="col s12 btn-large blue darken-4 text-shadow"
         >
-          Register
+          Login
           <i class="material-icons right">send</i>
         </button>
       </div>
