@@ -14,7 +14,14 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
-
+        <hr/>
+        {% for activity in activities %}
+            <strong> {{ activity.description }} </strong> <br>
+            date and time: {{ activity.activity_date }}   {{ activity.activity_time}}  <br>
+            how long? {{ activity.activity_duration }}  <br>
+            led by: {{ activity.lead_member_firstname }}  {{ activity.lead_member_lastname }} <br>
+            <hr/>
+        {% endfor %}
     </div>
 </div>
 

@@ -14,7 +14,13 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
-
+        <hr/>
+        {% for exhibit in exhibition %}
+            <strong>Summer Exhibition {{ exhibit.year }} </strong> <br>
+            at {{ exhibit.location }} <br>
+            starting {{ exhibit.start_date }}  ending on {{ exhibit.end_date }}
+            <hr/>
+        {% endfor %}
     </div>
 </div>
 

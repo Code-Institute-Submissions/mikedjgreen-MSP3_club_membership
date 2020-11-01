@@ -15,7 +15,13 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
-
+        <hr/>
+        {% for gallery in gallery %}
+            <strong> {{ gallery.year }} </strong> <br>
+            {% for member in gallery.exhibitor %}
+               Exhibitor:  {{ member }}  <br>
+            {% endfor %}
+        {% endfor %}
     </div>
 </div>
 

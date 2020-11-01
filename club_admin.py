@@ -32,25 +32,33 @@ def membership():
 
 @app.route("/members")
 def members():
+    members = mongo.db.members.find()
     return render_template("members.html",
+                           members=members,
                            page_title="Members List")
 
 
 @app.route("/activities")
 def activities():
+    activities = mongo.db.activities.find()
     return render_template("activities.html",
+                           activities=activities,
                            page_title="Extra-mural Activities")
 
 
 @app.route("/exhibition")
 def exhibition():
+    exhibition = mongo.db.exhibition.find()
     return render_template("exhibition.html",
+                           exhibition=exhibition,
                            page_title="Annual Exhibition")
 
 
 @app.route("/gallery")
 def gallery():
+    gallery = mongo.db.gallery.find()
     return render_template("gallery.html",
+                           gallery=gallery,
                            page_title="Gallery of Members works")
 
 
@@ -116,6 +124,14 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/users")
+def users():
+    users = mongo.db.users.find()
+    return render_template("users.html",
+                           users=users,
+                           page_title="List of usernames")
 
 
 if __name__ == "__main__":

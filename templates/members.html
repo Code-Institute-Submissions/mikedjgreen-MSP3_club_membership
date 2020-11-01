@@ -15,6 +15,17 @@
             {% endfor %}
         </ul>
         {% endif %} {% endwith %}
+        <hr/>
+         {% for member in members %}
+            <!-- {{ member._id }}  <br>  -->
+            {{ member.firstname }}  {{ member.lastname }} <br>
+            Email: {{ member.email }} <br>
+            Phone: {{ member.phone }} <br>
+            New Member: {{ member.newmember}} Family Sub: {{ member.family }} Guest: {{ member.guest }} <br>
+            Paid up: {{ member.paid }} <br>
+            Biography: {{ member.bio }}
+            <hr/>
+         {% endfor %}
 
     </div>
 </div>
