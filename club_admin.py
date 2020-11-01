@@ -1,5 +1,6 @@
 # msp3 club membership MDJG 28/10/2020
 import os
+import datetime
 from flask import (Flask, render_template,
                    redirect, request,
                    flash, url_for, session)
@@ -43,7 +44,8 @@ def membership():
             "email": request.form.get("email"),
             "phone": request.form.get("phone"),
             "newmember": "true",
-            "paid": "false"
+            "paid": "false",
+            "requested_on": datetime.datetime.now()
         }
         mongo.db.members.insert_one(member)
 
@@ -97,7 +99,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "readonly": request.form.get("group1").lower()
+            "readonly": request.form.get("group1").lower(),
+            "registered_on": datetime.datetime.now()
         }
         mongo.db.users.insert_one(register)
 
