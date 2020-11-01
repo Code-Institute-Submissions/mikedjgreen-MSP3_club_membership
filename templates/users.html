@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+    
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+        <hr/>
+        {% for user in users %}
+            Username: <strong> {{ user.username }} </strong> <br>
+            Read Only?  {{ user.readonly }}  <br>
+            <hr/>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
