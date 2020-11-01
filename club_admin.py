@@ -24,9 +24,29 @@ mongo = PyMongo(app)
 @app.route("/", methods=["GET", "POST"])
 def membership():
     if request.method == "POST":
-        flash("** Thanks {} {}, we have recieved your request **".
+        # check if member's email already exists in db
+        existing_member = mongo.db.members.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_member:
+            flash("Email {} already exists".format(
+                request.form.get("email")))
+            return redirect(url_for("login"))
+
+        flash("** Thanks {} {}, we have received your request **".
               format(request.form.get("forename"),
                      request.form.get("lastname")))
+
+        member = {
+            "firstname": request.form.get("forename"),
+            "lastname": request.form.get("lastname"),
+            "email": request.form.get("email"),
+            "phone": request.form.get("phone"),
+            "newmember": "true",
+            "paid": "false"
+        }
+        mongo.db.members.insert_one(member)
+
     return render_template("membership.html", page_title="Membership Request")
 
 
