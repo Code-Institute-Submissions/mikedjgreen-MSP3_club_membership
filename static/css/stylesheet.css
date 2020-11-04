@@ -1,5 +1,5 @@
 .img-icon {
-    max-width: 30%;
+    max-width: 40%;
 }
 
 .page-header {
@@ -9,4 +9,27 @@
 .input-field {
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 1.5rem;
+    color:black;
+}
+
+/*
+    Lighthouse report, accesibility: complains about the lack of contrast
+    between form background and label text. [Including button text ]
+    ' Background and foreground colors do not have a sufficient contrast ratio. '
+*/
+
+.inputlabel {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color:black;
+}
+
+.input-field>label {
+    font-size: 1.5rem;
+    color:black;
+}
+
+.buttom {
+    font-weight: bold;
 }
