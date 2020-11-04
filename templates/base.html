@@ -21,6 +21,9 @@
         Compiled and minified CSS
     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <!--
+        Project specific styles
+    -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
     <title>Club Membership</title>
 </head>
@@ -98,6 +101,9 @@
 
     <!-- Compiled and minified JavaScript For Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Project specific javascript/jQuery -->
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
 
 </body>
 </html>
