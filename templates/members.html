@@ -18,13 +18,28 @@
         <hr/>
          {% for member in members %}
             <!-- {{ member._id }}  <br>  -->
-            {{ member.firstname }}  {{ member.lastname }} <br>
-            Email: {{ member.email }} <br>
-            Phone: {{ member.phone }} <br>
-            New Member: {{ member.newmember}} Family Sub: {{ member.family }} Guest: {{ member.guest }} <br>
-            Paid up: {{ member.paid }} <br>
-            Biography: {{ member.bio }}
-            <hr/>
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" style="max-width: 10%" src="{{ member.portrait }}" alt="member portrait">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">more_vert</i></span>
+                        <p><a href="#">This is a link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">close</i></span>
+                        <ul>
+                        <li>Email: {{ member.email }} </li>
+                        <li>Phone: {{ member.phone }} </li>
+                        <li> New Member: {{ member.newmember}} </li>
+                        <li> Family Subscription: {{ member.family }} </li> 
+                        <li> Guest: {{ member.guest }} </li>
+                        <li>Paid up: {{ member.paid }} </li>
+                        <p>Biography: {{ member.bio }}.</p>
+                        </ul>
+                    </div>
+                </div>
+             <br>
          {% endfor %}
 
     </div>
