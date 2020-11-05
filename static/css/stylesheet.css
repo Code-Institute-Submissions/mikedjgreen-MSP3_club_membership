@@ -1,3 +1,14 @@
+/*
+    Project style sheet.
+    Overriding materializeCSS in certain circumstances.
+    Ensuring Lighthouse reported accessibility issues are addressed.
+
+*/
+body{
+    font-family: Roboto, Arial, sans-serif;
+}
+
+
 .img-icon {
     max-width: 40%;
 }

@@ -53,7 +53,7 @@
         </div>
         
         <nav class="nav-wrapper blue lighten-3">
-            
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('membership') }}">membership</a></li>
                 <li><a href="{{ url_for('activities') }}">activities</a></li>
@@ -69,6 +69,23 @@
                 {% endif %}  
             </ul>
         </nav>
+
+        <!-- Mobile side navbar -->
+        <ul class="sidenav blue lighten-3" id="mobile-demo">
+            <li><h4 class="center-align">Prickwillow Club Membership</h4></li>
+            <li><a href="{{ url_for('membership') }}">membership</a></li>
+                <li><a href="{{ url_for('activities') }}">activities</a></li>
+                <li><a href="{{ url_for('exhibition') }}">exhibition</a></li>
+                <li><a href="{{ url_for('gallery') }}">gallery</a></li>
+                {% if session.user %}
+                    <li><a href="{{ url_for('members') }}">members</a></li>
+                    <li><a href="{{ url_for('register') }}">register</a></li>
+                    <li><a href="{{ url_for('users') }}">user list</a></li>
+                    <li><a href="{{ url_for('logout') }}">log out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">login</a></li>
+                {% endif %}  
+        </ul> 
 
     </header>
     <div class="container messages">
