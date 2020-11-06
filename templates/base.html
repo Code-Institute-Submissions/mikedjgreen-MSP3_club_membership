@@ -61,6 +61,7 @@
                 <li><a href="{{ url_for('gallery') }}">gallery</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('members') }}">members</a></li>
+                    <li><a href="{{ url_for('dues') }}">membership dues</a></li>
                     <li><a href="{{ url_for('register') }}">register</a></li>
                     <li><a href="{{ url_for('users') }}">user list</a></li>
                     <li><a href="{{ url_for('logout') }}">log out</a></li>
@@ -79,6 +80,7 @@
                 <li><a href="{{ url_for('gallery') }}">gallery</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('members') }}">members</a></li>
+                    <li><a href="{{ url_for('dues') }}">membership dues</a></li>
                     <li><a href="{{ url_for('register') }}">register</a></li>
                     <li><a href="{{ url_for('users') }}">user list</a></li>
                     <li><a href="{{ url_for('logout') }}">log out</a></li>

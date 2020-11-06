@@ -34,7 +34,8 @@ Following administrative CRUD procedures.
 ### Structure
 
 * The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
-*The information architecture is one of tables of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+    - For accessibility the navigation will change to a sidebar for mobile viewports.
+* The information architecture is one of tables of data holding member details, another holding artwork details, another holding exhibition and another activity details.
 
 ### Skeleton
 
@@ -53,7 +54,8 @@ This section is also where you would share links to any wireframes, mockups, dia
 In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
+- Subscriptons - allows a logged-in user to gain a list of members whose subscriptions are due.
+              This list excludes those marked in the database collection 'members' as paid=true and guest=true.
 - ...
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
@@ -76,6 +78,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [Python 3](https://www.python.org/about/)    
     - Programming language used to interact with a MongoDB database
     - Password security via [werkzeug WSGI library](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security)
+    - [PyMongo library](https://pymongo.readthedocs.io/en/stable/index.html) used to link Python with MongoDB Atlas.
 
 - [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/)
     - A python framework that uses **[JINJA](https://www.fullstackpython.com/jinja2.html)** template engine.
@@ -132,4 +135,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Acknowledgements
 
 - I received inspiration for this project from [Ely Art Society](https://www.elyartsociety.com/).
+- The coding instruction was gratefully recieved from [Code Institute](https://codeinstitute.net/)
 - Further help was found with [w3schools](https://www.w3schools.com/default.asp)
+- More advanced MongoDB queries were garnered from [MongoDB University](https://university.mongodb.com/courses/M001/about)

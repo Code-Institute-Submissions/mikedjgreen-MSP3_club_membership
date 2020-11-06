@@ -60,6 +60,19 @@ def members():
                            page_title="Members List")
 
 
+@app.route("/dues")
+def dues():
+    # check if user logged in to do  this
+    if session["user"]:
+        members = mongo.db.members.find({"$and": [{"paid": False}, {"guest": False}]})
+        return render_template("members.html",
+                               members=members,
+                               page_title="Membership Due List")
+    else:
+        flash("User not logged in {} ".format(session["user"]))
+        return redirect(url_for("login"))
+
+
 @app.route("/activities")
 def activities():
     activities = mongo.db.activities.find()
@@ -114,6 +127,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    usnm = ""
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -138,6 +152,7 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html",
+                           user_name=usnm,
                            page_title="Administrator Login")
 
 
