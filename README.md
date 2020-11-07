@@ -85,6 +85,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 - [Materialize Framework](https://materializecss.com/)
     - A front-end, responsive design framework with a unified 'look and feel'.
+    - Using a [date picker](https://materializecss.com/pickers.html)
 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.
@@ -135,6 +136,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Acknowledgements
 
 - I received inspiration for this project from [Ely Art Society](https://www.elyartsociety.com/).
-- The coding instruction was gratefully recieved from [Code Institute](https://codeinstitute.net/)
+- The coding instruction was gratefully received from [Code Institute](https://codeinstitute.net/)
 - Further help was found with [w3schools](https://www.w3schools.com/default.asp)
 - More advanced MongoDB queries were garnered from [MongoDB University](https://university.mongodb.com/courses/M001/about)

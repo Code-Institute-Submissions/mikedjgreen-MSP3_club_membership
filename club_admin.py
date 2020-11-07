@@ -20,6 +20,9 @@ COLLECTION = "users"
 
 
 mongo = PyMongo(app)
+#
+#                                   Membership
+#
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -64,13 +67,40 @@ def members():
 def dues():
     # check if user logged in to do  this
     if session["user"]:
-        members = mongo.db.members.find({"$and": [{"paid": False}, {"guest": False}]})
+        members = mongo.db.members.find({"$and":
+                                         [{"paid": False}, {"guest": False}]})
         return render_template("members.html",
                                members=members,
                                page_title="Membership Due List")
     else:
         flash("User not logged in {} ".format(session["user"]))
         return redirect(url_for("login"))
+#
+#                                   Activities
+#
+
+
+@app.route("/add_activity", methods=["GET", "POST"])
+def add_activity():
+    # check if user logged in to do  this
+    if session["user"]:
+        if request.method == "POST":
+            activity = {
+                "activity_date": request.form.get("activity_date"),
+                "description": request.form.get("description"),
+                "activity_time": request.form.get("activity_time"),
+                "activity_duration": request.form.get("activity_duration"),
+                "lead_member_firstname": request.form.get("lead_member_firstname"),
+                "lead_member_lastname": request.form.get("lead_member_lastname"),
+                "added_by": session["user"],
+                "added_on": datetime.datetime.now()
+            }
+            flash("** Thanks {}, activity added **".format(session["user"]))
+            mongo.db.activities.insert_one(activity)
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return render_template("add_activity.html", page_title="Add Activity")
 
 
 @app.route("/activities")
@@ -81,12 +111,22 @@ def activities():
                            page_title="Extra-mural Activities")
 
 
+#
+#                                   Exhibition
+#
+
+
 @app.route("/exhibition")
 def exhibition():
     exhibition = mongo.db.exhibition.find()
     return render_template("exhibition.html",
                            exhibition=exhibition,
                            page_title="Annual Exhibition")
+
+
+#
+#                                   Gallery
+#
 
 
 @app.route("/gallery")

@@ -1,0 +1,115 @@
+{% extends 'base.html' %} 
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+    
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+        <hr/>
+
+          <form
+            class="col s12 m8 offset-m2"
+            method="POST"
+            action="{{ url_for('add_activity') }}"
+          >
+            <div class="card-panel">
+                <!---   Description         -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                    <input id="description" name="description" type="text" 
+                        minlength="10" maxlength="255" 
+                        placeholder="min 10 chars, max 255 chars"
+                        class="validate" required/>
+                    <label for="description" 
+                        title="Briefly describe activity">
+                        Description
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Briefly describe activity
+                    </span> 
+                    </div>
+                </div>    
+                <!--    Activity Date       -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="activity_date" name="activity_date" type="text" 
+                            class="datepicker validate" required/>
+                        <label for="activity_date" 
+                            title="Pick date activity occurs">
+                            Activity Date
+                        </label>
+                    </div>
+                </div>    
+                <!---   Activity Time       -->    
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="activity_time" name="activity_time" type="text" 
+                            class="validate" required/>
+                        <label for="activity_time" 
+                            title="Please use 24 hour clock for start time">
+                            Activity Time
+                        </label>
+                    </div>
+                </div>                            
+                <!--    Activity Duration   -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <input id="activity_duration" name="activity_duration" type="text" 
+                            class="validate" required/>
+                        <label for="activity_duration" 
+                            title="To the nearest half hour">
+                            Activity Duration
+                        </label> 
+                    </div>
+                </div>                    
+                <!--    Activity Leader     -->
+                <div class="row">
+                    <div class="col s12">
+                        Organiser or lead member
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="lead_member_firstname" name="lead_member_firstname" type="text" 
+                             minlength="2" maxlength="255" 
+                            class="validate" required/>
+                        <label for="lead_member_firstname" 
+                            title="Organiser's first name">
+                            First name
+                        </label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="lead_member_lastname" name="lead_member_lastname" type="text" 
+                            minlength="5" maxlength="255" 
+                            class="validate" required/>
+                        <label for="lead_member_lastname" 
+                            title="Organiser's last name">
+                            Surname
+                        </label> 
+                    </div>
+                </div>
+                <!--   Submmit button   -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large red darken-4 text-shadow">
+                        Add Activity
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>                
+            </div>
+          </form>  
+
+    </div>
+</div>
+
+{% endblock %}
