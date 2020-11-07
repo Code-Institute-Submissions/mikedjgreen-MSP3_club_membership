@@ -1,0 +1,88 @@
+{% extends 'base.html' %} 
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+    
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+        <hr/>
+
+          <form
+            class="col s12 m8 offset-m2"
+            method="POST"
+            action="{{ url_for('add_exhibition') }}"
+          >
+            <div class="card-panel">
+                <!---   Exhibition Year         -->
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input id="year" name="year" type="text" 
+                        pattern="^[0-9]{4}$" 
+                        placeholder="2021"
+                        class="validate" required />
+                    <label for="year" 
+                        title="Exhibition year">
+                        Exhibition Year
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Year only
+                    </span> 
+                    </div>
+                </div>    
+                <!--    Exhibition Location      -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="location" name="location" type="text" 
+                            class="validate" required/>
+                        <label for="location" 
+                            title="Location of Exhibition">
+                            Location
+                        </label>
+                    </div>
+                </div>    
+                <!---   Exhibition starts on       -->    
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="start_date" name="start_date" type="text" 
+                            class="datepicker validate" required/>
+                        <label for="start_date" 
+                            title="Pick date exhibition starts">
+                            Start Date
+                        </label>
+                    </div>
+                </div>                            
+                <!--    Exhibition ends on   -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <input id="end_date" name="end_date" type="text" 
+                            class="datepicker validate" required/>
+                        <label for="end_date" 
+                            title="Pick date exhibition end">
+                            End date
+                        </label> 
+                    </div>
+                </div>                    
+                <!--   Submmit button   -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large red darken-4 text-shadow">
+                        Add Exhibition
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>                
+            </div>
+          </form>  
+
+    </div>
+</div>
+
+{% endblock %}

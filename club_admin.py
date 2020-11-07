@@ -116,6 +116,27 @@ def activities():
 #
 
 
+@app.route("/add_exhibition", methods=["GET", "POST"])
+def add_exhibition():
+    # check if user logged in to do  this
+    if session["user"]:
+        if request.method == "POST":
+            exhibition = {
+                "year": request.form.get("year"),
+                "location": request.form.get("location"),
+                "start_date": request.form.get("start_date"),
+                "end_date": request.form.get("end_date"),
+                "added_by": session["user"],
+                "added_on": datetime.datetime.now()
+            }
+            flash("** Thanks {}, exhibition added **".format(session["user"]))
+            mongo.db.exhibition.insert_one(exhibition)
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return render_template("add_exhibition.html", page_title="Add Exhibition")
+
+
 @app.route("/exhibition")
 def exhibition():
     exhibition = mongo.db.exhibition.find()
