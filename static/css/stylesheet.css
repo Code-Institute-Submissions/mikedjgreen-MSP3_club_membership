@@ -30,7 +30,7 @@ body{
 }
 
 /*
-    Lighthouse report, accesibility: complains about the lack of contrast
+    Lighthouse report, accessibility: complains about the lack of contrast
     between form background and label text. [Including button text ]
     ' Background and foreground colors do not have a sufficient contrast ratio. '
 */

@@ -1,0 +1,185 @@
+{% extends 'base.html' %} {% block headercontent %} {{ page_title }} {% endblock
+%} {% block content %}
+
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <div class="row">
+    <p class="col s12 m8 offset-m2">Edit membership request.</p>
+    </div>
+
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_member', member_id=member._id) }}">
+      <div class="card-panel">
+        <!-- Portrait -->
+        <div class="row">
+            <div class="col s6">
+                <div class="card-image">
+                    <img style="max-width: 30%" src="{{ member.portrait }}" alt="member portrait">
+                </div>
+            </div>    
+        <!-- Portrait path/filename -->
+            <div class="input-field col s6">
+                <label for="forename" class="inputlabel">Portrait Path</label>
+                <input type="text" class="form-control"  placeholder="../static/img/portrait/no_image.jpg"
+                        name="portrait" id="portrait"
+                        value="{{ member.portrait }}" />
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>        
+        <!-- Forename -->      
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="forename" class="inputlabel">Forename</label>
+                <input type="text" class="form-control"  placeholder="Forename"
+                        name="forename" id="forename"
+                        value="{{ member.firstname }}"
+                        minlength="4" required
+                        data-validation-required-message="Please enter your first name."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Surname -->    
+        <div class="row">
+            <div class="input-field col s12">       
+                <label for="lastname" class="inputlabel">Lastname</label>
+                <input type="text" class="form-control" placeholder="Surname"
+                        name="lastname" id="lastname"
+                        value="{{ member.lastname }}"
+                        minlength="2" required
+                        data-validation-required-message="Please enter your last name."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Email Address -->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="email" class="inputlabel">Email Address</label>
+                <input type="email" class="form-control" placeholder="Email Address"
+                        name="email" id="email"
+                        value="{{ member.email }}"
+                        minlength="10" required
+                        data-validation-required-message="Please enter your email address."/>
+                <p class="help-block text-danger"></p>
+             </div>
+        </div>
+        <!-- Phone Number -->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="phone" class="inputlabel">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Phone Number"
+                    name="phone" id="phone"
+                    value="{{ member.phone }}"
+                    minlength="5" required
+                    data-validation-required-message="Please enter your phone number."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Membership Status-->
+        <div class="row">
+            <div class="input-field col s12">
+                <p>
+                <label class="inputlabel">
+                <input name="renewal" type="radio" />
+                <span>Renewal?</span>
+                </label>
+                <label class="inputlabel">
+                <input name="renewal" type="radio" checked value=" {{ member.newmember }}" />
+                <span>New Member</span>
+                </label>
+                </p>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!--  Family Subscription Rate? -->
+        <div class="row">
+            <div class="input-field col s12">
+                <p>
+                <span>Family Subscription?</span>
+                <div class="switch">
+                    <label class="inputlabel">
+                        False
+                        <input type="checkbox" name="family" value="{{ member.family }}" />
+                        <span class="lever"></span>
+                        True
+                    </label>
+                </div>
+                </p>
+            </div>
+        </div>
+
+        <!-- Is the Member a guest? If so, no subscription due...-->    
+        <div class="row">
+            <div class="input-field col s12 ">
+                <p>  
+                <span>Guest Member?</span>
+                <div class="switch">
+                    <label class="inputlabel">
+                        False
+                        <input type="checkbox" name="guest" value="{{ member.guest }}" />
+                        <span class="lever"></span>
+                        True
+                    </label>
+                </div>
+                </p> 
+            </div>    
+        </div>        
+
+        <!--  Member paid subscription this year ? -->
+        <div class="row">
+            <div class="input-field col s12 ">
+                <p>  
+                <span>Subscription Paid?</span>
+                <div class="switch">
+                    <label class="inputlabel">
+                        False
+                        <input type="checkbox" name="paid" value="{{ member.paid }}" />
+                        <span class="lever"></span>
+                        True
+                    </label>
+                </div>
+                </p> 
+            </div>    
+        </div>   
+
+        <!-- Member's biography / introduction -->
+        <div class="row">
+            <div class="input-field col s12">       
+                <label for="bio" class="inputlabel">Biography</label>
+                <input type="text" class="form-control" placeholder="Surname"
+                        name="bio" id="bio"
+                        value="{{ member.bio }}"
+                        minlength="2" required
+                        data-validation-required-message="Please enter a short introduction."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>        
+        <br />
+        <div id="success"></div>
+        <div class="row">
+            <div class="col s6">
+                 <!-- cancel button -->
+                    <a href="{{ url_for('members') }}" class="btn-small">
+                        Cancel <i class="material-icons right"></i>
+                    </a>
+            </div>
+            <div class="col s6">        
+                <button class=" btn-small waves-effect waves-light red"
+                    type="submit" name="action" >
+                    Edit Member
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>    
+        </div>
+      </div>  
+    </form>
+  </div>
+</div>
+
+{% endblock %}

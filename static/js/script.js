@@ -2,6 +2,7 @@
     jQuery for MaterializeCSS initialization
     Mobile sidebar...
     Date Picker...
+    Select ...
 */
 
 $(document).ready(function () {
@@ -15,5 +16,7 @@ $(document).ready(function () {
             done: "Select"
         }
     });
+    
+    $('select').formSelect();
     
 });

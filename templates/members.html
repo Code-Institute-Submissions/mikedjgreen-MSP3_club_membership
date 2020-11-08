@@ -23,17 +23,28 @@
                         <img class="activator" style="max-width: 10%" src="{{ member.portrait }}" alt="member portrait">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
+                        <div class="row">
+                            <div class="col s12">
+                                <span class="card-title activator grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">more_vert</i></span>
+                            </div>    
+                        </div>
+                        <div class="row">
+                            <div class="col s6">
+                                    <a href="{{ url_for('edit_member', member_id=member._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                            </div>
+                            <div class="col s6">
+                            </div>
+                        </div>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">close</i></span>
                         <ul>
+                        <li>Portrait path: {{ member.portrait }} </li>
                         <li>Email: {{ member.email }} </li>
                         <li>Phone: {{ member.phone }} </li>
-                        <li> New Member: {{ member.newmember}} </li>
-                        <li> Family Subscription: {{ member.family }} </li> 
-                        <li> Guest: {{ member.guest }} </li>
+                        <li>New Member: {{ member.newmember}} </li>
+                        <li>Family Subscription: {{ member.family }} </li> 
+                        <li>Guest: {{ member.guest }} </li>
                         <li>Paid up: {{ member.paid }} </li>
                         <p>Biography: {{ member.bio }}.</p>
                         </ul>

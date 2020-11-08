@@ -63,6 +63,36 @@ def members():
                            page_title="Members List")
 
 
+@app.route("/edit_member/<member_id>", methods=["GET", "POST"])
+def edit_member(member_id):
+    if request.method == "POST":
+        is_paid = True if request.form.get("paid") else False
+        is_guest = True if request.form.get("guest") else False
+        is_family = True if request.form.get("family") else False
+        is_new = True if request.form.get("newmember") else False
+        submit = {
+            "firstname": request.form.get("forename"),
+            "lastname": request.form.get("lastname"),
+            "email": request.form.get("email"),
+            "phone": request.form.get("phone"),
+            "bio": request.form.get("bio"),
+            "paid": is_paid,
+            "family": is_family,
+            "newmember": is_new,
+            "guest": is_guest,
+            "portrait": request.form.get("portrait"),
+            "updated_by": session["user"],
+            "updated_on": datetime.datetime.now()
+        }
+        mongo.db.members.replace_one({"_id": ObjectId(member_id)}, submit)
+        flash("Member Successfully Updated")
+
+    member = mongo.db.members.find_one({"_id": ObjectId(member_id)})
+    return render_template("edit_member.html",
+                           member=member,
+                           page_title="Edit Member Details")
+
+
 @app.route("/dues")
 def dues():
     # check if user logged in to do  this
@@ -158,6 +188,27 @@ def gallery():
                            page_title="Gallery of Members works")
 
 
+@app.route("/add_gallery", methods=["GET", "POST"])
+def add_gallery():
+    # check if user logged in to do  this
+    if session["user"]:
+        if request.method == "POST":
+            gallery = {
+                "year": request.form.get("year"),
+                "added_by": session["user"],
+                "added_on": datetime.datetime.now()
+            }
+            flash("** Thanks {}, Gallery entry added **".format(session["user"]))
+            mongo.db.gallery.insert_one(gallery)
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return render_template("add_gallery.html", page_title="Add Gallery")
+
+
+#
+#                                   Register  users
+#
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
