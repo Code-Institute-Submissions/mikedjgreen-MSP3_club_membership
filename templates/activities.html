@@ -16,11 +16,37 @@
         {% endif %} {% endwith %}
         <hr/>
         {% for activity in activities %}
-            <strong> {{ activity.description }} </strong> <br>
-            date and time: {{ activity.activity_date }}   {{ activity.activity_time}}  <br>
-            how long? {{ activity.activity_duration }}  <br>
-            led by: {{ activity.lead_member_firstname }}  {{ activity.lead_member_lastname }} <br>
-            <hr/>
+        <div class="card">
+            <div class="row">
+                <div class="col s4">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" style="max-width: 30%" src="{{ activity.activity_image }}" alt="activity image">
+                    </div>
+                </div>
+                <div class="col s8">
+                    <span class="card-title"> {{ activity.description }} </span>  
+                </div>
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s12">
+                        <span class="card-title activator grey-text text-darken-4">Date and time: {{ activity.activity_date }}   {{ activity.activity_time}}<i class="material-icons right">more_vert</i></span> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <a href="{{ url_for('edit_activity', activity_id=activity._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                    </div>
+                    <div class="col s6">
+                    </div>
+                </div>                        
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">date and time: {{ activity.activity_date }}   {{ activity.activity_time}}<i class="material-icons right">close</i></span>
+                how long? {{ activity.activity_duration }}  <br>
+                led by: {{ activity.lead_member_firstname }}  {{ activity.lead_member_lastname }} <br>
+                activity image file: {{ activity.activity_image }}
+            </div>
+        </div>    
         {% endfor %}
     </div>
 </div>

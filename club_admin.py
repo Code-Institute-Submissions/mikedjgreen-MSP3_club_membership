@@ -141,6 +141,29 @@ def activities():
                            page_title="Extra-mural Activities")
 
 
+@app.route("/edit_activity/<activity_id>", methods=["GET", "POST"])
+def edit_activity(activity_id):
+    if request.method == "POST":
+        submit = {
+            "activity_date": request.form.get("activity_date"),
+            "description": request.form.get("description"),
+            "activity_time": request.form.get("activity_time"),
+            "activity_duration": request.form.get("activity_duration"),
+            "lead_member_firstname": request.form.get("lead_member_firstname"),
+            "lead_member_lastname": request.form.get("lead_member_lastname"),
+            "activity_image": request.form.get("active_img"),
+            "updated_by": session["user"],
+            "updated_on": datetime.datetime.now()
+        }
+        mongo.db.activities.replace_one({"_id": ObjectId(activity_id)}, submit)
+        flash("Activity Successfully Updated")
+
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    return render_template("edit_activity.html",
+                           activity=activity,
+                           page_title="Edit Activity Details")
+
+
 #
 #                                   Exhibition
 #
@@ -198,7 +221,8 @@ def add_gallery():
                 "added_by": session["user"],
                 "added_on": datetime.datetime.now()
             }
-            flash("** Thanks {}, Gallery entry added **".format(session["user"]))
+            flash("** Thanks {}, Gallery entry added **"
+                  .format(session["user"]))
             mongo.db.gallery.insert_one(gallery)
     else:
         flash("User not logged in to do this")

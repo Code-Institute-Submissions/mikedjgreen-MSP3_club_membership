@@ -18,9 +18,31 @@
         <hr/>
         {% for gallery in gallery %}
             <strong> {{ gallery.year }} </strong> <br>
+            <h6>Exhibitors: </h6> 
             {% for member in gallery.exhibitor %}
-               Exhibitor:  {{ member }}  <br>
+                {{ member }}  <br>
             {% endfor %}
+            <h6>Art Works: </h6>
+            {% for artwork in gallery.artworks %}
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" style="max-width: 10%" src="{{ artwork.image }}" alt="artwork image">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ artwork.title }}<i class="material-icons right">more_vert</i></span>
+                        <p><a href="#">This is a link</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ artwork.title }}<i class="material-icons right">close</i></span>
+                        <ul>
+                        <li>Artisit: {{ artwork.artist }} </li>
+                        <li>Media: {{ artwork.media }} </li>
+                        <li>Height (cm): {{ artwork.height}} </li>
+                        <li>Width (cm): {{ artwork.width }} </li> 
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}              
         {% endfor %}
     </div>
 </div>
