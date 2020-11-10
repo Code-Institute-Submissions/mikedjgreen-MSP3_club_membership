@@ -63,6 +63,14 @@ def members():
                            page_title="Members List")
 
 
+# Requires text index on members collection
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("memberquery")
+    members = list(mongo.db.members.find({"$text": {"$search": query}}))
+    return render_template("members.html", members=members)
+
+
 @app.route("/edit_member/<member_id>", methods=["GET", "POST"])
 def edit_member(member_id):
     if request.method == "POST":
@@ -120,8 +128,8 @@ def add_activity():
                 "description": request.form.get("description"),
                 "activity_time": request.form.get("activity_time"),
                 "activity_duration": request.form.get("activity_duration"),
-                "lead_member_firstname": request.form.get("lead_member_firstname"),
-                "lead_member_lastname": request.form.get("lead_member_lastname"),
+                "lead_firstname": request.form.get("lead_firstname"),
+                "lead_lastname": request.form.get("lead_lastname"),
                 "added_by": session["user"],
                 "added_on": datetime.datetime.now()
             }
@@ -149,8 +157,8 @@ def edit_activity(activity_id):
             "description": request.form.get("description"),
             "activity_time": request.form.get("activity_time"),
             "activity_duration": request.form.get("activity_duration"),
-            "lead_member_firstname": request.form.get("lead_member_firstname"),
-            "lead_member_lastname": request.form.get("lead_member_lastname"),
+            "lead_firstname": request.form.get("lead_firstname"),
+            "lead_lastname": request.form.get("lead_lastname"),
             "activity_image": request.form.get("active_img"),
             "updated_by": session["user"],
             "updated_on": datetime.datetime.now()
@@ -230,9 +238,33 @@ def add_gallery():
     return render_template("add_gallery.html", page_title="Add Gallery")
 
 
+@app.route("/edit_gallery/<gallery_id>", methods=["GET", "POST"])
+def edit_gallery(gallery_id):
+    # check if user logged in to do this
+    if session["user"]:
+        submit = {
+            "year": request.form.get("year"),
+            "updated_by": session["user"],
+            "updated_on": datetime.datetime.now()
+        }
+        flash("** Thanks {}, Gallery entry edited **"
+              .format(session["user"]))
+        mongo.db.gallery.replace_one({"_id": ObjectId(gallery_id)},
+                                     submit)
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    gallery = mongo.db.gallery.find_one({"_id": ObjectId(gallery_id)})
+    return render_template("edit_gallery.html",
+                           gallery=gallery,
+                           page_title="Edit Gallery Details")
+
+
 #
 #                                   Register  users
 #
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

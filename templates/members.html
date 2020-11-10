@@ -5,22 +5,34 @@
 
 {% block content %}
 
+    <div class="row card-panel">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row center-align">
+                <div class="input-field col s12 m8">
+                    <i class="prefix light-blue-text text-darken-4"></i>
+                    <input type="text" name="memberquery" id="memberquery" minlength="3" class="validate" required>
+                    <label for="memberquery">Search Members</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('members') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-    
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="flashes">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-        <hr/>
+        <!-- Text search above could have returned no members -->
+        {% if members %}
+
          {% for member in members %}
             <!-- {{ member._id }}  <br>  -->
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" style="max-width: 10%" src="{{ member.portrait }}" alt="member portrait">
+                        <img class="activator" style="max-width: 20%" src="{{ member.portrait }}" alt="member portrait">
                     </div>
                     <div class="card-content">
                         <div class="row">
@@ -30,7 +42,7 @@
                         </div>
                         <div class="row">
                             <div class="col s6">
-                                    <a href="{{ url_for('edit_member', member_id=member._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                                    <a href="{{ url_for('edit_member', member_id=member._id) }}" class="btn-small crud-btn light-blue lighten-1">Edit</a>
                             </div>
                             <div class="col s6">
                             </div>
@@ -46,13 +58,16 @@
                         <li>Family Subscription: {{ member.family }} </li> 
                         <li>Guest: {{ member.guest }} </li>
                         <li>Paid up: {{ member.paid }} </li>
-                        <p>Biography: {{ member.bio }}.</p>
+                        <li>Biography: {{ member.bio }} .</li>
                         </ul>
                     </div>
                 </div>
              <br>
          {% endfor %}
 
+        {% else %}
+            <h3 class="red-text center-align">No Members Found</h3>
+        {% endif %}
     </div>
 </div>
 
