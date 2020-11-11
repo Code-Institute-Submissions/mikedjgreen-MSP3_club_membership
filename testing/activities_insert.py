@@ -44,7 +44,7 @@ new_docs = [{
     "lead_member_firstname": "Tarquin",
     "lead_member_lastname": "Chalmondley-Smythe",
     "description": "Demonstration of pre-raphaelite naivety"
- }, 
+ },
  {
     "activity_date": "25 February, 2021",
     "activity_time": "19:30",
@@ -57,5 +57,5 @@ coll.insert_many(new_docs)
 
 
 documents = coll.find()
-for member in documents:
-    print(member)
+for activity in documents:
+    print(activity)
