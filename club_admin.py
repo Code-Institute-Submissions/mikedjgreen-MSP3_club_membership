@@ -58,6 +58,8 @@ def membership():
 @app.route("/members")
 def members():
     members = mongo.db.members.find()
+    member_cnt = mongo.db.members.find().count()
+    flash("Total Members: {} ".format(member_cnt))
     return render_template("members.html",
                            members=members,
                            page_title="Members List")
@@ -68,6 +70,10 @@ def members():
 def search():
     query = request.form.get("memberquery")
     members = list(mongo.db.members.find({"$text": {"$search": query}}))
+    members_count = mongo.db.members.find({"$text":
+                                          {"$search":
+                                           query}}).count()
+    flash("Members found: {} ".format(members_count))
     return render_template("members.html", members=members)
 
 
@@ -107,6 +113,10 @@ def dues():
     if session["user"]:
         members = mongo.db.members.find({"$and":
                                          [{"paid": False}, {"guest": False}]})
+        cnt_dues = mongo.db.members.find({"$and":
+                                         [{"paid": False},
+                                          {"guest": False}]}).count()
+        flash("Unpaid member subs due: {} ".format(cnt_dues))
         return render_template("members.html",
                                members=members,
                                page_title="Membership Due List")
