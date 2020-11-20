@@ -1,4 +1,7 @@
-# msp3 club membership MDJG 28/10/2020
+"""
+   msp3 club membership MDJG 28/10/2020
+   This is the main application module for club administration.
+"""
 import os
 import datetime
 from flask import (Flask, render_template,
@@ -27,6 +30,12 @@ mongo = PyMongo(app)
 
 @app.route("/", methods=["GET", "POST"])
 def membership():
+    """
+        This is the default route to display
+        a membership applicaton form.
+        Server side validation ensures member details
+        are accurately recorded from the start.
+    """
     if request.method == "POST":
         # check if member's email already exists in db
         existing_member = mongo.db.members.find_one(
@@ -57,6 +66,10 @@ def membership():
 
 @app.route("/members")
 def members():
+    """
+        Club administrators are provided with a list of members.
+        The total current membership count is displayed.
+    """
     members = mongo.db.members.find()
     member_cnt = mongo.db.members.find().count()
     flash("Total Members: {} ".format(member_cnt))
@@ -68,6 +81,11 @@ def members():
 # Requires text index on members collection
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+        Administrators have a search member based on text entries of:
+         firstname, lastname and email address.
+        There is an underlying text index to facilitate this search.
+    """
     query = request.form.get("memberquery")
     members = list(mongo.db.members.find({"$text": {"$search": query}}))
     members_count = mongo.db.members.find({"$text":
@@ -79,6 +97,10 @@ def search():
 
 @app.route("/edit_member/<member_id>", methods=["GET", "POST"])
 def edit_member(member_id):
+    """
+        Once identified, individual members details can be changed.
+        Once succesfully changed the user is returned verify changes.
+    """
     if request.method == "POST":
         is_paid = True if request.form.get("paid") else False
         is_guest = True if request.form.get("guest") else False
@@ -109,7 +131,13 @@ def edit_member(member_id):
 
 @app.route("/dues")
 def dues():
-    # check if user logged in to do  this
+    """
+        Administrators would like a list of members
+         whose subscriptions are due to be paid.
+        Firstly check that the user logged in can do this.
+        There are guests who are on the membership list,
+         but they are exempt from annual subscriptions.
+    """
     if session["user"]:
         members = mongo.db.members.find({"$and":
                                          [{"paid": False}, {"guest": False}]})
@@ -130,7 +158,10 @@ def dues():
 
 @app.route("/add_activity", methods=["GET", "POST"])
 def add_activity():
-    # check if user logged in to do  this
+    """
+        A form to enter details of new club activities as events are scheduled.
+        Firstly check if user logged in to do this.
+    """
     if session["user"]:
         if request.method == "POST":
             activity = {
@@ -153,6 +184,9 @@ def add_activity():
 
 @app.route("/activities")
 def activities():
+    """
+        Displays a list of the club's forthcoming events.
+    """
     activities = mongo.db.activities.find()
     return render_template("activities.html",
                            activities=activities,
@@ -161,6 +195,10 @@ def activities():
 
 @app.route("/edit_activity/<activity_id>", methods=["GET", "POST"])
 def edit_activity(activity_id):
+    """
+        Once an activity is identified, it can be modified for change in venue,
+        date and time, or lead member.
+    """
     if request.method == "POST":
         submit = {
             "activity_date": request.form.get("activity_date"),
@@ -189,7 +227,10 @@ def edit_activity(activity_id):
 
 @app.route("/add_exhibition", methods=["GET", "POST"])
 def add_exhibition():
-    # check if user logged in to do  this
+    """
+        Entry of the next summer exhibition details starts here.
+        Firstly check if user logged in to do  this
+    """
     if session["user"]:
         if request.method == "POST":
             exhibition = {
@@ -210,6 +251,9 @@ def add_exhibition():
 
 @app.route("/exhibition")
 def exhibition():
+    """
+        Displays details of the clubs forthcomming exhibition(s).
+    """
     exhibition = mongo.db.exhibition.find()
     return render_template("exhibition.html",
                            exhibition=exhibition,
@@ -223,6 +267,9 @@ def exhibition():
 
 @app.route("/gallery")
 def gallery():
+    """
+        Displays a 'gallery' of members works
+    """
     gallery = mongo.db.gallery.find()
     return render_template("gallery.html",
                            gallery=gallery,
@@ -231,7 +278,10 @@ def gallery():
 
 @app.route("/add_gallery", methods=["GET", "POST"])
 def add_gallery():
-    # check if user logged in to do  this
+    """
+        A gallery entry details is recorded here.
+        Firstly check if user logged in to do  this
+    """
     if session["user"]:
         if request.method == "POST":
             gallery = {
@@ -250,7 +300,10 @@ def add_gallery():
 
 @app.route("/edit_gallery/<gallery_id>", methods=["GET", "POST"])
 def edit_gallery(gallery_id):
-    # check if user logged in to do this
+    """
+        A particular gallery entry being identified, it can be modified.
+        Firstly check if user logged in to do this
+    """
     if session["user"]:
         submit = {
             "year": request.form.get("year"),
@@ -277,6 +330,9 @@ def edit_gallery(gallery_id):
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+        Entry of new users (administrators) .
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -305,6 +361,10 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+        Login form, checking user exists and has entered correct password.
+
+    """
     usnm = ""
     if request.method == "POST":
         # check if username exists in db
@@ -336,7 +396,9 @@ def login():
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    """
+        Remove user from session cookie.
+    """
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -344,6 +406,9 @@ def logout():
 
 @app.route("/users")
 def users():
+    """
+        Lists current users of  the club database
+    """
     users = mongo.db.users.find()
     return render_template("users.html",
                            users=users,
