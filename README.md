@@ -47,7 +47,6 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 * The backround colour will be the muted pale blue of #D9E6F3.
 * The font chosen will be Roboto.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
 
@@ -79,6 +78,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - Programming language used to interact with a MongoDB database
     - Password security via [werkzeug WSGI library](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security)
     - [PyMongo library](https://pymongo.readthedocs.io/en/stable/index.html) used to link Python with MongoDB Atlas.
+    - [Docstring PEP 257](https://www.python.org/dev/peps/pep-0257/) documentation convention followed.
 
 - [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/)
     - A python framework that uses **[JINJA](https://www.fullstackpython.com/jinja2.html)** template engine.
@@ -86,6 +86,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [Materialize Framework](https://materializecss.com/)
     - A front-end, responsive design framework with a unified 'look and feel'.
     - Using a [date picker](https://materializecss.com/pickers.html)
+    - Using a [carousel](https://materializecss.com/carousel.html) for a gallery of art works.
 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.

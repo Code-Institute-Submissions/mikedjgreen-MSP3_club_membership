@@ -1,50 +1,70 @@
-{% extends 'base.html' %}
-{% block headercontent %}
-{{ page_title }}
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block headercontent %} {{ page_title }} {% endblock
+%} {% block content %}
 
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-    
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="flashes">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-        <hr/>
-        {% for gallery in gallery %}
-            <strong> {{ gallery.year }} </strong> <br>
-            <h6>Exhibitors: </h6> 
-            {% for member in gallery.exhibitor %}
-                {{ member }}  <br>
-            {% endfor %}
-            <h6>Art Works: </h6>
-            {% for artwork in gallery.artworks %}
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" style="max-width: 10%" src="{{ artwork.image }}" alt="artwork image">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{ artwork.title }}<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{ artwork.title }}<i class="material-icons right">close</i></span>
-                        <ul>
-                        <li>Artisit: {{ artwork.artist }} </li>
-                        <li>Media: {{ artwork.media }} </li>
-                        <li>Height (cm): {{ artwork.height}} </li>
-                        <li>Width (cm): {{ artwork.width }} </li> 
-                        </ul>
-                    </div>
-                </div>
-            {% endfor %}              
-        {% endfor %}
+  <div class="col-lg-8 col-md-10 mx-auto">
+    {% for gallery in gallery %}
+    <h2><strong> {{ gallery.year }} </strong></h2>
+    <div class="row">
+      <div class="col s6">
+        <a
+          href="{{ url_for('edit_gallery', gallery_id=gallery._id) }}"
+          class="btn-small crud-btn light-blue lighten-1"
+          >Edit</a
+        >
+      </div>
+      <div class="col s6"></div>
     </div>
+    <h3>Art Works:</h3>
+
+    <div class="carousel carousel-slider center">
+      <div class="carousel-fixed-item center">
+        <a
+          class="btn waves-effect blue black-text darken-text-2"
+          onClick="prevSlide()"
+          >Previous</a
+        >
+        <a
+          class="btn waves-effect blue black-text darken-text-2"
+          onClick="nextSlide()"
+          >Next</a
+        >
+      </div>
+      {% for artwork in gallery.artworks %}
+      <div class="carousel-item" href="#{{ loop.index }}">
+        <div class="card">
+          <div class="row">
+            <div class="col s6">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img
+                  class="activator"
+                  style="max-width: 50%"
+                  src="{{ artwork.image }}"
+                  alt="artwork image"
+                />
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4">
+                {{ artwork.title }}</span>
+                <ul>
+                    <li>Artist: {{ artwork.artist }}</li>
+                    <li>Media: {{ artwork.media }}</li>
+                    <li>Height (cm): {{ artwork.height}}</li>
+                     <li>Width (cm): {{ artwork.width }}</li>
+               </ul>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of carousel item -->
+      {% endfor %}
+    </div>
+    <!--  end of carousel -->
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
