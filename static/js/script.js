@@ -4,6 +4,7 @@
     Date Picker...
     Select ...
     Carousel...... [Gallery]
+    Modal....[Gallery]
 */
 
 $(document).ready(function() {
@@ -21,14 +22,30 @@ $(document).ready(function() {
     
     $("select").formSelect();
     
-    $(".carousel").carousel();
+    $("carousel").carousel();
 
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
+    $(".carousel.carousel-slider").carousel({
+        fullWidth: false,
         indicators: true
     });
+
+    $(".modal").modal();
+    
     
 });
+
+/*
+    Art Work buttons...
+*/
+
+function add_artwork() {
+    $(".modal").css("display","block");
+    $(".modal").css("position","sticky");
+}
+
+function close_artwork() {
+    $(".modal").css("display","none");
+}
 
 /*
     Carousel specific method calls with javascript, as jQuery being 
@@ -36,13 +53,11 @@ $(document).ready(function() {
 */
 
 function nextSlide() {
-     var instance = M.Carousel.getInstance(elem);
-     return instance.next();
+    $(".carousel-item").next();
 }
 
 function prevSlide() {
-     var instance = M.Carousel.getInstance(elem);
-     return instance.prev();
+    $(".carousel-item").prev();
 }
 
 /*

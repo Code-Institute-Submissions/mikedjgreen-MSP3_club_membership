@@ -2,69 +2,189 @@
 %} {% block content %}
 
 <div class="row">
-  <div class="col-lg-8 col-md-10 mx-auto">
-    {% for gallery in gallery %}
-    <h2><strong> {{ gallery.year }} </strong></h2>
-    <div class="row">
-      <div class="col s6">
-        <a
-          href="{{ url_for('edit_gallery', gallery_id=gallery._id) }}"
-          class="btn-small crud-btn light-blue lighten-1"
-          >Edit</a
-        >
-      </div>
-      <div class="col s6"></div>
-    </div>
-    <h3>Art Works:</h3>
-
-    <div class="carousel carousel-slider center">
-      <div class="carousel-fixed-item center">
-        <a
-          class="btn waves-effect blue black-text darken-text-2"
-          onClick="prevSlide()"
-          >Previous</a
-        >
-        <a
-          class="btn waves-effect blue black-text darken-text-2"
-          onClick="nextSlide()"
-          >Next</a
-        >
-      </div>
-      {% for artwork in gallery.artworks %}
-      <div class="carousel-item" href="#{{ loop.index }}">
-        <div class="card">
-          <div class="row">
+	<div class="col-lg-8 col-md-10 mx-auto">
+		{% for gallery in gallery %}
+		<div class="row">
             <div class="col s6">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img
-                  class="activator"
-                  style="max-width: 50%"
-                  src="{{ artwork.image }}"
-                  alt="artwork image"
-                />
-              </div>
+                <h4><strong> Gallery Year {{ gallery.year }} </strong></h4>
             </div>
-            <div class="col s6">
-              <div class="card-content">
-                <span class="card-title grey-text text-darken-4">
-                {{ artwork.title }}</span>
-                <ul>
-                    <li>Artist: {{ artwork.artist }}</li>
-                    <li>Media: {{ artwork.media }}</li>
-                    <li>Height (cm): {{ artwork.height}}</li>
-                     <li>Width (cm): {{ artwork.width }}</li>
-               </ul>    
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end of carousel item -->
-      {% endfor %}
-    </div>
-    <!--  end of carousel -->
-    {% endfor %}
-  </div>
-</div>
+			<div class="col s3">
+				<a href="{{ url_for('edit_gallery', gallery_id=gallery._id) }}"
+					class="btn-small crud-btn light-blue lighten-1">Edit</a>
+			</div>
+			<div class="col s3">
+				<button data-target="addartwork" href="#addartwork"
+                onclick="add_artwork()" id="btnaddart"
+                class="btn-small light-blue modal-trigger">Add artwork</button>
+				<!--
+        <a
+          href="{{ url_for('add_artwork', year=gallery.year) }}"
+          class="btn-small light-blue lighten-1"
+          >Add Art Work
+        </a>
+    -->
+			</div>
+		</div>
 
-{% endblock %}
+		<!-- Modal Add Art Work form -->
+		<div id="addartwork" class="modal">
+			<div class="modal-content">
+				<h4>New Art Work for {{ gallery.year }} </h4>
+				<form action="{{ url_for('add_artwork', year=gallery.year) }}" class="col s12 m8 offset-m2"
+					method="POST">
+					<div class="card-panel">
+						<!-- Artist -->
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="artist" class="inputlabel">Artist</label>
+								<input type="text" class="form-control"  placeholder="Artist"
+                                    name="artist" id="artist"
+                                    minlength="4" required
+                                    data-validation-required-message="Please enter the artist's name."/>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<!-- Title -->
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="title" class="inputlabel">Title</label>
+								<input type="text" class="form-control" placeholder="Untitled"
+                                    name="title" id="title"
+                                    minlength="2" required
+                                    data-validation-required-message="Please enter the artwork's title."/>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<!-- Media -->
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="media" class="inputlabel">Media</label>
+								<input type="text" class="form-control" placeholder="Media, (e.g.) acrylic,oils"
+                                        name="media" id="media"
+                                        minlength="5" required
+                                        data-validation-required-message="Please the principal media used."/>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<!-- Dimansions of artwork in cm. -->
+						<div class="row">
+							<div class="input-field col s6">
+								<label for="height" class="inputlabel">Height</label>
+								<input type="number" class="form-control" placeholder="Height (cm)"
+                                    name="height" id="height"
+                                    minlength="5" required
+                                    data-validation-required-message="Please enter the artworks height in cm."/>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="input-field col s6">
+								<label for="width" class="inputlabel">Width</label>
+								<input type="number" class="form-control" placeholder="Width (cm)"
+                                       name="width" id="width"
+                                       minlength="5" required
+                                       data-validation-required-message="Please enter the artworks Width in cm."/>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<!-- Image filepath -->
+						<div class="row">
+							<div class="input-field col s12">
+								<label for="image" class="inputlabel">Image filepath</label>
+								<input type="text" class="form-control" placeholder="../static/img/gallery/no_image.jpg"
+                                    value="../static/img/gallery/no_image.jpg"
+                                    name="image" id="image"
+                                    minlength="23" required
+                                    data-validation-required-message="Image filepath: (e.g.) ../static/img/gallery/no_image.jpg."/>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<!--  Price of artwork, whether sold or NFS ? -->
+						<div class="row">
+							<div class="input-field col s6">
+								<label for="price" class="inputlabel">Price</label>
+								<input type="text" class="form-control" placeholder="NFS"
+                                    name="price" id="price"
+                                    minlength="3" required
+                                    data-validation-required-message="Price, if for sale, or 'NFS'."/>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="input-field col s6">
+								<p>
+									<label class="inputlabel">
+                                    <input name="sold" type="radio" value=True />
+                                    <span>Sold</span>
+                                    </label>
+									<label class="inputlabel">
+                                    <input name="sold" type="radio" value=False checked />
+                                    <span>Unsold</span>
+                                    </label>
+								</p>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+					</div>
+					<div id="success">
+						<div class="row">
+                            <div class="col s6">
+							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
+                                    type="submit" name="action" onclick="{{ url_for('add_artwork', year=gallery.year) }}" >
+                                    Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                            <div class="col s6">
+                                <a href="#!" onclick="close_artwork()" class="modal-close btn-small blue waves-effect waves-green">Close</a>
+                            </div>    
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<h5>Art Works:</h5>
+
+		<div class="carousel carousel-slider center">
+			
+			{% for artwork in gallery.artworks %}
+			<div class="carousel-item" href="#{{ loop.index }}">
+				<div class="card">
+					<div class="row">
+						<div class="col s6">
+							<div class="card-image waves-effect waves-block waves-light">
+								<img class="activator"
+                                    style="max-width: 50%"
+                                    src="{{ artwork.image }}"
+                                    alt="artwork image"
+                                />
+                            </div>
+						</div>
+						<div class="col s6">
+								<div class="card-content">
+									<span class="card-title grey-text text-darken-4">
+                                    {{ artwork.title }}</span>
+									<ul>
+										<li>Artist: {{ artwork.artist }}</li>
+										<li>Media: {{ artwork.media }}</li>
+										<li>Height (cm): {{ artwork.height}}</li>
+										<li>Width (cm): {{ artwork.width }}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div> 
+				</div>
+				<!-- end of carousel item -->
+				{% endfor %}
+			</div>
+            <div class="carousel-fixed-item center">
+                <div class="row">
+                    <button onclick="nextSlide()" type="button" class="btn-small waves-effect waves-light blue lighten-3 black-text text-darken-2" >Next</button>
+                </div>    
+			</div>
+			<!--  end of carousel -->
+			{% endfor %}
+		</div>
+	</div>
+
+
+
+	{% endblock %}

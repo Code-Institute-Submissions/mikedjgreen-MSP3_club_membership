@@ -295,7 +295,7 @@ def add_gallery():
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return render_template("add_gallery.html", page_title="Add Gallery")
+    return render_template("gallery.html", page_title="Add Gallery")
 
 
 @app.route("/edit_gallery/<gallery_id>", methods=["GET", "POST"])
@@ -322,6 +322,45 @@ def edit_gallery(gallery_id):
                            gallery=gallery,
                            page_title="Edit Gallery Details")
 
+
+@app.route("/add_artwork/<year>", methods=["GET", "POST"])
+def add_artwork(year):
+    """
+        Within a gallery entry an art work can be added.
+        Firstly check if user logged in to do  this
+    """
+    if session["user"]:
+        if request.method == "POST":
+            artwork = {
+                "artist": request.form.get("artist"),
+                "title": request.form.get("title"),
+                "media": request.form.get("media"),
+                "height": request.form.get("height"),
+                "width": request.form.get("width"),
+                "image": request.form.get("image"),
+                "price": request.form.get("price"),
+                "sold": request.form.get("sold"),
+                "added_by": session["user"],
+                "added_on": datetime.datetime.now()
+            }
+            mongo.db.gallery.update_one({"year": year},
+                                        {"$addToSet": {"artworks": {"artist": artwork["artist"],
+                                                                    "title": artwork["title"],
+                                                                    "media": artwork["media"],
+                                                                    "height": artwork["height"],
+                                                                    "width": artwork["width"],
+                                                                    "image": artwork["image"],
+                                                                    "price": artwork["price"],
+                                                                    "sold": artwork["sold"],
+                                                                    "added_by": artwork["added_by"],
+                                                                    "added_on": artwork["added_on"]}}})
+            flash("** Thanks {}, art work entry added **"
+                  .format(session["user"]))
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return render_template("gallery.html",
+                           page_title="Gallery of Members works")
 
 #
 #                                   Register  users

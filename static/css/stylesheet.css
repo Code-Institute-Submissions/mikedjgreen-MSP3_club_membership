@@ -68,6 +68,13 @@ body{
 }
 
 /*
+    Gallery add art work button reallignment...
+*/
+#btnaddart {
+    margin-top: 1.52rem;
+}
+
+/*
     Lighthouse report, accessibility: complains about the lack of contrast
     between form background and label text. [Including button text ]
     ' Background and foreground colors do not have a sufficient contrast ratio. '
@@ -96,6 +103,17 @@ body{
 .crud-btn {
     display: none;
     margin: 5px;
+}
+
+/*--------------------------------------------Footer   */
+
+footer {
+    background-color: #d9e6f3;   
+    color: #fafafa;
+    min-height: 120px;
+    margin: 0;
+    padding-left: 10rem;
+    text-align: center;
 }
 
 
