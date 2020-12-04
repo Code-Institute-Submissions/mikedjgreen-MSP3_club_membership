@@ -15,14 +15,7 @@
 			<div class="col s3">
 				<button data-target="addartwork" href="#addartwork"
                 onclick="add_artwork()" id="btnaddart"
-                class="btn-small light-blue modal-trigger">Add artwork</button>
-				<!--
-        <a
-          href="{{ url_for('add_artwork', year=gallery.year) }}"
-          class="btn-small light-blue lighten-1"
-          >Add Art Work
-        </a>
-    -->
+                class="btn-small light-blue modal-trigger">Add artwork {{ gallery.year }}</button>
 			</div>
 		</div>
 
@@ -32,7 +25,7 @@
 				<h4>New Art Work for {{ gallery.year }} </h4>
 				<form action="{{ url_for('add_artwork', year=gallery.year) }}" class="col s12 m8 offset-m2"
 					method="POST">
-					<div class="card-panel">
+					<!-- <div class="card-panel"> -->
 						<!-- Artist -->
 						<div class="row">
 							<div class="input-field col s12">
@@ -66,7 +59,7 @@
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
-						<!-- Dimansions of artwork in cm. -->
+						<!-- Dimensions of artwork in cm. -->
 						<div class="row">
 							<div class="input-field col s6">
 								<label for="height" class="inputlabel">Height</label>
@@ -121,8 +114,8 @@
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
-					</div>
-					<div id="success">
+					<!-- </div>  
+					<div id="success"> -->
 						<div class="row">
                             <div class="col s6">
 							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
@@ -132,58 +125,87 @@
                                 </button>
                             </div>
                             <div class="col s6">
-                                <a href="#!" onclick="close_artwork()" class="modal-close btn-small blue waves-effect waves-green">Close</a>
+                                <a href="#!" onclick="close_add_artwork()" class="modal-close btn-small blue waves-effect waves-green">Close</a>
                             </div>    
 						</div>
-					</div>
+					<!-- </div> -->
 				</form>
 			</div>
 		</div>
 
 		<h5>Art Works:</h5>
 
-		<div class="carousel carousel-slider center">
-			
+		<div class="carousel carousel-slider center">		
 			{% for artwork in gallery.artworks %}
-			<div class="carousel-item" href="#{{ loop.index }}">
+			<div class="carousel-item" >
 				<div class="card">
 					<div class="row">
 						<div class="col s6">
 							<div class="card-image waves-effect waves-block waves-light">
 								<img class="activator"
                                     style="max-width: 50%"
-                                    src="{{ artwork.image }}"
+                                    src="{{ artwork['image'] }}"
                                     alt="artwork image"
                                 />
                             </div>
 						</div>
 						<div class="col s6">
-								<div class="card-content">
-									<span class="card-title grey-text text-darken-4">
-                                    {{ artwork.title }}</span>
-									<ul>
-										<li>Artist: {{ artwork.artist }}</li>
-										<li>Media: {{ artwork.media }}</li>
-										<li>Height (cm): {{ artwork.height}}</li>
-										<li>Width (cm): {{ artwork.width }}</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div> 
-				</div>
-				<!-- end of carousel item -->
-				{% endfor %}
-			</div>
+						    <div class="card-content">
+								<span class="card-title grey-text text-darken-4">
+                                {{ artwork['title'] }} ({{ loop.index }})</span>
+								<ul>
+								    <li>Artist: {{ artwork['artist'] }}</li>
+									<li>Media: {{ artwork['media'] }}</li>
+									<li>Height (cm): {{ artwork['height']}}</li>
+									<li>Width (cm): {{ artwork['width'] }}</li>
+                                    <li>Price : {{ artwork['price'] }}</li> 
+                                    <li>Sold: {{ artwork['sold'] }}</li>
+								</ul>
+                                <ul>
+                                    <li>
+                                        <a href="{{ url_for('edit_artwork', art_id=artwork['art_id'], year=gallery.year) }}" 
+                                                id="btneditart"
+                                                class="btn-small light-blue">
+                                                Edit this artwork {{ artwork['title'] }}
+                                                <i class="material-icons right">edit</i>
+                                        </a>
+                                    </li>
+                                    <li>       
+                                        <a href="{{ url_for('delete_artwork', art_id=artwork['art_id']) }}" 
+                                                id="btndelart"
+                                                class="btn-small red">
+                                                Drop this artwork {{ artwork['title'] }}
+                                                <i class="material-icons right">delete</i>
+                                        </a>
+                                    </li> 
+                                </ul>        
+                            </div>    
+                        </div>        
+                    </div>                      
+				</div> 
+			</div>  
             <div class="carousel-fixed-item center">
                 <div class="row">
-                    <button onclick="nextSlide()" type="button" class="btn-small waves-effect waves-light blue lighten-3 black-text text-darken-2" >Next</button>
+                    <div class="col s3">
+                        <button onclick="prevSlide()" type="button" class="btn-small waves-effect waves-light blue lighten-3 black-text text-darken-2" >Previous
+                        <i class="material-icons left">navigate_before</i>
+                        </button>
+                    </div>
+                    <div class="col s6">
+                    </div>
+                    <div class="col s3">
+                        <button onclick="nextSlide()" type="button" class="btn-small waves-effect waves-light blue lighten-3 black-text text-darken-2" >Next
+                        <i class="material-icons right">navigate_next</i>
+                        </button>
+                    </div>    
                 </div>    
-			</div>
+			</div>       
+			{% endfor %} <!-- endfor artworks of carousel item -->
 			<!--  end of carousel -->
-			{% endfor %}
-		</div>
-	</div>
+	    </div>
+        {% endfor %} <!-- endfor gallery in gallery loop -->
+    </div>
+</div>    
 
 
 

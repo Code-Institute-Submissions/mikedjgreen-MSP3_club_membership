@@ -58,6 +58,10 @@ body{
     Gallery
 */
 
+.modal {
+    width: 80%;
+}
+
 .card {
     border-radius: 10px;
     border:double;
@@ -65,6 +69,12 @@ body{
 
 .card-image {
     border-radius:inherit;
+    resize: both;
+    overflow: scroll;
+}
+
+.indicator-item {
+    background-color: black;
 }
 
 /*

@@ -1,0 +1,116 @@
+{% extends 'base.html' %} 
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+    
+     <h4>New Art Work for {{ gallery.year }} </h4>
+      <form action="{{ url_for('add_artwork', gallery_year=gallery.year) }}" class="col s12 m8 offset-m2" method="POST">
+      <div class="card-panel">
+        <!-- Artist -->      
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="artist" class="inputlabel">Artist</label>
+                <input type="text" class="form-control"  placeholder="Artist"
+                        name="artist" id="artist"
+                        minlength="4" required
+                        data-validation-required-message="Please enter the artist's name."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Title -->    
+        <div class="row">
+            <div class="input-field col s12">       
+                <label for="title" class="inputlabel">Title</label>
+                <input type="text" class="form-control" placeholder="Untitled"
+                        name="title" id="title"
+                        minlength="2" required
+                        data-validation-required-message="Please enter the artwork's title."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Media -->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="media" class="inputlabel">Media</label>
+                <input type="text" class="form-control" placeholder="Media, (e.g.) acrylic,oils"
+                        name="media" id="media"
+                        minlength="10" required
+                        data-validation-required-message="Please the principal media used."/>
+                <p class="help-block text-danger"></p>
+             </div>
+        </div>
+        <!-- Dimansions of artwork in cm. -->
+        <div class="row">
+            <div class="input-field col s6">
+                <label for="height" class="inputlabel">Height</label>
+                <input type="text" class="form-control" placeholder="Height (cm)"
+                    name="height" id="height"
+                    required
+                    data-validation-required-message="Please enter the artworks height in cm."/>
+                <p class="help-block text-danger"></p>
+            </div>
+            <div class="input-field col s6">
+                <label for="width" class="inputlabel">Width</label>
+                <input type="text" class="form-control" placeholder="Width (cm)"
+                    name="width" id="width"
+                    required
+                    data-validation-required-message="Please enter the artworks Width in cm."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!-- Image filepath -->
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="image" class="inputlabel">Image filepath</label>
+                <input type="text" class="form-control" placeholder="../static/img/gallery/no_image.jpg"
+                    value="../static/img/gallery/no_image.jpg"
+                    name="image" id="image"
+                    minlength="23" required
+                    data-validation-required-message="Image filepath: (e.g.) ../static/img/gallery/no_image.jpg."/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <!--  Price of artwork, whether sold or NFS ? -->
+        <div class="row">
+            <div class="input-field col s6">
+                 <label for="price" class="inputlabel">Price</label>
+                <input type="text" class="form-control" placeholder="NFS"
+                    name="price" id="price"
+                    required
+                    data-validation-required-message="Price, if for sale, or 'NFS'."/>
+                <p class="help-block text-danger"></p>
+            </div>
+            <div class="input-field col s6">    
+                <p>
+                <label class="inputlabel">
+                <input name="sold" type="radio" />
+                <span>Sold</span>
+                </label>
+                <label class="inputlabel">
+                <input name="sold" type="radio" checked />
+                <span>Unsold</span>
+                </label>
+                </p>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+      </div>  
+      <!--   Submmit button   -->
+      <div class="row">
+        <button type="submit" name="action" class="col s12 btn-large red darken-4 text-shadow">
+            Add art work entry
+            <i class="material-icons right">send</i>
+        </button>
+      </div> 
+    </form>                                             
+ 
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends 'base.html' %} 
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+   
+          <form
+            class="col s12 m8 offset-m2"
+            method="POST"
+            action="{{ url_for('edit_gallery', gallery_id=gallery._id) }}"
+          >
+            <div class="card-panel">
+                <!---   Gallery Year         -->
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input id="year" name="year" type="text" 
+                        pattern="^[0-9]{4}$" 
+                        placeholder="2021"
+                        value="{{ gallery.year }}"
+                        class="validate" required />
+                    <label for="year" 
+                        title="Gallery year">
+                        Gallery Year
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Year only
+                    </span> 
+                    </div>
+                </div>    
+
+                <!---   Art Works       -->    
+                {% for artwork in gallery.artworks %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="active_img" class="inputlabel">Image Path</label>
+                        <input type="text" class="form-control"  placeholder="../static/img/gallery/kathyb_28.jpg"
+                            value=" {{ artwork.image }} "
+                            name="active_img" id="active_img" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="title" name="title" type="text" 
+                            minlength="10" maxlength="255" 
+                            placeholder="min 10 chars, max 255 chars"
+                            value=" {{ artwork.title }} " />
+                        <label for="title" 
+                            title="Art work title">
+                            Title
+                        </label>
+                    </div>        
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="artist" name="artist" type="text" 
+                            minlength="10" maxlength="255" 
+                            placeholder="min 10 chars, max 255 chars"
+                            value=" {{ artwork.artist }} " />
+                        <label for="artist" 
+                            title="Artist">
+                            Artist
+                        </label>
+                    </div>     
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="media" name="media" type="text" 
+                            minlength="10" maxlength="255" 
+                            placeholder="min 10 chars, max 255 chars"
+                            value="{{ artwork.media }} " />
+                        <label for="media" 
+                            title="Media">
+                            Media
+                        </label>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="height" name="height" type="text" 
+                            minlength="10" maxlength="255" 
+                            placeholder="min 10 chars, max 255 chars"
+                            value=" {{ artwork.height}} " />
+                        <label for="height" 
+                            title="Height">
+                            Height of work (cm)
+                        </label>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="width" name="width" type="text" 
+                            minlength="10" maxlength="255" 
+                            placeholder="min 10 chars, max 255 chars"
+                            value=" {{ artwork.width }} "  />
+                        <label for="width" 
+                            title="width">
+                            Width of work (cm)
+                        </label>
+                    </div> 
+                </div>                            
+ 
+                {% endfor %}                                          
+                <!--   Submmit button   -->
+                <div class="row">
+                    <div class="col s6">
+                    <!-- cancel button -->
+                        <a href="{{ url_for('gallery') }}" class="btn-small">
+                        Cancel <i class="material-icons right"></i>
+                        </a>
+                    </div>
+                    <div class="col s6">
+                    <!-- Submit button -->
+                        <button type="submit" class="col s12 crud_btn btn-large red darken-4 text-shadow">
+                            Edit Gallery entry
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>   
+                </div>                
+            </div>
+          </form>  
+
+    </div>
+</div>
+
+{% endblock %}

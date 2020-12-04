@@ -25,8 +25,8 @@ $(document).ready(function() {
     $("carousel").carousel();
 
     $(".carousel.carousel-slider").carousel({
-        fullWidth: false,
-        indicators: true
+        fullWidth: true,
+        indicators: false,
     });
 
     $(".modal").modal();
@@ -39,25 +39,44 @@ $(document).ready(function() {
 */
 
 function add_artwork() {
-    $(".modal").css("display","block");
-    $(".modal").css("position","sticky");
-}
-
-function close_artwork() {
-    $(".modal").css("display","none");
+    $("#addartwork").css("display","block");
+    $("#addartwork").css("position","sticky");
+    $("#addartwork").css("z-index","+1");
 }
 
 /*
-    Carousel specific method calls with javascript, as jQuery being 
+function edit_artwork() {
+    $("#editartwork").css("display","block");
+    $("#editartwork").css("position","sticky");
+    $("#editartwork").css("z-index","+1");
+    var btnedit = document.getElementById("btneditart")
+    if ( btnedit.hasFocus() ) {
+        btnedit.css("display","block")
+    } else {
+        btnedit.css("display","none")
+    }
+}
+*/
+
+function close_add_artwork() {
+    $("#addartwork").css("display","none");
+}
+
+function close_edit_artwork() {
+    $("#editartwork").css("display","none");
+}
+
+/*
+    Carousel specific method calls with jQuery, though being 
     phased out by Materialize..
 */
 
 function nextSlide() {
-    $(".carousel-item").next();
+    $('.carousel').carousel('next');
 }
 
 function prevSlide() {
-    $(".carousel-item").prev();
+    $('.carousel').carousel('prev');
 }
 
 /*

@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+    
+          <form
+            class="col s12 m8 offset-m2"
+            method="POST"
+            action="{{ url_for('add_gallery') }}"
+          >
+            <div class="card-panel">
+                <!---   Gallery Year         -->
+                <div class="row">
+                    <div class="input-field col s12">
+                    <input id="year" name="year" type="text" 
+                        pattern="^[0-9]{4}$" 
+                        placeholder="2021"
+                        class="validate" required />
+                    <label for="year" 
+                        title="Gallery year">
+                        Gallery Year
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Year only
+                    </span> 
+                    </div>
+                </div>    
+   
+                <!---   Art Works       -->    
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select multiple class="icons">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="Kathy B" data-icon="static/img/gallery/kathyb_28.jpg">KathyB</option>
+                            <option value="Olivia P" data-icon="static/img/gallery/oliviap_2.jpg">OliviaP</option>
+                            <option value="vox Serene" data-icon="static/img/gallery/voxserene_27.jpg">Vox</option>
+                        </select>
+                        <label>Select Artworks</label>
+                    </div>
+                </div>                                             
+                <!--   Submmit button   -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large red darken-4 text-shadow">
+                        Add Gallery entry
+                    <i class="material-icons right">send</i>
+                    </button>
+                </div>                
+            </div>
+          </form>  
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 # Testing MSP3_club_membership.
 
-Separate testing documentations, linked to [README](../README.md)
+Separate testing documentation, linked to [README](../README.md)
 
 ## Initial Lighthouse Report.
 
@@ -58,7 +58,7 @@ On a normal monitor screen at 100% zoom, the screen estate is not used well, and
 - [Screen Estate issues](../testing/screenshots/Add_artwork_6.jpg)
 
 This becomes more pronounced on the smallest viewports...
-- [Small viewport](../testing/screenshots/Add_artwork_7.jpg)
+- ![Small viewport](../testing/screenshots/Add_artwork_7.jpg)
 
 The art work was successfully added, as the flash message advises, but the user was not returned to  the gallery page.
 The art work form can be closed without entry, but does not seem to take advantage of MaterializeCSS's documented process.

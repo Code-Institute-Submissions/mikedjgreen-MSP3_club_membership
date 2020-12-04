@@ -4,6 +4,7 @@
 """
 import os
 import pymongo
+from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 
@@ -33,45 +34,85 @@ coll = conn[DATABASE][COLLECTION]
 """
 agallery = coll.find_one({"year": "2021"})
 
+
 print(agallery)
 
-"""
+
 upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {"artist": "Mike Green",
+                              {"$addToSet": {"artworks": { "art_id": ObjectId(),
+                                                         "artist": "Mike Green",
                                                          "title": "Torso",
-                                                         "media": "soft pastel",
+                                                         "media": "soft pastels",
                                                          "height": 16.0,
                                                          "width": 10.0,
                                                          "image": "../static/img/gallery/torso.jpg",
                                                          "price": "NFS",
                                                          "sold": False}}})
-"""
+
+
+print(upd_artwork)
+
 
 upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {"artist": "Mike Green",
+                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
+                                                          "artist": "Mike Green",
                                                           "title": "Therapy",
-                                                          "media": "soft pastel",
+                                                          "media": "soft pastels",
                                                           "height": 16.0,
                                                           "width": 10.0,
                                                           "image": "../static/img/gallery/therapy_58.jpg",
                                                           "price": "NFS",
                                                           "sold": False}}})
 
-print(upd_artwork)
-agallery = coll.find_one({"year": "2021"})
 
-print(agallery)
+print(upd_artwork)
+
 
 upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {"artist": "Mike Green",
+                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
+                                                            "artist": "Mike Green",
                                                           "title": "Becca",
-                                                          "media": "soft pastel",
+                                                          "media": "soft pastels",
                                                           "height": 10.0,
                                                           "width": 16.0,
                                                           "image": "../static/img/gallery/pict2434_becca.jpg",
                                                           "price": "NFS",
                                                           "sold": False}}})
 
+
+print(upd_artwork)
+
+
+upd_artwork = coll.update_one({"year": "2021"},
+                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
+                                                            "artist": "Tarquin Chalmondley-Smythe",
+                                                          "title": "The Age of Anxiety",
+                                                          "media": "soft pastels",
+                                                          "height": 16.0,
+                                                          "width": 10.0,
+                                                          "image": "../static/img/gallery/no_image.jpg",
+                                                          "price": "NFS",
+                                                          "sold": False}}})
+
+
+print(upd_artwork)
+
+
+upd_artwork = coll.update_one({"year": "2021"},
+                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
+                                                            "artist": "Petunia Pootle-Phipps",
+                                                          "title": "Vox",
+                                                          "media": "soft pastels",
+                                                          "height": 16.0,
+                                                          "width": 10.0,
+                                                          "image": "../static/img/gallery/voxserene_27.jpg",
+                                                          "price": "NFS",
+                                                          "sold": False}}})
+
+
+print(upd_artwork)
+
 agallery = coll.find_one({"year": "2021"})
+
 
 print(agallery)

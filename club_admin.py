@@ -4,6 +4,7 @@
 """
 import os
 import datetime
+from pymongo.errors import OperationFailure
 from flask import (Flask, render_template,
                    redirect, request,
                    flash, url_for, session)
@@ -343,8 +344,9 @@ def add_artwork(year):
                 "added_by": session["user"],
                 "added_on": datetime.datetime.now()
             }
-            mongo.db.gallery.update_one({"year": year},
-                                        {"$addToSet": {"artworks": {"artist": artwork["artist"],
+            cur = mongo.db.gallery.update_one({"year": year},
+                                        {"$addToSet": {"artworks": {"art_id": ObjectId(),
+                                                                    "artist": artwork["artist"],
                                                                     "title": artwork["title"],
                                                                     "media": artwork["media"],
                                                                     "height": artwork["height"],
@@ -353,14 +355,70 @@ def add_artwork(year):
                                                                     "price": artwork["price"],
                                                                     "sold": artwork["sold"],
                                                                     "added_by": artwork["added_by"],
-                                                                    "added_on": artwork["added_on"]}}})
+                                                                    "added_on": artwork["added_on"]}}})                                                    
             flash("** Thanks {}, art work entry added **"
-                  .format(session["user"]))
+                  .format(session["user"]))      
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return render_template("gallery.html",
-                           page_title="Gallery of Members works")
+    return redirect(url_for("gallery"))
+
+@app.route("/edit_artwork/<art_id>/<year>", methods=["GET", "POST"])
+def edit_artwork(art_id, year):
+    """
+        Within a gallery entry an art work has been selected.
+        A change to the entry's details is needed.
+        Firstly check if user logged in to do  this
+    """
+    if session["user"]:
+        if request.method == "POST":
+            submit = {"_id": ObjectId(art_id),
+                      "artist": request.form.get("artist"),
+                      "title": request.form.get("title"),
+                      "media": request.form.get("media"),
+                      "height": request.form.get("height"),
+                      "width": request.form.get("width"),
+                      "image": request.form.get("image"),
+                      "price": request.form.get("price"),
+                      "sold": request.form.get("sold"),
+                      "amended_by": session["user"],
+                      "amended_on": datetime.datetime.now()
+					 }  
+            mongo.db.artworks.update({"_id": ObjectId(art_id) },{"$set": submit })
+            flash("** Thanks {}, art work amended **".format(session["user"]))	
+        try:
+            artworks = mongo.db.artworks.find_one({"_id": ObjectId(art_id)}) 
+        except OperationFailure:
+            raise OperationFailure("Failure to find artwork")
+        except Exception as e:
+            return e     
+        return render_template("edit_artwork.html",
+                               artworks=artworks,
+                               year=year,
+                               page_title="Edit Artwork Details")
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return redirect(url_for("gallery")) 
+
+
+@app.route("/delete_artwork/<art_id>")
+def delete_artwork(art_id):
+    """
+        Within a gallery entry an art work can be deleted.
+        Firstly check if user logged in to do this
+    """
+    if session["user"]:
+        try:
+            mongo.db.artworks.delete_one({"_id": ObjectId(art_id) })
+            flash("** Thanks {}, art work deleted **".format(session["user"]))	   
+        except Exception as e:
+            return e 
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return redirect(url_for("gallery"))    
+
 
 #
 #                                   Register  users
