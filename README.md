@@ -125,6 +125,15 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 For the sake of brevity, the testing documentation has been separated and linked to a [TESTING document](testing/TESTING.md).
 
+### HTML Validated
+[W3.org Validator](https://validator.w3.org/nu/?doc=https://mikedjgreen.github.io/MSP3_club_membership/templates/base.html).
+
+### CSS Validated
+[W3C Validator](http://jigsaw.w3.org/css-validator/validator?uri=https://mikedjgreen.github.io/MSP3_club_membership/static/css/stylesheet.css).
+
+### JavaScript tidied
+Passed code through [JSHint](https://jshint.com/about/)
+
 ## Deployment
 
 Developed on GitPod using git and GitHub.
@@ -152,7 +161,7 @@ I have selected HTTPS instead.
 To continue with cloning, you would:
 - Open Git Bash (GitPod's 'Terminal')
 - Change the current working directory to the location where you want the cloned directory to be made. (e.g. /workspace/clone_test )
-- Type git clone, and then paste thr url copied from above, either GitHub CLI or HTTPS.
+- Type git clone, and then paste the url copied from above, either GitHub CLI or HTTPS.
  ```git clone https://github.com/mikedjgreen/MSP3_club_membership.git```
 Press Enter. Your local clone will be created.
 
