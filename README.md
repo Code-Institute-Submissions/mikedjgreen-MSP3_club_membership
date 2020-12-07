@@ -1,3 +1,31 @@
+- [MSP3_club_membership](#msp3-club-membership)
+  * [UX](#ux)
+    + [User Stories](#user-stories)
+    + [Strategy](#strategy)
+    + [Scope](#scope)
+    + [Structure](#structure)
+    + [Skeleton](#skeleton)
+    + [Surface](#surface)
+  * [Features](#features)
+    + [Existing Features](#existing-features)
+    + [Features Left to Implement](#features-left-to-implement)
+  * [Technologies Used](#technologies-used)
+  * [Testing](#testing)
+  * [Deployment](#deployment)
+    + [Cloning repository using command line](#cloning-repository-using-command-line)
+    + [Preparation of configuration files.](#preparation-of-configuration-files)
+    + [Creating an env.py file](#creating-an-envpy-file)
+    + [Creating file .gitignore](#creating-file-gitignore)
+    + [Deployment to Heroku.](#deployment-to-heroku)
+    + [Heroku application to run](#heroku-application-to-run)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # MSP3_club_membership
 
 A project designed to capture and collect membership details for an art club.
@@ -11,7 +39,7 @@ Club administrators will be able to keep up-to-date contact details, creating, u
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-### User Stories:
+### User Stories
 - As an art enthusiast I would like to join like-minded people in my local community.
 - As a member I would like to submit my work for the annual summer exhibition.
 - As a member I would like to flag my interest in a forthcoming event.
@@ -91,13 +119,46 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.
 
+- [TOC for markdown](https://ecotrust-canada.github.io/markdown-toc/) to generate table of contents for README     
+
 ## Testing
 
 For the sake of brevity, the testing documentation has been separated and linked to a [TESTING document](testing/TESTING.md).
 
 ## Deployment
 
+Developed on GitPod using git and GitHub.
 Gitpod repository has already been created, MSP3_club_membership, master git branch.
+
+### Cloning repository using command line
+Following the process documented in [cloning a repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository ).
+
+To run this code on your local machine, you would go to my repository at [My Repo](https://github.com/mikedjgreen/MSP3_club_membership) on GitHub :
+``` https://github.com/mikedjgreen/MSP3_club_membership ```
+
+On the home page on the right hand side just above all the files, you will see a button that says, "Code".
+![CloneCode](/static/docs/screenshots/clone_inst_1.jpg)
+
+This button will give you options to clone with HTTPS, SSH, GitHub CLI, open in desktop or download as a zip file.
+I initially selected GitHub CLI.
+![GitHub CLI](/static/docs/screenshots/clone_inst_2_cli.jpg)
+
+I had downloaded GitHub CLI to the default : C:\Program Files\GitHub CLI\ on my Windows terminal, from [Download CLI](https://cli.github.com/).
+You will need Windows 64bit to use the software, I had a 32bit laptop...
+
+I have selected HTTPS instead.
+![GitHup HTTPS](/static/docs/screenshots/clone_inst_2_https.jpg)
+
+To continue with cloning, you would:
+- Open Git Bash (GitPod's 'Terminal')
+- Change the current working directory to the location where you want the cloned directory to be made. (e.g. /workspace/clone_test )
+- Type git clone, and then paste thr url copied from above, either GitHub CLI or HTTPS.
+ ```git clone https://github.com/mikedjgreen/MSP3_club_membership.git```
+Press Enter. Your local clone will be created.
+
+![Test Clone](/static/docs/screenshots/clone_inst_3_bash.jpg)
+
+
 
 ### Preparation of configuration files.
 
