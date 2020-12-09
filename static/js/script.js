@@ -99,3 +99,46 @@ function displaySessionItems() {
     document.getElementById("demo").innerHTML += x + ":" + y + "<br>";
   }
 }
+
+/*
+    Using EmailJS API to send reminder emails to members to renew their subscription.
+    ServiceId = gmail
+    TemplateID = msp3
+*/
+function sendMail(contactForm) {
+    emailjs.send("gmail", "msp3", {
+        "to_email": contactForm.target.value,
+        "from_name": contactForm.name.value,
+        "from_email": contactForm.email.value,
+        "to_member": contactForm.member.value,
+        "membership_dues" : contactForm.dues.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        }
+    );
+    return false;  // To block from loading a new page
+}
+/*
+    Display the email reminder form to send dues
+*/
+function show_reminder() {
+    $("#emailreminder").css("display","block");
+    $("#emailreminder").css("position","sticky");
+    $("#emailreminder").css("z-index","+1");
+}
+
+function close_reminder() {
+    $("#emailreminder").css("display","none");
+}
+
+function display_reminder() {
+    /* to display the button on the members page */
+    $("#btnreminder").css("display","block");
+    $("#btnreminder").css("position","sticky"); 
+    $("#btnreminder").css("z-index","+1");
+}

@@ -102,6 +102,9 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation and initialise MaterializeCSS components.
 
+- [EmailJS API](https://www.emailjs.com/)
+    - Third party email service to help club administrators remind members when their subscriptions are due.    
+
 - [Python 3](https://www.python.org/about/)    
     - Programming language used to interact with a MongoDB database
     - Password security via [werkzeug WSGI library](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security)
@@ -129,7 +132,7 @@ For the sake of brevity, the testing documentation has been separated and linked
 [W3.org Validator](https://validator.w3.org/nu/?doc=https://mikedjgreen.github.io/MSP3_club_membership/templates/base.html).
 
 ### CSS Validated
-[W3C Validator](http://jigsaw.w3.org/css-validator/validator?uri=https://mikedjgreen.github.io/MSP3_club_membership/static/css/stylesheet.css).
+[W3C Validator](https://jigsaw.w3.org/css-validator/validator?uri=https://github.com/mikedjgreen/MSP3_club_membership/tree/master/static/css/stylesheet.css).
 
 ### JavaScript tidied
 Passed code through [JSHint](https://jshint.com/about/)

@@ -272,8 +272,10 @@ def gallery():
         Displays a 'gallery' of members works
     """
     gallery = mongo.db.gallery.find()
+    artworks = mongo.db.artworks.find()
     return render_template("gallery.html",
                            gallery=gallery,
+                           artworks=artworks,
                            page_title="Gallery of Members works")
 
 
@@ -324,8 +326,8 @@ def edit_gallery(gallery_id):
                            page_title="Edit Gallery Details")
 
 
-@app.route("/add_artwork/<year>", methods=["GET", "POST"])
-def add_artwork(year):
+@app.route("/add_artwork/<gallery_id>", methods=["GET", "POST"])
+def add_artwork(gallery_id):
     """
         Within a gallery entry an art work can be added.
         Firstly check if user logged in to do  this
@@ -344,27 +346,44 @@ def add_artwork(year):
                 "added_by": session["user"],
                 "added_on": datetime.datetime.now()
             }
-            cur = mongo.db.gallery.update_one({"year": year},
-                                        {"$addToSet": {"artworks": {"art_id": ObjectId(),
-                                                                    "artist": artwork["artist"],
-                                                                    "title": artwork["title"],
-                                                                    "media": artwork["media"],
-                                                                    "height": artwork["height"],
-                                                                    "width": artwork["width"],
-                                                                    "image": artwork["image"],
-                                                                    "price": artwork["price"],
-                                                                    "sold": artwork["sold"],
-                                                                    "added_by": artwork["added_by"],
-                                                                    "added_on": artwork["added_on"]}}})                                                    
+            try:
+                artstub = mongo.db.artworks.insert_one(artwork)
+            except OperationFailure:
+                raise OperationFailure("Failure to add an artwork")
+            except Exception as e:
+                return e
+            #   Once artwork added, need to record id within Gallery's artworks array   
+            for key, value in artwork.items():
+                print("key: %s" %key)
+                print("value: %s" %value)
+            try:
+                cur = mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
+                                                  {"$addToSet": {"artworks": 
+                                                  {"art_id": ObjectId(artstub.inserted_id),
+                                                   "artist": request.form.get("artist"),
+                                                   "title": request.form.get("title"),
+                                                   "media": request.form.get("media"),
+                                                   "height": request.form.get("height"),
+                                                   "width": request.form.get("width"),
+                                                   "image": request.form.get("image"),
+                                                   "price": request.form.get("price"),
+                                                   "sold": request.form.get("sold"),
+                                                   "added_by": session["user"],
+                                                   "added_on": datetime.datetime.now() }
+                                                  }})
+            except OperationFailure:
+                raise OperationFailure("Failure to add an artwork to gallery")
+            except Exception as e:
+                return e                                                       
             flash("** Thanks {}, art work entry added **"
-                  .format(session["user"]))      
+                  .format(session["user"]),category="message")      
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
     return redirect(url_for("gallery"))
 
-@app.route("/edit_artwork/<art_id>/<year>", methods=["GET", "POST"])
-def edit_artwork(art_id, year):
+@app.route("/edit_artwork/<art_id>", methods=["GET", "POST"])
+def edit_artwork(art_id):
     """
         Within a gallery entry an art work has been selected.
         A change to the entry's details is needed.
@@ -382,9 +401,8 @@ def edit_artwork(art_id, year):
                       "price": request.form.get("price"),
                       "sold": request.form.get("sold"),
                       "amended_by": session["user"],
-                      "amended_on": datetime.datetime.now()
-					 }  
-            mongo.db.artworks.update({"_id": ObjectId(art_id) },{"$set": submit })
+                      "amended_on": datetime.datetime.now()}
+            mongo.db.artworks.update({"_id": ObjectId(art_id)}, {"$set": submit })
             flash("** Thanks {}, art work amended **".format(session["user"]))	
         try:
             artworks = mongo.db.artworks.find_one({"_id": ObjectId(art_id)}) 
@@ -409,11 +427,8 @@ def delete_artwork(art_id):
         Firstly check if user logged in to do this
     """
     if session["user"]:
-        try:
-            mongo.db.artworks.delete_one({"_id": ObjectId(art_id) })
-            flash("** Thanks {}, art work deleted **".format(session["user"]))	   
-        except Exception as e:
-            return e 
+        mongo.db.gallery.update_one({},{"$pull": {"artwork": {"art_id": ObjectId(art_id)}}})
+        flash("** Thanks {}, art work deleted **".format(session["user"]))	   
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))

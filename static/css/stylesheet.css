@@ -2,11 +2,12 @@
     Project style sheet.
     Overriding materializeCSS in certain circumstances.
     Ensuring Lighthouse reported accessibility issues are addressed.
-
+    'overflow: scroll' set to override MaterializeCSS modal removing scroll.
 */
 body{
     font-family: Roboto, Arial, sans-serif;
     color: black;
+    overflow: scroll !important;
 }
 
 .img-icon {
@@ -60,6 +61,7 @@ body{
 
 .modal {
     width: 80%;
+    max-height: 100%;
 }
 
 .card {
@@ -77,12 +79,27 @@ body{
     background-color: black;
 }
 
+.carousel-fixed-item {
+    bottom: 0.01rem  !important;
+}
+
 /*
     Gallery add art work button reallignment...
 */
 #btnaddart {
     margin-top: 1.52rem;
 }
+
+/*
+    Members email reminder button to be hidden 
+    until members dues list selected
+
+#btnreminder {
+    display: none;
+}
+*/
+
+
 
 /*
     Lighthouse report, accessibility: complains about the lack of contrast
