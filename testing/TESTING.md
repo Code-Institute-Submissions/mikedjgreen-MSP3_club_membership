@@ -1,3 +1,15 @@
+- [Testing MSP3_club_membership.](#testing-msp3-club-membership)
+  * [Initial Lighthouse Report.](#initial-lighthouse-report)
+  * [Navigation bar getting 'busy'.](#navigation-bar-getting--busy-)
+  * [Membership form validation.](#membership-form-validation)
+  * [Adding artworks into Gallery collection.](#adding-artworks-into-gallery-collection)
+    + [Findings of initial artwork entry test](#findings-of-initial-artwork-entry-test)
+  * [Implementation of EmailJS API](#implementation-of-emailjs-api)
+    + [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Testing MSP3_club_membership.
 
 Separate testing documentation, linked to [README](../README.md)
@@ -62,3 +74,47 @@ This becomes more pronounced on the smallest viewports...
 
 The art work was successfully added, as the flash message advises, but the user was not returned to  the gallery page.
 The art work form can be closed without entry, but does not seem to take advantage of MaterializeCSS's documented process.
+
+## Implementation of EmailJS API 
+Simple process testing of the EmailJS showed some procedural and functional shortcomings.
+The initial implementation attempted to use a personal gmail account. 
+The API key was hardcoded into the javascript file, again not ideal.
+
+The button to initiate email reminders appears on the membership page.
+One problem is that this would appear to remind all members of their subscription renewals, whether they have paid, or not.
+- ![Initial EmailJS appearance](../testing/screenshots/EmailJS_1.jpg)
+The same email reminder button is also placed against each member entry.
+- ![Each member entry](../testing/screenshots/EmailJS_2.jpg)
+The  form that is opened by the button (against a paid member) contains the correct information, but is not labeled as such.
+Also the email account used to send the email is a private email account.
+- ![EmailJS form](../testing/screenshots/EmailJS_3.jpg)
+Closing the reminder form returns the administrator to the members page correctly.
+
+Selecting 'Membership Dues' button takes the administraor to the membership dues list where the reminder emails are to be used.
+- ![Members due renewal](../testing/screenshots/EmailJS_4.jpg)
+
+Selecting 'Send Reminders' now displays a member's details accurately, although the labels are still needed:
+- ![Member due renewal form](../testing/screenshots/EmailJS_5.jpg)
+
+For further testing of the email, the selected member's email account has been amended to one accessible for the test.
+- ![Member received email](../testing/screenshots/EmailJS_6.jpg)
+
+This compares with the club's EmailJS template for members renewals.
+- ![EmailJS template](../testing/screenshots/EmailJS_7.jpg)
+
+Unfortunately when another renewal member's email reminder is selected:
+- ![Another member due renewal](../testing/screenshots/EmailJS_8.jpg)
+..the first member on the due list is still selected..
+- ![Not Gale](../testing/screenshots/EmailJS_9.jpg)
+
+This leads to two failures, 
+1. the inability to select members to remind by email.
+2. once email sent, no flag set to stop duplicating email.
+
+### Findings of initial EmailJS implementation
+1. EmailJS email service, although still a 'personal service', should be connected to a more club oriented email account.
+2. The API key subsequently received should be recorded privately, if possible.
+3. The Email Reminder should only be accessed against the membership dues list.
+4. The reminder should pick up the member's detail(s) in the context it was called.
+5. The reminder form should be labeled.
+6. The reminder sent successfully, a flag should be set indicating that the member has been emailed with a reminder.

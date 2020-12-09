@@ -83,7 +83,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 ### Existing Features
 - Subscriptons - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
-- ...
+- Subscriptions - allows administrator to send email reminders to members when subscriptions are due.
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
