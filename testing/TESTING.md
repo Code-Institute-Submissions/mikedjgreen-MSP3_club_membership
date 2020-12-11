@@ -6,6 +6,9 @@
     + [Findings of initial artwork entry test](#findings-of-initial-artwork-entry-test)
   * [Implementation of EmailJS API](#implementation-of-emailjs-api)
     + [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
+    + [EmailJS fixes](#emailjs-fixes)
+  * [Recording interest in club activites.](#recording-interest-in-club-activites)
+    + [Findings of intiial activity interest flag.](#findings-of-intiial-activity-interest-flag)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -124,3 +127,25 @@ This leads to two failures,
 4. The reminder should pick up the member in focus: ![Gale due](../testing/screenshots/EmailJS_12_fix1.jpg)
             ...which leads to:    ![Gale reminder](../testing/screenshots/EmailJS_12_fix2.jpg)
 5. The reminder form has been reconfigured:  ![Reminder form](../testing/screenshots/EmailJS_11_fix.jpg).
+
+## Recording interest in club activites.
+Testing the ability to flag a member's interest in an upcoming club activity.
+
+The activities page contains a button to help a viewer indicate their interest in an event.
+- ![Activities Page flag interest](../testing/screenshots/Flag_interest_1.jpg)
+The viewer is presented with a flag interest form.
+- ![Flag Interest form](../testing/screenshots/Flag_interest_2.jpg)
+The viewer elects to indicate interest.
+- ![Returns message](../testing/screenshots/Flag_interest_3.jpg)
+The collection activities' document for the selected activity has had an interest recorded.
+- ![Activity document](../testing/screenshots/Flag_interest_4.jpg) 
+The next interest shown in the activities overwrites the previous interest.
+- ![Activity interest overwritten](../testing/screenshots/Flag_interest_5.jpg)
+
+### Findings of intiial activity interest flag.
+1. The form needs further styling.
+2. The radio buttons do not record boolean values for membership.
+3. A non-member's email entry is not recorded.
+4. Once interest recorded, the user should be returned to the activities page.
+5. The database entry should be organised in an array of interested parties.
+6. The latest interest should not overwrite earlier interest in the activity.
