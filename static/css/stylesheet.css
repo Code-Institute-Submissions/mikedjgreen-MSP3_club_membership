@@ -54,6 +54,9 @@ body{
     color:black;
 }
 
+.input-field.inline {
+    display: inline;
+}
 /*
     Carousel specific overrides
     Gallery

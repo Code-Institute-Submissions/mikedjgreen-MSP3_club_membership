@@ -108,9 +108,9 @@ function displaySessionItems() {
 function sendMail(contactForm) {
     emailjs.send("gmail", "msp3", {
         "to_email": contactForm.target.value,
-        "from_name": contactForm.name.value,
-        "from_email": contactForm.email.value,
-        "to_member": contactForm.member.value,
+        "from_name": contactForm.from_name.value,
+        "from_email": contactForm.from_email.value,
+        "to_member": contactForm.fullname.value,
         "membership_dues" : contactForm.dues.value
     })
     .then(

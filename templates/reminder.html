@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="emailreminder" class="remind-content">
+    <h4>Email Membership Reminder Form</h4>
+            <form onsubmit="return sendMail(this);" method="POST" >
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field inline">
+                            <input type="text" name="fullname" id="fullname" value="{{member.firstname }} {{member.lastname}}" required />
+                            <label for="fullname">Full Name</label>
+                        </div>
+                     </div>
+                </div>                 
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="email" name="target" id="target" class="validate" value="{{ member.email }}" required />
+                            <label for="target">Member's email address</label>
+                            <span class="helper-text" data-error="incorrect format" data-success="correct format"></span>
+                        </div>
+                    </div>
+                </div>                  
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">                         
+				            <input type="text" name="dues" id="dues" value="20.00" required />
+                            <label for="dues">Annual Subscription &pound;</label>
+                        </div>
+                    </div>
+                </div>                  
+                <div class="form-row row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+                            <input type="text" name="from_name" id="from_name" value="Prickwillow Art Club" required />
+                            <label for="from_name">From</label>
+                        </div>
+                    </div>
+                </div>                  
+                <div class="form-row row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+                            <input type="text" name="from_email" id="from_email" class="validate" value="prickwillowartclub@gmail.com" required />
+                            <label for="from_email">Reply to</label>
+                        </div>
+                    </div>
+                </div>                  
+				<div class="form-row text-center row">
+				    <div class="col s6">
+					    <button type="submit" class="btn-small blue">
+                            Send Reminder 
+                            <i class="material-icons right">email</i>
+                        </button>
+				    </div>
+                    <div class="col s6">
+                        <a href="{{ url_for('dues') }}" onclick="close_reminder()" 
+                            class="btn-small blue waves-effect waves-green">
+                            Close
+                            <i class="material-icons right">close</i>
+                        </a>
+                    </div>
+				</div>
+            </form>
+</div>
+
+
+{% endblock %}

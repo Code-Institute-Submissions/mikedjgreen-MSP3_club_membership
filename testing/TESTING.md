@@ -90,7 +90,7 @@ Also the email account used to send the email is a private email account.
 - ![EmailJS form](../testing/screenshots/EmailJS_3.jpg)
 Closing the reminder form returns the administrator to the members page correctly.
 
-Selecting 'Membership Dues' button takes the administraor to the membership dues list where the reminder emails are to be used.
+Selecting 'Membership Dues' button takes the administrator to the membership dues list where the reminder emails are to be used.
 - ![Members due renewal](../testing/screenshots/EmailJS_4.jpg)
 
 Selecting 'Send Reminders' now displays a member's details accurately, although the labels are still needed:
@@ -118,3 +118,9 @@ This leads to two failures,
 4. The reminder should pick up the member's detail(s) in the context it was called.
 5. The reminder form should be labeled.
 6. The reminder sent successfully, a flag should be set indicating that the member has been emailed with a reminder.
+
+### EmailJS fixes
+1. The service is connected to a more club oriented account: ![Club email account](../testing/screenshots/EmailJS_10_fix.jpg).
+4. The reminder should pick up the member in focus: ![Gale due](../testing/screenshots/EmailJS_12_fix1.jpg)
+            ...which leads to:    ![Gale reminder](../testing/screenshots/EmailJS_12_fix2.jpg)
+5. The reminder form has been reconfigured:  ![Reminder form](../testing/screenshots/EmailJS_11_fix.jpg).

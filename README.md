@@ -81,7 +81,7 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 The project concerns club membership, club activities, exhibitions and a record of artists works.
  
 ### Existing Features
-- Subscriptons - allows a logged-in user to gain a list of members whose subscriptions are due.
+- Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
 - Subscriptions - allows administrator to send email reminders to members when subscriptions are due.
 

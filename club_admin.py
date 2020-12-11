@@ -72,7 +72,7 @@ def members():
         The total current membership count is displayed.
     """
     members = mongo.db.members.find()
-    member_cnt = mongo.db.members.find().count()
+    member_cnt = mongo.db.members.count_documents({})
     flash("Total Members: {} ".format(member_cnt))
     return render_template("members.html",
                            members=members,
@@ -89,9 +89,9 @@ def search():
     """
     query = request.form.get("memberquery")
     members = list(mongo.db.members.find({"$text": {"$search": query}}))
-    members_count = mongo.db.members.find({"$text":
+    members_count = mongo.db.members.count_documents({"$text":
                                           {"$search":
-                                           query}}).count()
+                                           query}})
     flash("Members found: {} ".format(members_count))
     return render_template("members.html", members=members)
 
@@ -100,7 +100,7 @@ def search():
 def edit_member(member_id):
     """
         Once identified, individual members details can be changed.
-        Once succesfully changed the user is returned verify changes.
+        Once succesfully changed the user is returned to verify changes.
     """
     if request.method == "POST":
         is_paid = True if request.form.get("paid") else False
@@ -142,9 +142,9 @@ def dues():
     if session["user"]:
         members = mongo.db.members.find({"$and":
                                          [{"paid": False}, {"guest": False}]})
-        cnt_dues = mongo.db.members.find({"$and":
+        cnt_dues = mongo.db.members.count_documents({"$and":
                                          [{"paid": False},
-                                          {"guest": False}]}).count()
+                                          {"guest": False}]})
         flash("Unpaid member subs due: {} ".format(cnt_dues))
         return render_template("members.html",
                                members=members,
@@ -152,6 +152,25 @@ def dues():
     else:
         flash("User not logged in {} ".format(session["user"]))
         return redirect(url_for("login"))
+
+
+@app.route("/reminder/<member_id>", methods=["GET", "POST"])
+def reminder(member_id):  
+    """
+        Calling form that displays identified member whose dues fall.
+        Used for calling EmailJS against.
+    """ 
+    if request.method == "POST":
+        print("Reminder POST")
+        newremind = {"$set": {"reminder": datetime.datetime.now()}}
+        flag = mongo.db.members.update_one({"_id": ObjectId(member_id)},
+                                           newremind)
+        return redirect(url_for("members.html"))  
+    member = mongo.db.members.find_one({"_id": ObjectId(member_id)})
+    return render_template("reminder.html",
+                           member=member,
+                           page_title="Remind Member")
+
 #
 #                                   Activities
 #
@@ -352,25 +371,28 @@ def add_artwork(gallery_id):
                 raise OperationFailure("Failure to add an artwork")
             except Exception as e:
                 return e
-            #   Once artwork added, need to record id within Gallery's artworks array   
+            """    
+            Once artwork added, need to record id within Gallery's 
+                artworks array   
+            """
             for key, value in artwork.items():
                 print("key: %s" %key)
                 print("value: %s" %value)
             try:
-                cur = mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
-                                                  {"$addToSet": {"artworks": 
-                                                  {"art_id": ObjectId(artstub.inserted_id),
-                                                   "artist": request.form.get("artist"),
-                                                   "title": request.form.get("title"),
-                                                   "media": request.form.get("media"),
-                                                   "height": request.form.get("height"),
-                                                   "width": request.form.get("width"),
-                                                   "image": request.form.get("image"),
-                                                   "price": request.form.get("price"),
-                                                   "sold": request.form.get("sold"),
-                                                   "added_by": session["user"],
-                                                   "added_on": datetime.datetime.now() }
-                                                  }})
+                mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
+                                            {"$addToSet": {"artworks": 
+                                            {"art_id": ObjectId(artstub.inserted_id),
+                                             "artist": request.form.get("artist"),
+                                             "title": request.form.get("title"),
+                                             "media": request.form.get("media"),
+                                             "height": request.form.get("height"),
+                                             "width": request.form.get("width"),
+                                             "image": request.form.get("image"),
+                                             "price": request.form.get("price"),
+                                             "sold": request.form.get("sold"),
+                                             "added_by": session["user"],
+                                             "added_on": datetime.datetime.now()}
+                                            }})
             except OperationFailure:
                 raise OperationFailure("Failure to add an artwork to gallery")
             except Exception as e:
