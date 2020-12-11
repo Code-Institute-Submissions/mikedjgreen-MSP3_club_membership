@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="flaginterest" class="flag-content">
+    <h4>Flag Interest Form</h4>
+    <p>Date: {{ activity.activity_date }}</p>
+    <p>{{ activity.description }}</p>
+    <br>
+            <form action="{{ url_for('flag_activity',activity_id=activity._id) }}" method="POST" >
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field inline">
+                            <input type="text" name="firstname" id="firstname" required />
+                            <label for="firstname">First Name</label>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field inline">
+                            <input type="text" name="lastname" id="lastname" required />
+                            <label for="lastname">Last Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <label>
+                            <input name="group1" type="radio" />
+                            <span>Member?</span>
+                        </label>
+                    </div>
+                    <div class="col s6">  
+                        <label>
+                            <input name="group1" type="radio" checked />
+                            <span>Not art club member?</span>
+                        </label>
+                    </div>
+                </div>
+                <p> If not art club member, please provide email address.</p>
+                <p> <small>This is for notification of cancellations, change in venues, times, etc.</small></p>                  
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="email" name="email" id="target" class="validate" />
+                            <label for="email">Email address</label>
+                            <span class="helper-text" data-error="incorrect format" data-success="correct format"></span>
+                        </div>
+                    </div>
+                </div>                                  
+				<div class="form-row text-center row">
+				    <div class="col s6">
+					    <button type="submit" class="btn-small blue">
+                            Flag Interest 
+                            <i class="material-icons right">flag</i>
+                        </button>
+				    </div>
+                    <div class="col s6">
+                        <a href="{{ url_for('activities') }}"
+                            class="btn-small blue waves-effect waves-green">
+                            Close
+                            <i class="material-icons right">close</i>
+                        </a>
+                    </div>
+				</div>
+            </form>
+</div>
+
+
+{% endblock %}

@@ -240,6 +240,27 @@ def edit_activity(activity_id):
                            page_title="Edit Activity Details")
 
 
+@app.route("/flag_activity/<activity_id>", methods=["GET", "POST"])
+def flag_activity(activity_id):
+    """
+        An interest in an activity can be flagged by member or onlooker.
+    """
+    if request.method == "POST":
+        person = { "$set": {
+            "firstname": request.form.get("firstname"),
+            "lastname": request.form.get("lastname"),
+            "member": request.form.get("member"),
+            "email": request.form.get("email"),
+            "interest_flagged": datetime.datetime.now()
+        } }
+        mongo.db.activities.update_one({"_id": ObjectId(activity_id)}, person)
+        flash("Activity Flagged for you")
+
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    return render_template("flag_activity.html",
+                           activity=activity,
+                           page_title="Flag Interest in Activity")
+
 #
 #                                   Exhibition
 #
