@@ -92,7 +92,19 @@
                             Activity Duration
                         </label> 
                     </div>
-                </div>                    
+                </div>
+                <!--    Activity Location   -->
+                <div class="row">
+                    <div class="input-field col s12">                        
+                        <input id="activity_location" name="activity_location" type="text"
+                            value="{{ activity.activity_location }}" 
+                            class="validate" required/>
+                        <label for="activity_location" 
+                            title="Like 'village hall'">
+                            Activity Location
+                        </label> 
+                    </div>
+                </div>                                     
                 <!--    Activity Leader     -->
                 <div class="row">
                     <div class="col s12">
@@ -101,21 +113,21 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="lead_member_firstname" name="lead_member_firstname" type="text" 
+                        <input id="lead_firstname" name="lead_firstname" type="text" 
                             minlength="2" maxlength="255" 
-                            value="{{ activity.lead_member_firstname }}" 
+                            value="{{ activity.lead_firstname }}" 
                             class="validate" required/>
-                        <label for="lead_member_firstname" 
+                        <label for="lead_firstname" 
                             title="Organiser's first name">
                             First name
                         </label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="lead_member_lastname" name="lead_member_lastname" type="text" 
+                        <input id="lead_lastname" name="lead_lastname" type="text" 
                             minlength="5" maxlength="255"
-                            value="{{ activity.lead_member_lastname }}" 
+                            value="{{ activity.lead_lastname }}" 
                             class="validate" required/>
-                        <label for="lead_member_lastname" 
+                        <label for="lead_lastname" 
                             title="Organiser's last name">
                             Surname
                         </label> 
