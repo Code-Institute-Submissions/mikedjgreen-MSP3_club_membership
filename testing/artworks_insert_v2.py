@@ -45,8 +45,7 @@ ins_artwork = { "artist": "Mike Green",
                 "price": "NFS",
                 "sold": False,
                 "added_by": "antonia",
-                "added_on": datetime.datetime.now()}
-                                
+                "added_on": datetime.datetime.now()}                             
 coll.insert_one(ins_artwork)
 
 
@@ -92,7 +91,7 @@ ins_artworks = [ { "artist": "Mike Green",
                     "price": "NFS",
                     "sold": False,
                     "added_by": "antonia",
-                    "added_on": datetime.datetime.now()} ]
+                    "added_on": datetime.datetime.now()}]
 
 coll.insert_many(ins_artworks)
 print(ins_artworks)

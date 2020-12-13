@@ -7,10 +7,13 @@
 
 <div id="flaginterest" class="flag-content">
     <h4>Flag Interest Form</h4>
-    <p>Date: {{ activity.activity_date }}</p>
-    <p>{{ activity.description }}</p>
+    <p>Date: {{ activity.activity_date }}</br>
+       Time: {{ activity.activity_time }}</br>
+       For:  {{ activity.activity_duration }} </br> 
+    {{ activity.description }}</p>
     <br>
             <form action="{{ url_for('flag_activity',activity_id=activity._id) }}" method="POST" >
+              <div class="card-panel">
                 <div class="row">
                     <div class="col s6">
                         <div class="input-field inline">
@@ -26,30 +29,41 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
-                        <label>
-                            <input name="group1" type="radio" />
-                            <span>Member?</span>
-                        </label>
-                    </div>
-                    <div class="col s6">  
-                        <label>
-                            <input name="group1" type="radio" checked />
-                            <span>Not art club member?</span>
-                        </label>
+                    <div class="input-field col s12">
+                        <p>  
+                            <span>Club Member?</span>
+                            <div class="switch">
+                                <label class="inputlabel">
+                                False
+                                <input type="checkbox" name="member" />
+                                <span class="lever"></span>
+                                True
+                                </label>
+                            </div>
+                         </p> 
                     </div>
                 </div>
-                <p> If not art club member, please provide email address.</p>
-                <p> <small>This is for notification of cancellations, change in venues, times, etc.</small></p>                  
                 <div class="row">
-                    <div class="col s12">                
+                    <div class="col s2"></div>
+                    <div class="col s8">
+                        <p> If not an art club member, please provide email address.</br>
+                        <small>This is for notification of cancellations, change in venues, times, etc.</small></p>
+                    </div>
+                    <div class="col s2"></div>
+                </div>
+                   
+                <div class="row">
+                    <div class="col s2"></div>
+                    <div class="col s8">                
                         <div class="input-field inline">
-				            <input type="email" name="email" id="target" class="validate" />
-                            <label for="email">Email address</label>
+                            <input type="email" name="email" id="target" class="validate" />
                             <span class="helper-text" data-error="incorrect format" data-success="correct format"></span>
+                            <label for="email">Email address</label> 
                         </div>
                     </div>
-                </div>                                  
+                    <div class="col s2"></div>
+                </div>  
+             </div>                                
 				<div class="form-row text-center row">
 				    <div class="col s6">
 					    <button type="submit" class="btn-small blue">
@@ -64,7 +78,7 @@
                             <i class="material-icons right">close</i>
                         </a>
                     </div>
-				</div>
+                </div>
             </form>
 </div>
 

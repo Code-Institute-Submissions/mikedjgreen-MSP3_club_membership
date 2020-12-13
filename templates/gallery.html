@@ -3,10 +3,10 @@
 
 <div class="row">
 	<div class="col-lg-8 col-md-10 mx-auto">
-		{% for gallery in gallery %}
+        {% for gallery in gallery %}
 		<div class="row">
             <div class="col s6">
-                <h4><strong> Gallery Year {{ gallery.year }} </strong></h4>
+                <h4><strong> Gallery</strong></h4>
             </div>
 			<div class="col s3">
 				<a href="{{ url_for('edit_gallery', gallery_id=gallery._id) }}"
@@ -14,16 +14,18 @@
 			</div>
 			<div class="col s3">
 				<button data-target="addartwork" href="#addartwork"
-                onclick="add_artwork()" id="btnaddart"
-                class="btn-small light-blue modal-trigger">Add artwork {{ gallery.year }}</button>
+                    onclick="add_artwork()" id="btnaddart"
+                    class="btn-small light-blue modal-trigger">Add artwork
+                    <i class="material-icons right">add</i>
+                </button>
 			</div>
 		</div>
 
 		<!-- Modal Add Art Work form -->
 		<div id="addartwork" class="modal">
 			<div class="modal-content">
-				<h4>New Art Work for {{ gallery.year }} </h4>
-				<form action="{{ url_for('add_artwork', year=gallery.year) }}" class="col s12 m8 offset-m2"
+				<h4>New Art Work</h4>
+				<form action="{{ url_for('add_artwork', gallery_id=gallery._id)  }}" class="col s12 m8 offset-m2"
 					method="POST">
 					<!-- <div class="card-panel"> -->
 						<!-- Artist -->
@@ -65,7 +67,7 @@
 								<label for="height" class="inputlabel">Height</label>
 								<input type="number" class="form-control" placeholder="Height (cm)"
                                     name="height" id="height"
-                                    minlength="5" required
+                                    required
                                     data-validation-required-message="Please enter the artworks height in cm."/>
 								<p class="help-block text-danger"></p>
 							</div>
@@ -73,8 +75,8 @@
 								<label for="width" class="inputlabel">Width</label>
 								<input type="number" class="form-control" placeholder="Width (cm)"
                                        name="width" id="width"
-                                       minlength="5" required
-                                       data-validation-required-message="Please enter the artworks Width in cm."/>
+                                       required
+                                       data-validation-required-message="Please enter the artworks width in cm."/>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -119,13 +121,17 @@
 						<div class="row">
                             <div class="col s6">
 							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
-                                    type="submit" name="action" onclick="{{ url_for('add_artwork', year=gallery.year) }}" >
+                                    type="submit" name="action" onclick="{{ url_for('add_artwork', gallery_id=gallery._id) }}" >
                                     Submit
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
                             <div class="col s6">
-                                <a href="#!" onclick="close_add_artwork()" class="modal-close btn-small blue waves-effect waves-green">Close</a>
+                                <a href="#!" onclick="close_add_artwork()" 
+                                    class="modal-close btn-small blue waves-effect waves-green">
+                                    Close
+                                    <i class="material-icons right">close</i>
+                                </a>
                             </div>    
 						</div>
 					<!-- </div> -->
@@ -152,7 +158,7 @@
 						<div class="col s6">
 						    <div class="card-content">
 								<span class="card-title grey-text text-darken-4">
-                                {{ artwork['title'] }} ({{ loop.index }})</span>
+                                {{ artwork['title'] }} ({{ loop.index }} of {{ loop.length }})</span>
 								<ul>
 								    <li>Artist: {{ artwork['artist'] }}</li>
 									<li>Media: {{ artwork['media'] }}</li>
@@ -166,7 +172,7 @@
                                         <a href="{{ url_for('edit_artwork', art_id=artwork['art_id'], year=gallery.year) }}" 
                                                 id="btneditart"
                                                 class="btn-small light-blue">
-                                                Edit this artwork {{ artwork['title'] }}
+                                                Edit this artwork 
                                                 <i class="material-icons right">edit</i>
                                         </a>
                                     </li>
@@ -174,7 +180,7 @@
                                         <a href="{{ url_for('delete_artwork', art_id=artwork['art_id']) }}" 
                                                 id="btndelart"
                                                 class="btn-small red">
-                                                Drop this artwork {{ artwork['title'] }}
+                                                Drop this artwork
                                                 <i class="material-icons right">delete</i>
                                         </a>
                                     </li> 
@@ -203,7 +209,7 @@
 			{% endfor %} <!-- endfor artworks of carousel item -->
 			<!--  end of carousel -->
 	    </div>
-        {% endfor %} <!-- endfor gallery in gallery loop -->
+        {% endfor %}
     </div>
 </div>    
 
