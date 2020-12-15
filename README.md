@@ -137,6 +137,10 @@ For the sake of brevity, the testing documentation has been separated and linked
 ### JavaScript tidied
 Passed code through [JSHint](https://jshint.com/about/)
 
+### PEP8 compliant python code
+Passed code through [PEP8](http://pep8online.com/)
+Especially for long lines [PEP8 long lines](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
+
 ## Deployment
 
 Developed on GitPod using git and GitHub.

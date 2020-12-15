@@ -90,8 +90,8 @@ def search():
     query = request.form.get("memberquery")
     members = list(mongo.db.members.find({"$text": {"$search": query}}))
     members_count = mongo.db.members.count_documents({"$text":
-                                          {"$search":
-                                           query}})
+                                                      {"$search":
+                                                       query}})
     flash("Members found: {} ".format(members_count))
     return render_template("members.html", members=members)
 
@@ -143,8 +143,8 @@ def dues():
         members = mongo.db.members.find({"$and":
                                          [{"paid": False}, {"guest": False}]})
         cnt_dues = mongo.db.members.count_documents({"$and":
-                                         [{"paid": False},
-                                          {"guest": False}]})
+                                                    [{"paid": False},
+                                                     {"guest": False}]})
         flash("Unpaid member subs due: {} ".format(cnt_dues))
         return render_template("members.html",
                                members=members,
@@ -155,17 +155,17 @@ def dues():
 
 
 @app.route("/reminder/<member_id>", methods=["GET", "POST"])
-def reminder(member_id):  
+def reminder(member_id):
     """
         Calling form that displays identified member whose dues fall.
         Used for calling EmailJS against.
-    """ 
+    """
     if request.method == "POST":
         print("Reminder POST")
         newremind = {"$set": {"reminder": datetime.datetime.now()}}
-        flag = mongo.db.members.update_one({"_id": ObjectId(member_id)},
-                                           newremind)
-        return redirect(url_for("members.html"))  
+        mongo.db.members.update_one({"_id": ObjectId(member_id)},
+                                    newremind)
+        return redirect(url_for("members.html"))
     member = mongo.db.members.find_one({"_id": ObjectId(member_id)})
     return render_template("reminder.html",
                            member=member,
@@ -394,38 +394,47 @@ def add_artwork(gallery_id):
                 raise OperationFailure("Failure to add an artwork")
             except Exception as e:
                 return e
-            """    
-            Once artwork added, need to record id within Gallery's 
-                artworks array   
             """
-            for key, value in artwork.items():
-                print("key: %s" %key)
-                print("value: %s" %value)
+            Once artwork added, need to record id within Gallery's
+            artworks array
+            """
             try:
                 mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
-                                            {"$addToSet": {"artworks": 
-                                            {"art_id": ObjectId(artstub.inserted_id),
-                                             "artist": request.form.get("artist"),
-                                             "title": request.form.get("title"),
-                                             "media": request.form.get("media"),
-                                             "height": request.form.get("height"),
-                                             "width": request.form.get("width"),
-                                             "image": request.form.get("image"),
-                                             "price": request.form.get("price"),
-                                             "sold": request.form.get("sold"),
-                                             "added_by": session["user"],
-                                             "added_on": datetime.datetime.now()}
+                                            {"$addToSet": {"artworks":
+                                                          {"art_id": (
+                                             ObjectId(artstub.inserted_id)),
+                                             "artist": (
+                                                 request.form.get("artist")),
+                                             "title": (
+                                                 request.form.get("title")),
+                                             "media": (
+                                                 request.form.get("media")),
+                                             "height": (
+                                                 request.form.get("height")),
+                                             "width": (
+                                                 request.form.get("width")),
+                                             "image": (
+                                                 request.form.get("image")),
+                                             "price": (
+                                                 request.form.get("price")),
+                                             "sold": (
+                                                 request.form.get("sold")),
+                                             "added_by": (
+                                                 session["user"]),
+                                             "added_on": (
+                                                 datetime.datetime.now())}
                                             }})
             except OperationFailure:
                 raise OperationFailure("Failure to add an artwork to gallery")
             except Exception as e:
-                return e                                                       
+                return e
             flash("** Thanks {}, art work entry added **"
-                  .format(session["user"]),category="message")      
+                  .format(session["user"]), category="message")
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
     return redirect(url_for("gallery"))
+
 
 @app.route("/edit_artwork/<art_id>", methods=["GET", "POST"])
 def edit_artwork(art_id):
@@ -447,14 +456,16 @@ def edit_artwork(art_id):
                       "sold": request.form.get("sold"),
                       "amended_by": session["user"],
                       "amended_on": datetime.datetime.now()}
-            mongo.db.artworks.update({"_id": ObjectId(art_id)}, {"$set": submit })
-            flash("** Thanks {}, art work amended **".format(session["user"]))	
+            mongo.db.artworks.update({"_id": ObjectId(art_id)},
+                                     {"$set": submit})
+            flash("** Thanks {}, art work amended **".format(session["user"]))
         try:
-            artworks = mongo.db.artworks.find_one({"_id": ObjectId(art_id)}) 
+            artworks = mongo.db.artworks.find_one({"_id": ObjectId(art_id)})
         except OperationFailure:
             raise OperationFailure("Failure to find artwork")
         except Exception as e:
-            return e     
+            return e
+        year = datetime.datetime.year()
         return render_template("edit_artwork.html",
                                artworks=artworks,
                                year=year,
@@ -462,7 +473,7 @@ def edit_artwork(art_id):
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return redirect(url_for("gallery")) 
+    return redirect(url_for("gallery"))
 
 
 @app.route("/delete_artwork/<art_id>")
@@ -472,12 +483,13 @@ def delete_artwork(art_id):
         Firstly check if user logged in to do this
     """
     if session["user"]:
-        mongo.db.gallery.update_one({},{"$pull": {"artwork": {"art_id": ObjectId(art_id)}}})
-        flash("** Thanks {}, art work deleted **".format(session["user"]))	   
+        mongo.db.gallery.update_one({}, (
+            {"$pull": {"artwork": {"art_id": ObjectId(art_id)}}}))
+        flash("** Thanks {}, art work deleted **".format(session["user"]))
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return redirect(url_for("gallery"))    
+    return redirect(url_for("gallery"))
 
 
 #
