@@ -29,7 +29,7 @@ mongo = PyMongo(app)
 #
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/membership", methods=["GET", "POST"])
 def membership():
     """
         This is the default route to display
@@ -308,10 +308,11 @@ def exhibition():
 #
 
 
-@app.route("/gallery")
+@app.route("/")
 def gallery():
     """
-        Displays a 'gallery' of members works
+        Displays a 'gallery' of members works 
+        The initial default page upon opening the site
     """
     gallery = mongo.db.gallery.find()
     artworks = mongo.db.artworks.find()

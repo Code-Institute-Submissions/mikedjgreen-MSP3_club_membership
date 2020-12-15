@@ -51,6 +51,7 @@ Use this section to provide insight into your UX process, focusing on who this w
 Provide the initial membership request form. 
 From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
+- Initially upon opening the website, the browser would open with the membership form. Upon review it is thought the browser should show artworks that would interest potential members.
 
 ### Scope
 
@@ -138,7 +139,7 @@ For the sake of brevity, the testing documentation has been separated and linked
 Passed code through [JSHint](https://jshint.com/about/)
 
 ### PEP8 compliant python code
-Passed code through [PEP8](http://pep8online.com/)
+Passed code through [PEP8](http://pep8online.com/).
 Especially for long lines [PEP8 long lines](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
 
 ## Deployment
