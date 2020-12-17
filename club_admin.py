@@ -206,8 +206,9 @@ def add_activity():
 def activities():
     """
         Displays a list of the club's forthcoming events.
+        activities = mongo.db.activities.find()
     """
-    activities = mongo.db.activities.find()
+    activities = mongo.db.activities.aggregate([{"$sort": {"activity_date": +1}}])
     return render_template("activities.html",
                            activities=activities,
                            page_title="Extra-mural Activities")
@@ -262,6 +263,23 @@ def flag_activity(activity_id):
     return render_template("flag_activity.html",
                            activity=activity,
                            page_title="Flag Interest in Activity")
+
+
+@app.route("/delete_activity/<activity_id>")
+def delete_activity(activity_id):
+    """
+        Once an activity is identified, it can be dropped
+        if cancelled, a past event or no interest shown.
+    """
+    if session["user"]:
+        query = {"_id": ObjectId(activity_id)}
+        mongo.db.gallery.delete_one(query)
+        flash("** Thanks {}, activity deleted **".format(session["user"]))
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return redirect(url_for("activities"))
+
 
 #
 #                                   Exhibition

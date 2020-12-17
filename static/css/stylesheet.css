@@ -94,17 +94,6 @@ body{
 }
 
 /*
-    Members email reminder button to be hidden 
-    until members dues list selected
-
-#btnreminder {
-    display: none;
-}
-*/
-
-
-
-/*
     Lighthouse report, accessibility: complains about the lack of contrast
     between form background and label text. [Including button text ]
     ' Background and foreground colors do not have a sufficient contrast ratio. '

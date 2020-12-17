@@ -80,12 +80,37 @@ function prevSlide() {
 }
 
 /*
+    Activities date stored as ISODate. Need a more human format to read.
+*/
+
+function formatDate(isoDate){
+    return isoDate.toJSON().substr(9, 20);
+}
+
+/*
         once logged in successfully and loading members page,
         displaying any buttons classed as 'crud-btn'.
         So that known users can create,edit and delete records.
 */
+
+function checkLogin() {
+    if ( sessionStorage.getItem("logged") ) {
+         enableCRUD();
+    }
+}
+
 function enableCRUD() {
     $(".crud-btn").css("display","block");
+    var crud = document.getElementsByClassName("crud-btn");
+    crud.css("display","block");
+    displaySessionItems();
+}
+
+function setSession(username) {
+    sessionStorage.setItem("logged",username);
+}
+function unsetSession() {
+    sessionStorage.removeItem("logged");
 }
 
 function displaySessionItems() {
