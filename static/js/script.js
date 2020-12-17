@@ -85,9 +85,7 @@ function prevSlide() {
         So that known users can create,edit and delete records.
 */
 function enableCRUD() {
-    
-        $(".crud-btn").css("display","block");
-
+    $(".crud-btn").css("display","block");
 }
 
 function displaySessionItems() {

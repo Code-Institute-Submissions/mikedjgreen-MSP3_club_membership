@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="col s6 m4">
-                    <a href="{{ url_for('dues') }}" class="light-blue btn text-shadow" onclick="display_reminder()">Membership Dues</a>
+                    <a href="{{ url_for('dues') }}" class="light-blue btn text-shadow" onclick="enableRemind()">Membership Dues</a>
                 </div>
                 <div class="col s6 m4">
                 </div>    
@@ -30,16 +30,11 @@
         </form>
     </div>
 
-<div class="row red" id="demo">
-</div>
-
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Text search above could have returned no members -->
         {% if members %}
-
-         {% for member in members %}
- {{ member._id }}  <br> 
+         {% for member in members %} 
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" style="max-width: 20%" src="{{ member.portrait }}" alt="member portrait">
@@ -52,19 +47,12 @@
                         </div>
                         <div class="row">
                             <div class="col s6">
-                                <a href="{{ url_for('edit_member', member_id=member._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                                <a href="{{ url_for('edit_member', member_id=member._id) }}" class="btn-small light-blue lighten-1 crud-btn">Edit</a>
                             </div>
-                            <div class="col 6">
-                                <a href="{{ url_for('reminder', member_id=member._id) }}" class="btn-small light-blue lighten-1">Send Reminder  ({{ loop.index }} of {{ loop.length }})
-                                <i class="material-icons right">email</i>
-                                </a>
-                            <!--
-                                <button data-target="emailreminder" href="#emailreminder"
-                                    onclick="show_reminder()" id="btnreminder"
-                                    class="btn-small light-blue modal-trigger">Send Reminders  ({{ loop.index }} of {{ loop.length }})
-                                    <i class="material-icons right">email</i>
-                                </button>
-                            -->
+                            <div class="col s6">
+                                {% if page_title == "Membership Due List" %}   
+                                    <a href="{{ url_for('reminder', member_id=member._id) }}" class="btn-small light-blue lighten-1 remind-btn">Send Reminder</a>
+                                {% endif %}    
                             </div>
                         </div>
                     </div>
@@ -81,12 +69,6 @@
                         <li>Biography: {{ member.bio }} .</li>
                         </ul>
                     </div>
-                    <!-- try putting modal form within card -->
-
-
-
-
-                    <!-- end of modal form-->
                 </div>
              <br>
 
