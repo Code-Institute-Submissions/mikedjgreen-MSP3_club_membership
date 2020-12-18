@@ -45,7 +45,7 @@ def membership():
         if existing_member:
             flash("Email {} already exists".format(
                 request.form.get("email")))
-            return redirect(url_for("login"))
+            return redirect(url_for("membership"))
 
         flash("** Thanks {} {}, we have received your request **".
               format(request.form.get("forename"),
@@ -165,11 +165,28 @@ def reminder(member_id):
         newremind = {"$set": {"reminder": datetime.datetime.now()}}
         mongo.db.members.update_one({"_id": ObjectId(member_id)},
                                     newremind)
-        return redirect(url_for("members.html"))
+        return redirect(url_for("members"))
     member = mongo.db.members.find_one({"_id": ObjectId(member_id)})
     return render_template("reminder.html",
                            member=member,
                            page_title="Remind Member")
+
+
+@app.route("/delete_member/<member_id>")
+def delete_member(member_id):
+    """
+        Once a member has been identified as not paying dues,
+        can be dropped.
+    """
+    if session["user"]:
+        query = {"_id": ObjectId(member_id)}
+        mongo.db.members.delete_one(query)
+        flash("** Thanks {}, member deleted **".format(session["user"]))
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return redirect(url_for("members"))                       
+
 
 #
 #                                   Activities
@@ -208,7 +225,8 @@ def activities():
         Displays a list of the club's forthcoming events.
         activities = mongo.db.activities.find()
     """
-    activities = mongo.db.activities.aggregate([{"$sort": {"activity_date": +1}}])
+    activities = mongo.db.activities.aggregate(
+                                [{"$sort": {"activity_date": +1}}])
     return render_template("activities.html",
                            activities=activities,
                            page_title="Extra-mural Activities")
@@ -329,7 +347,7 @@ def exhibition():
 @app.route("/")
 def gallery():
     """
-        Displays a 'gallery' of members works 
+        Displays a 'gallery' of members works
         The initial default page upon opening the site
     """
     gallery = mongo.db.gallery.find()
@@ -421,26 +439,26 @@ def add_artwork(gallery_id):
                 mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
                                             {"$addToSet": {"artworks":
                                                           {"art_id": (
-                                             ObjectId(artstub.inserted_id)),
-                                             "artist": (
+                                                ObjectId(artstub.inserted_id)),
+                                                "artist": (
                                                  request.form.get("artist")),
-                                             "title": (
+                                                "title": (
                                                  request.form.get("title")),
-                                             "media": (
+                                                "media": (
                                                  request.form.get("media")),
-                                             "height": (
+                                                "height": (
                                                  request.form.get("height")),
-                                             "width": (
+                                                "width": (
                                                  request.form.get("width")),
-                                             "image": (
+                                                "image": (
                                                  request.form.get("image")),
-                                             "price": (
+                                                "price": (
                                                  request.form.get("price")),
-                                             "sold": (
+                                                "sold": (
                                                  request.form.get("sold")),
-                                             "added_by": (
+                                                "added_by": (
                                                  session["user"]),
-                                             "added_on": (
+                                                "added_on": (
                                                  datetime.datetime.now())}
                                             }})
             except OperationFailure:
@@ -484,7 +502,7 @@ def edit_artwork(art_id):
             raise OperationFailure("Failure to find artwork")
         except Exception as e:
             return e
-        year = datetime.datetime.year()
+        year = datetime.datetime.now.year()
         return render_template("edit_artwork.html",
                                artworks=artworks,
                                year=year,

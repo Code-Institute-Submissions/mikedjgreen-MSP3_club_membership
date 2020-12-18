@@ -21,7 +21,10 @@
                     <span class="card-title"> {{ activity.description }} </span>  
                     <div class="row">
                             <div class="col s6">
-                                <a href="{{ url_for('flag_activity', activity_id=activity._id) }}" class="btn-small light-blue lighten-1">Flag Interest</a>
+                                <a href="{{ url_for('flag_activity', activity_id=activity._id) }}" class="btn-small light-blue lighten-1">
+                                    Flag Interest
+                                    <i class="material-icons right">flag</i>
+                                </a>
                             </div>
                             <div class="col s2">
                             </div>
@@ -36,10 +39,16 @@
                 </div>
                 <div class="row">
                     <div class="col s6">
-                        <a href="{{ url_for('edit_activity', activity_id=activity._id) }}" class="btn-small crud-btn light-blue lighten-1">Edit</a>
+                        <a href="{{ url_for('edit_activity', activity_id=activity._id) }}" class="btn-small crud-btn light-blue lighten-1">
+                            Edit
+                            <i class="material-icons right">edit</i>
+                        </a>
                     </div>
                     <div class="col s6">
-                        <a href="{{ url_for('delete_activity', activity_id=activity._id) }}" class="btn-small crud-btn red darken-1">Drop Activity</a>
+                        <a href="{{ url_for('delete_activity', activity_id=activity._id) }}" class="btn-small crud-btn red darken-1">
+                            Drop Activity
+                            <i class="material-icons right">delete</i>
+                        </a>
                     </div>
                 </div>                        
             </div>

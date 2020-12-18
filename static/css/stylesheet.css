@@ -92,6 +92,9 @@ body{
 #btnaddart {
     margin-top: 1.52rem;
 }
+#btneditart {
+    margin-top: 1.52rem;
+}
 
 /*
     Lighthouse report, accessibility: complains about the lack of contrast
@@ -124,6 +127,9 @@ body{
     margin: 5px;
 }
 
+.remind-btn {
+    margin: 5px;
+}
 
 /*--------------------------------------------Footer   */
 
