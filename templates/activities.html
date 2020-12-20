@@ -5,28 +5,35 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
+    <div class="col s12">
     
         <p id="demo"></p>
 
         {% for activity in activities %}
         <div class="card">
             <div class="row">
-                <div class="col s4">
+                <div class="col s4 m6">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" style="max-width: 30%" src="{{ activity.activity_image }}" alt="activity image">
+                        <img class="activator" style="max-width: 50%" src="{{ activity.activity_image }}" alt="activity image">
                     </div>
                 </div>
-                <div class="col s8">
+                <div class="col s8 m6">
                     <span class="card-title"> {{ activity.description }} </span>  
-                    <div class="row">
-                            <div class="col s6">
-                                <a href="{{ url_for('flag_activity', activity_id=activity._id) }}" class="btn-small light-blue lighten-1">
+                    <div class="row flag-interest">
+                            <div class="col s4 m4 flag-interest">
+                                <a href="{{ url_for('flag_activity', activity_id=activity._id) }}" class="btn-small light-blue lighten-1 flag-interest">
                                     Flag Interest
-                                    <i class="material-icons right">flag</i>
+                                    <i class="tiny material-icons right hide-on-small-only">flag</i>
                                 </a>
                             </div>
-                            <div class="col s2">
+                            <div class="col s4 m2 flag-interest">
+                                <span class="flag-interest">
+                                {% for flag in activity.interest %}
+                                    {% if loop.last %}
+                                        {{ loop.length }} interested
+                                    {% endif %}    
+                                {% endfor %}
+                                </span>
                             </div>
                     </div>        
                 </div>
@@ -57,7 +64,13 @@
                 How long? {{ activity.activity_duration }}  <br>
                 Where? {{ activity.activity_location }} <br>
                 Led by: {{ activity.lead_firstname }}  {{ activity.lead_lastname }} <br>
-                activity image file: {{ activity.activity_image }}
+                activity image file: {{ activity.activity_image }} <br>
+                interest shown:
+                {% for flag in activity.interest %}
+                    {% if loop.last %}
+                        {{ loop.length }}
+                    {% endif %}    
+                {% endfor %}
             </div>
         </div>    
         {% endfor %}

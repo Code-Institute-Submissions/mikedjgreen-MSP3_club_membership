@@ -10,6 +10,13 @@ body{
     overflow: scroll !important;
 }
 
+.club-title {
+    margin:0.5rem 0 0.5rem 0;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
 .img-icon {
     max-width: 40%;
 }
@@ -57,6 +64,16 @@ body{
 .input-field.inline {
     display: inline;
 }
+
+/*
+    Activities specific overrides
+*/
+
+.flag-interest {
+    padding:0 !important;
+    padding-top: 0.5rem;
+}
+
 /*
     Carousel specific overrides
     Gallery
@@ -78,10 +95,21 @@ body{
     overflow: scroll;
 }
 
+.card-content {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+}
+
 .indicator-item {
     background-color: black;
 }
 
+.carousel {
+    height:400px !important;
+}
 .carousel-fixed-item {
     bottom: 0.01rem  !important;
 }
