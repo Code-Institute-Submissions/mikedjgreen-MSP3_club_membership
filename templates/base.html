@@ -49,14 +49,14 @@
 						<a href="{{ url_for('membership') }}"
 							class="left"><img class="img-icon" src="{{ url_for('static', filename='img/artclub.ico') }}" alt="club icon"/></a>
 					</div>
-					<div class="col s8">
-						<h3>Prickwillow Art Club</h3>
+					<div class="col s8 club-title">
+						Prickwillow Art Club
 					</div>
 				</div>
 				<div class="row">
 					<div class="col s12 page-title">
 						{% block headercontent %}
-						<h4>{{ page_title }}</h4>
+						{{ page_title }}
 						{% endblock %}
 					</div>
 				</div>
