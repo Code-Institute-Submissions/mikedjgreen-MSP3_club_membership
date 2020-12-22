@@ -7,21 +7,7 @@
 
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-    
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="flashes">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-        <hr/>
-
-          <form
-            class="col s12 m8 offset-m2"
-            method="POST"
-            action="{{ url_for('add_activity') }}"
-          >
+          <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_activity') }}">
             <div class="card-panel">
                 <!---   Description         -->
                 <div class="row">
@@ -92,30 +78,38 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="lead_member_firstname" name="lead_member_firstname" type="text" 
+                        <input id="lead_firstname" name="lead_firstname" type="text" 
                              minlength="2" maxlength="255" 
                             class="validate" required/>
-                        <label for="lead_member_firstname" 
+                        <label for="lead_firstname" 
                             title="Organiser's first name">
                             First name
                         </label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="lead_member_lastname" name="lead_member_lastname" type="text" 
+                        <input id="lead_lastname" name="lead_lastname" type="text" 
                             minlength="5" maxlength="255" 
                             class="validate" required/>
-                        <label for="lead_member_lastname" 
+                        <label for="lead_lastname" 
                             title="Organiser's last name">
                             Surname
                         </label> 
                     </div>
-                </div>
-                <!--   Submmit button   -->
+                </div>        
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large red darken-4 text-shadow">
+                    <div class="col s6" >
+                        <!--   Submmit button   -->
+                        <button type="submit" class="btn-small red darken-4 text-shadow">
                         Add Activity
-                    <i class="material-icons right">send</i>
+                        <i class="material-icons right">send</i>
                     </button>
+                </div>
+                    <div class="col s6">
+                        <!-- cancel button -->
+                        <a href="{{ url_for('activities') }}" class="btn-small">
+                        Cancel <i class="material-icons right">close</i>
+                        </a>
+                    </div>
                 </div>                
             </div>
           </form>  

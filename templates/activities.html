@@ -5,10 +5,16 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s12">
-    
-        <p id="demo"></p>
+    <div class="col s12 offset-s2">
+        <button class="btn-small crud-btn light-blue lighten-1">
+            <a href="{{ url_for('add_activity') }}" style="color:white">Add Activity</a>
+        </button>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col s12"> 
+        <p id="demo"></p>
         {% for activity in activities %}
         <div class="card">
             <div class="row">
@@ -44,11 +50,14 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s12">
-                        <span class="card-title activator grey-text text-darken-4">Date and time: {{ activity.activity_date.strftime("%A")}}
-                                                                                                {{ activity.activity_date.strftime("%d")}} 
-                                                                                                {{ activity.activity_date.strftime("%B")}}
-                                                                                                {{ activity.activity_date.strftime("%Y")}},
-                                                                                                {{ activity.activity_time}}<i class="material-icons right">more_vert</i></span> 
+                        <span class="card-title activator grey-text text-darken-4">
+                            Date and time: {{ activity.activity_date.strftime("%A")}}
+                                           {{ activity.activity_date.strftime("%d")}} 
+                                           {{ activity.activity_date.strftime("%B")}}
+                                           {{ activity.activity_date.strftime("%Y")}},
+                                           {{ activity.activity_time}}
+                            <i class="material-icons right">more_vert</i>
+                        </span> 
                     </div>
                 </div>
                 <div class="row">

@@ -201,8 +201,11 @@ def add_activity():
     """
     if session["user"]:
         if request.method == "POST":
+            formdate = request.form.get("activity_date")
+            datep = formdate.split("-")
+            iso_date = datetime.datetime(int(datep[0]),int(datep[1]),int(datep[2]))
             activity = {
-                "activity_date": request.form.get("activity_date"),
+                "activity_date": iso_date,
                 "description": request.form.get("description"),
                 "activity_time": request.form.get("activity_time"),
                 "activity_duration": request.form.get("activity_duration"),
@@ -239,8 +242,11 @@ def edit_activity(activity_id):
         date and time, or lead member.
     """
     if request.method == "POST":
+        formdate = request.form.get("activity_date")
+        datep = formdate.split("-")
+        iso_date = datetime.datetime(int(datep[0]),int(datep[1]),int(datep[2]))
         submit = {
-            "activity_date": request.form.get("activity_date"),
+            "activity_date": iso_date,
             "description": request.form.get("description"),
             "activity_time": request.form.get("activity_time"),
             "activity_duration": request.form.get("activity_duration"),
@@ -289,14 +295,15 @@ def delete_activity(activity_id):
         Once an activity is identified, it can be dropped
         if cancelled, a past event or no interest shown.
     """
-    if session["user"]:
+    if request.method == "POST":
         query = {"_id": ObjectId(activity_id)}
         mongo.db.gallery.delete_one(query)
         flash("** Thanks {}, activity deleted **".format(session["user"]))
-    else:
-        flash("User not logged in to do this")
-        return redirect(url_for("login"))
-    return redirect(url_for("activities"))
+
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    return render_template("delete_activity.html",
+                           activity=activity,
+                           page_title="Delete Activity")
 
 
 #
@@ -624,4 +631,4 @@ def users():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)

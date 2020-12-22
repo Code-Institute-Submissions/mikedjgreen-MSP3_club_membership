@@ -12,13 +12,17 @@ $(document).ready(function() {
     $(".sidenav").sidenav({edge: "left"});
 
     $(".datepicker").datepicker({
-        format: "dd mmmm, yyyy",
+        format: "yyyy-mm-dd",
         yearRange: 2,
         showClearBtn: true,
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 1, // Creates a dropdown of 15 years to control year
+        setDefaultDate: true,
         i18n: {
             done: "Select"
         }
     });
+
     
     $("select").formSelect();
     
