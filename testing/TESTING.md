@@ -9,9 +9,9 @@
     + [EmailJS fixes](#emailjs-fixes)
   * [Recording interest in club activites.](#recording-interest-in-club-activites)
     + [Findings of intiial activity interest flag.](#findings-of-intiial-activity-interest-flag)
+  * [PEP8 compliant python code](#pep8-compliant-python-code)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 # Testing MSP3_club_membership.
 
@@ -33,9 +33,9 @@ Separate testing documentation, linked to [README](../README.md)
 In attempting to add menu options following CRUD processes for administrators, the navigation bars for both small and large viewports were getting congested.
 A redesign of the navigation bar with further drop-down options is called for.
 
-- [Large viewport navigation](../testing/screenshots/navbar_user_busy_1.jpg)
+- ![Large viewport navigation](../testing/screenshots/navbar_user_busy_1.jpg)
 
-- [Small viewport navigation](../testing/screenshots/navbar_user_busy_2.jpg)
+- ![Small viewport navigation](../testing/screenshots/navbar_user_busy_2.jpg)
 
 
 ## Membership form validation.
@@ -43,34 +43,34 @@ A redesign of the navigation bar with further drop-down options is called for.
 Currently the membership entry form validates at the server side only. So any invalid entries are only caught once a submission is attempted.
 Also only the initial input error is indicated, not many.
 
-- [First input error](../testing/screenshots/membership_validation_serverside_1.jpg) only error indicated on selecting Submit button.
-- [Second input error](../testing/screenshots/membership_validation_serverside_2.jpg) only shown once first input error has been amended and submitted.
-- [Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) again only shown once previous errors amended and submitted.
+- ![First input error](../testing/screenshots/membership_validation_serverside_1.jpg) only error indicated on selecting Submit button.
+- ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg) only shown once first input error has been amended and submitted.
+- ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) again only shown once previous errors amended and submitted.
 
 ## Adding artworks into Gallery collection.
 
 Initially tested [MaterializeCSS Carousel](https://materializecss.com/carousel.html) of artwork images and details within the Gallery page and collection.
 It is designed as an image slider and is touch compatible. The initial test had no direction buttons.
 Mouse slide:
-- [Art works carousel](../testing/screenshots/Artworks_carousel_1.jpg)
-- [Art works carousel](../testing/screenshots/Artworks_carousel_2.jpg)
-- [Art works carousel](../testing/screenshots/Artworks_carousel_3.jpg)
+- ![Art works carousel](../testing/screenshots/Artworks_carousel_1.jpg)
+- ![Art works carousel](../testing/screenshots/Artworks_carousel_2.jpg)
+- ![Art works carousel](../testing/screenshots/Artworks_carousel_3.jpg)
 
 Added initial artworks as an array into the Gallery documents, by using a [python script](../testing/artworks_insert.py). 
 To work properly the script will have to be moved back to the IDE's root directory, rather than the testing subdirectory.
 
 Added an artwork entry to an artworks array within a gallery document.
 
-- [Initial Modal form](../testing/screenshots/Add_artwork_1.jpg)
-- [Art work details filled](../testing/screenshots/Add_artwork_2.jpg)
-- [Successfully added](../testing/screenshots/Add_artwork_3.jpg)  viewed at 50% zoom.
-- [Gallery view](../testing/screenshots/Add_artwork_4.jpg) viewed at 50% zoom.
-- [Database view](../testing/screenshots/Add_artwork_5.jpg)
+- ![Initial Modal form](../testing/screenshots/Add_artwork_1.jpg)
+- ![Art work details filled](../testing/screenshots/Add_artwork_2.jpg)
+- ![Successfully added](../testing/screenshots/Add_artwork_3.jpg)  viewed at 50% zoom.
+- ![Gallery view](../testing/screenshots/Add_artwork_4.jpg) viewed at 50% zoom.
+- ![Database view](../testing/screenshots/Add_artwork_5.jpg)
 
 ### Findings of initial artwork entry test
 Although the entry form displayed well, it is too narrow for the image file entry.
 On a normal monitor screen at 100% zoom, the screen estate is not used well, and depends upon vertical scrolling.
-- [Screen Estate issues](../testing/screenshots/Add_artwork_6.jpg)
+- ![Screen Estate issues](../testing/screenshots/Add_artwork_6.jpg)
 
 This becomes more pronounced on the smallest viewports...
 - ![Small viewport](../testing/screenshots/Add_artwork_7.jpg)
@@ -149,3 +149,6 @@ The next interest shown in the activities overwrites the previous interest.
 4. Once interest recorded, the user should be returned to the activities page.
 5. The database entry should be organised in an array of interested parties.
 6. The latest interest should not overwrite earlier interest in the activity.
+
+## PEP8 compliant python code
+[PEP8 report](../testing/pep8_check_20201223.txt)

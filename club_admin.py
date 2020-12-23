@@ -185,7 +185,7 @@ def delete_member(member_id):
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return redirect(url_for("members"))                       
+    return redirect(url_for("members"))
 
 
 #
@@ -203,7 +203,8 @@ def add_activity():
         if request.method == "POST":
             formdate = request.form.get("activity_date")
             datep = formdate.split("-")
-            iso_date = datetime.datetime(int(datep[0]),int(datep[1]),int(datep[2]))
+            iso_date = datetime.datetime(
+                int(datep[0]), int(datep[1]), int(datep[2]))
             activity = {
                 "activity_date": iso_date,
                 "description": request.form.get("description"),
@@ -244,7 +245,8 @@ def edit_activity(activity_id):
     if request.method == "POST":
         formdate = request.form.get("activity_date")
         datep = formdate.split("-")
-        iso_date = datetime.datetime(int(datep[0]),int(datep[1]),int(datep[2]))
+        iso_date = datetime.datetime(
+            int(datep[0]), int(datep[1]), int(datep[2]))
         submit = {
             "activity_date": iso_date,
             "description": request.form.get("description"),
@@ -315,8 +317,8 @@ def send_news(activity_id):
     """
     if request.method == "POST":
         newremind = {"$set": {"sentnews": datetime.datetime.now()}}
-        mongo.db.activities.update_one({"_id": ObjectId(activity_id)},
-                                               newremind)
+        mongo.db.activities.update_one(
+            {"_id": ObjectId(activity_id)}, newremind)
     activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
     members = mongo.db.members.find({"paid": True})
     return render_template("email_news.html",
@@ -460,31 +462,21 @@ def add_artwork(gallery_id):
             artworks array
             """
             try:
-                mongo.db.gallery.update_one({"_id": ObjectId(gallery_id)},
-                                            {"$addToSet": {"artworks":
-                                                          {"art_id": (
-                                                ObjectId(artstub.inserted_id)),
-                                                "artist": (
-                                                 request.form.get("artist")),
-                                                "title": (
-                                                 request.form.get("title")),
-                                                "media": (
-                                                 request.form.get("media")),
-                                                "height": (
-                                                 request.form.get("height")),
-                                                "width": (
-                                                 request.form.get("width")),
-                                                "image": (
-                                                 request.form.get("image")),
-                                                "price": (
-                                                 request.form.get("price")),
-                                                "sold": (
-                                                 request.form.get("sold")),
-                                                "added_by": (
-                                                 session["user"]),
-                                                "added_on": (
-                                                 datetime.datetime.now())}
-                                            }})
+                mongo.db.gallery.update_one(
+                    {"_id": ObjectId(gallery_id)},
+                    {"$addToSet": {"artworks":
+                                   {"art_id": (ObjectId(artstub.inserted_id)),
+                                    "artist": (request.form.get("artist")),
+                                    "title": (request.form.get("title")),
+                                    "media": (request.form.get("media")),
+                                    "height": (request.form.get("height")),
+                                    "width": (request.form.get("width")),
+                                    "image": (request.form.get("image")),
+                                    "price": (request.form.get("price")),
+                                    "sold": (request.form.get("sold")),
+                                    "added_by": (session["user"]),
+                                    "added_on": (datetime.datetime.now())}
+                                   }})
             except OperationFailure:
                 raise OperationFailure("Failure to add an artwork to gallery")
             except Exception as e:
@@ -648,4 +640,4 @@ def users():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
