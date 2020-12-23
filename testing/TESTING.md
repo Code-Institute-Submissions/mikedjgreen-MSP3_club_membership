@@ -10,6 +10,8 @@
   * [Recording interest in club activites.](#recording-interest-in-club-activites)
     + [Findings of intiial activity interest flag.](#findings-of-intiial-activity-interest-flag)
   * [PEP8 compliant python code](#pep8-compliant-python-code)
+  * [Second EmailJS for Activities News.](#second-emailjs-for-activities-news)
+    + [Findings of initial EmailJS News implementation.](#findings-of-initial-emailjs-news-implementation)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -79,7 +81,8 @@ The art work was successfully added, as the flash message advises, but the user 
 The art work form can be closed without entry, but does not seem to take advantage of MaterializeCSS's documented process.
 
 ## Implementation of EmailJS API 
-Simple process testing of the EmailJS showed some procedural and functional shortcomings.
+The emailJS implementation is in response to the user story: 'As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
+'. Simple process testing of the EmailJS showed some procedural and functional shortcomings.
 The initial implementation attempted to use a personal gmail account. 
 The API key was hardcoded into the javascript file, again not ideal.
 
@@ -152,3 +155,28 @@ The next interest shown in the activities overwrites the previous interest.
 
 ## PEP8 compliant python code
 [PEP8 report](../testing/pep8_check_20201223.txt)
+
+## Second EmailJS for Activities News.
+A user story has led to the need for a second EmailJS API implementation.
+"As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club."
+A personal email account was eschewed in favour of a generic club account name.
+A button appears for a logged in administrative user for each activity.
+- ![Email news](../testing/screenshots/EmailJS_news_1.jpg)
+
+ This allows the administrator to view a form to be sent to each paid member of an activities details.
+ - ![Email News Form](../testing/screenshots/EmailJS_news_2.jpg)
+
+ The email is sent to the paid-up member of a new club activity's details.
+ - ![Email news post](../testing/screenshots/EmailJS_news_3.jpg)
+
+### Findings of initial EmailJS News implementation.
+1. Unlike the initial members' dues reminder, the activity news email used a generic club email account.
+2. The email news option only appears for a logged-in administrator against each activity.
+3. The date of the activity could appear more 'human' in both the email form and the eventual posting.
+4. Although the activity has a lead member/organiser identified on the email form, the name does not appear on the posting to the member.
+5. A count of the members with a qualifier of 'paid = true' matched the number of members appearing on the email news form.
+6. Although the news email is actioned for a member, there is no ready indicator that the member has been sent a news email.
+7. The functionality currently only allows one email to be sent to one member at a time.
+
+
+
