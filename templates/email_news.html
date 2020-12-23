@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block headercontent %}
+{{ page_title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="emailnews" class="news-content">
+
+    {% if members %}
+        {% for member in members %} 
+        <h4>Email Activity News Form</h4>
+        <form onsubmit="return sendNews(this);" method="POST" >
+            <section>    
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field inline">
+                            <input type="text" name="fullname" id="fullname" value="{{member.firstname }} {{member.lastname}}" required />
+                            <label for="fullname">Full Name</label>
+                        </div>
+                     </div>
+                </div>                 
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="email" name="target" id="target" class="validate" value="{{ member.email }}" required />
+                            <label for="target">Member's email address</label>
+                            <span class="helper-text" data-error="incorrect format" data-success="correct format"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+                            <input type="text" name="from_name" id="from_name" value="Prickwillow Art Club" required />
+                            <label for="from_name">From</label>
+                        </div>
+                    </div>
+                </div>                  
+                <div class="form-row row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+                            <input type="text" name="from_email" id="from_email" class="validate" value="prickwillowartclub@gmail.com" required />
+                            <label for="from_email">Reply to</label>
+                        </div>
+                    </div>
+                </div>
+            </section>         
+            <section>
+                <h6>   Activity Details       </h6>
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="title" id="title"  value="{{ activity.description }}" />
+                            <label for="title">Activity title</label>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="date" id="date"  value="{{ activity.activity_date }}" />
+                            <label for="date">Activity Date</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="time" id="time"  value="{{ activity.activity_time }}" />
+                            <label for="time">Activity Time</label>
+                        </div>
+                    </div>
+                </div>      
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="duration" id="duration"  value="{{ activity.activity_duration }}" />
+                            <label for="duration">Activity Duration</label>
+                        </div>
+                    </div>
+                </div>     
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="location" id="location"  value="{{ activity.activity_location }}" />
+                            <label for="location">Activity location</label>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col s12">                
+                        <div class="input-field inline">
+				            <input type="text" name="led" id="led"  value="{{ activity.lead_firstname }}  {{ activity.lead_lastname }}" />
+                            <label for="led">Activity led by</label>
+                        </div>
+                    </div>
+                </div> 
+            </section>
+            <section> 
+				<div class="form-row text-center row">
+				    <div class="col s6">
+					    <button type="submit" class="btn-small blue">
+                            Send News
+                            <i class="material-icons right">email</i>
+                        </button>
+				    </div>
+                    <div class="col s6">
+                        <a href="{{ url_for('activities') }}"  
+                            class="btn-small blue waves-effect waves-green">
+                            Close
+                            <i class="material-icons right">close</i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+        {% endfor %}
+
+    {% else %}
+        <h3 class="red-text center-align">No Members Found</h3>
+    {% endif %}
+</div>
+
+
+{% endblock %}

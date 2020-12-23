@@ -84,14 +84,6 @@ function prevSlide() {
 }
 
 /*
-    Activities date stored as ISODate. Need a more human format to read.
-*/
-
-function formatDate(isoDate){
-    return isoDate.toJSON().substr(9, 20);
-}
-
-/*
         once logged in successfully and loading members page,
         displaying any buttons classed as 'crud-btn'.
         So that known users can create,edit and delete records.
@@ -168,4 +160,32 @@ function display_reminder() {
     $("#btnreminder").css("display","block");
     $("#btnreminder").css("position","sticky"); 
     $("#btnreminder").css("z-index","+1");
+}
+
+/*
+    Using EmailJS API to send news of club activities to members.
+    ServiceId = gmail
+    TemplateID = template_3skPculZ
+*/
+function sendNews(contactForm) {
+    emailjs.send("gmail", "template_3skPculZ", {
+        "to_email": contactForm.target.value,
+        "from_name": contactForm.from_name.value,
+        "from_email": contactForm.from_email.value,
+        "to_member": contactForm.fullname.value,
+        "title": contactForm.title.value,
+        "date": contactForm.date.value,
+        "time": contactForm.time.value,
+        "duration": contactForm.duration.value,
+        "location": contactForm.location.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        }
+    );
+    return false;  // To block from loading a new page
 }

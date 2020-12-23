@@ -250,6 +250,7 @@ def edit_activity(activity_id):
             "description": request.form.get("description"),
             "activity_time": request.form.get("activity_time"),
             "activity_duration": request.form.get("activity_duration"),
+            "activity_location": request.form.get("activity_location"),
             "lead_firstname": request.form.get("lead_firstname"),
             "lead_lastname": request.form.get("lead_lastname"),
             "activity_image": request.form.get("active_img"),
@@ -297,7 +298,7 @@ def delete_activity(activity_id):
     """
     if request.method == "POST":
         query = {"_id": ObjectId(activity_id)}
-        mongo.db.gallery.delete_one(query)
+        mongo.db.activities.delete_one(query)
         flash("** Thanks {}, activity deleted **".format(session["user"]))
 
     activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
@@ -306,6 +307,22 @@ def delete_activity(activity_id):
                            page_title="Delete Activity")
 
 
+@app.route("/send_news/<activity_id>", methods=["GET", "POST"])
+def send_news(activity_id):
+    """
+        Calling form that displays identified new activity.
+        Used for calling EmailJS against.
+    """
+    if request.method == "POST":
+        newremind = {"$set": {"sentnews": datetime.datetime.now()}}
+        mongo.db.activities.update_one({"_id": ObjectId(activity_id)},
+                                               newremind)
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    members = mongo.db.members.find({"paid": True})
+    return render_template("email_news.html",
+                           members=members,
+                           activity=activity,
+                           page_title="Email News")
 #
 #                                   Exhibition
 #

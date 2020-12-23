@@ -67,7 +67,15 @@
                             <i class="material-icons right">edit</i>
                         </a>
                     </div>
-                    <div class="col s6">
+                    <div class="col s6">  
+                            <a href="{{ url_for('send_news', activity_id=activity._id) }}" class="btn-small crud-btn light-blue lighten-1 remind-btn">
+                                Send News
+                                <i class="material-icons right">email</i>
+                            </a> 
+                    </div>
+                </div>    
+                <div class="row"> 
+                    <div class="col s12">
                         <a href="{{ url_for('delete_activity', activity_id=activity._id) }}" class="btn-small crud-btn red darken-1">
                             Drop Activity
                             <i class="material-icons right">delete</i>
