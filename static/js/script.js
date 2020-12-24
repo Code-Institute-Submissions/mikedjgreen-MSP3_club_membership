@@ -174,10 +174,11 @@ function sendNews(contactForm) {
         "from_email": contactForm.from_email.value,
         "to_member": contactForm.fullname.value,
         "title": contactForm.title.value,
-        "date": contactForm.date.value,
+        "date": contactForm.date.value,   
         "time": contactForm.time.value,
         "duration": contactForm.duration.value,
-        "location": contactForm.location.value
+        "location": contactForm.location.value,
+        "led": contactForm.led.value
     })
     .then(
         function(response) {

@@ -178,5 +178,6 @@ A button appears for a logged in administrative user for each activity.
 6. Although the news email is actioned for a member, there is no ready indicator that the member has been sent a news email.
 7. The functionality currently only allows one email to be sent to one member at a time.
 
-
-
+### EmailJS News fixes
+1. The date of the activity appears more 'human' on the email form: ![Email form fix](../testing/screenshots/EmailJS_news_fix1.jpg).
+2. The date is emailed to a member: ![Email post fix](../testing/screenshots/EmailJS_news_fix2.jpg).
