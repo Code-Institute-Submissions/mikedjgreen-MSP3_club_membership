@@ -5,22 +5,28 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-    
-        {% with messages = get_flashed_messages() %} {% if messages %}
-        <ul class="flashes">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %} {% endwith %}
-        <hr/>
+    <div class="col l8 m10">
         {% for exhibit in exhibition %}
-            <strong>Summer Exhibition {{ exhibit.year }} </strong> <br>
-            at {{ exhibit.location }} <br>
-            starting {{ exhibit.start_date }}  ending on {{ exhibit.end_date }}
-            <hr/>
-        {% endfor %}
+            <div class="card" id="exhibitcard">
+                <strong>Summer Exhibition {{ exhibit.year }} </strong> <br>
+                at {{ exhibit.location }} <br>
+                starting {{ exhibit.start_date }}  ending on {{ exhibit.end_date }} 
+            </card>
+        {% endfor %}    
+    </div>
+</div>        
+<div class="row">
+    <div class="col l8 m10">        
+            {% for artwork in artworks %}
+                <div class="responsive">
+                    <div class="gallery">
+                        <a target="_blank" href="{{ artwork.image }}">
+                            <img src="{{ artwork.image }}" alt="{{ artwork.title }}" class="responsive-img" width="600" height="400">
+                        </a>
+                        <div class="exhibit_details">{{ artwork.artist }}</div>
+                    </div>
+                </div>    
+            {% endfor %}
     </div>
 </div>
 

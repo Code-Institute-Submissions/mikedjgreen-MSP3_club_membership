@@ -360,8 +360,10 @@ def exhibition():
         Displays details of the clubs forthcomming exhibition(s).
     """
     exhibition = mongo.db.exhibition.find()
+    artworks = mongo.db.artworks.find({"exhibit": True})
     return render_template("exhibition.html",
                            exhibition=exhibition,
+                           artworks=artworks,
                            page_title="Annual Exhibition")
 
 
@@ -439,6 +441,8 @@ def add_artwork(gallery_id):
     """
     if session["user"]:
         if request.method == "POST":
+            is_exhibit = True if request.form.get("exhibit") else False
+            is_sold = True if request.form.get("sold") else False
             artwork = {
                 "artist": request.form.get("artist"),
                 "title": request.form.get("title"),
@@ -447,7 +451,8 @@ def add_artwork(gallery_id):
                 "width": request.form.get("width"),
                 "image": request.form.get("image"),
                 "price": request.form.get("price"),
-                "sold": request.form.get("sold"),
+                "sold": is_sold,
+                "exhibit": is_exhibit,
                 "added_by": session["user"],
                 "added_on": datetime.datetime.now()
             }
@@ -498,6 +503,8 @@ def edit_artwork(art_id):
     """
     if session["user"]:
         if request.method == "POST":
+            is_exhibit = True if request.form.get("exhibit") else False
+            is_sold = True if request.form.get("sold") else False       
             submit = {"_id": ObjectId(art_id),
                       "artist": request.form.get("artist"),
                       "title": request.form.get("title"),
@@ -506,10 +513,11 @@ def edit_artwork(art_id):
                       "width": request.form.get("width"),
                       "image": request.form.get("image"),
                       "price": request.form.get("price"),
-                      "sold": request.form.get("sold"),
+                      "sold": is_sold,
+                      "exhibit": is_exhibit,
                       "amended_by": session["user"],
                       "amended_on": datetime.datetime.now()}
-            mongo.db.artworks.update({"_id": ObjectId(art_id)},
+            mongo.db.artworks.update_one({"_id": ObjectId(art_id)},
                                      {"$set": submit})
             flash("** Thanks {}, art work amended **".format(session["user"]))
         try:
@@ -518,10 +526,8 @@ def edit_artwork(art_id):
             raise OperationFailure("Failure to find artwork")
         except Exception as e:
             return e
-        year = datetime.datetime.now.year()
         return render_template("edit_artwork.html",
                                artworks=artworks,
-                               year=year,
                                page_title="Edit Artwork Details")
     else:
         flash("User not logged in to do this")
@@ -624,7 +630,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
+    
 
 @app.route("/users")
 def users():

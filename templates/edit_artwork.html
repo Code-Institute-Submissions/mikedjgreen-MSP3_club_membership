@@ -10,14 +10,9 @@
 		<!---  Edit Art Work Form -->
 		<div id="editartwork">
 
-				<form action="{{ url_for('edit_artwork', art_id=artworks._id, year=year ) }}"
+				<form action="{{ url_for('edit_artwork', art_id=artworks._id ) }}"
                       class="col s12 m8 offset-m2"
 					  method="POST">
-					<div class="row">
-						<div class="col s12">
-							<h6>Year {{ year }}</h6>
-						</div>
-					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="title" class="inputlabel">Title</label>
@@ -102,15 +97,25 @@
 								<label class="inputlabel">
                                     <input name="sold" type="radio" value=True />
                                     <span>Sold</span>
-                                    </label>
-								<label class="inputlabel">
-                                    <input name="sold" type="radio" value=False checked />
-                                    <span>Unsold</span>
-                                    </label>
+                                </label>
 							</p>
 							<p class="help-block text-danger"></p>
 						</div>
-					</div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6">
+                            <strong>Exhibit at the Summer Exhibition?</strong>
+                        </div>
+                        <div class="input-field col s6">
+							<p>
+								<label class="inputlabel">
+                                    <input name="exhibit" id="exhibit" type="radio" value=True />
+                                    <span>Exhibit</span>
+                                </label>
+							</p>
+							<p class="help-block text-danger"></p>
+						</div>
+                    </div>
 					<div class="row">
 						<div class="col s6">                     
 							<button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
