@@ -2,7 +2,7 @@
 %} {% block content %}
 
 <div class="row">
-  <div class="col-lg-8 col-md-10 mx-auto">
+  <div class="col l8 m10">
     <div class="row">
     <p class="col s12 m8 offset-m2">Edit membership request.</p>
     </div>
@@ -11,14 +11,14 @@
       <div class="card-panel">
         <!-- Portrait -->
         <div class="row">
-            <div class="col s6">
+            <div class="col s4">
                 <div class="card-image">
-                    <img style="max-width: 30%" src="{{ member.portrait }}" alt="member portrait">
+                    <img class="materialboxed responsive-img" style="max-width: 75%" src="{{ member.portrait }}" alt="member portrait">
                 </div>
             </div>    
         <!-- Portrait path/filename -->
-            <div class="input-field col s6">
-                <label for="portrait" class="inputlabel">Portrait Path</label>
+            <div class="input-field col s8">
+                <label for="portrait" class="inputlabel active">Portrait Path</label>
                 <input type="text" class="form-control"  placeholder="../static/img/portrait/no_image.jpg"
                         name="portrait" id="portrait"
                         value="{{ member.portrait }}" />
@@ -144,7 +144,7 @@
         <div class="row">
             <div class="input-field col s12">       
                 <label for="bio" class="inputlabel">Biography</label>
-                <input type="text" class="form-control" placeholder="Surname"
+                <input type="text" class="form-control flow-text" placeholder="Biography"
                         name="bio" id="bio"
                         value="{{ member.bio }}"
                         minlength="2" required
