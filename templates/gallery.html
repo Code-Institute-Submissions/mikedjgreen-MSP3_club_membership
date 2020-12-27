@@ -21,13 +21,14 @@
 			</div>
 		</div>
 
-		<!-- Modal Add Art Work form -->
+        <!-- Modal Add Art Work form -->
+        <section>
 		<div id="addartwork" class="modal">
 			<div class="modal-content">
 				<h4>New Art Work</h4>
-				<form action="{{ url_for('add_artwork', gallery_id=gallery._id)  }}" class="col s12 m8 offset-m2"
-					method="POST">
-					<!-- <div class="card-panel"> -->
+                <form action="{{ url_for('add_artwork', gallery_id=gallery._id) }}" 
+                      class="col s12 m8 offset-m2"
+					  method="POST">
 						<!-- Artist -->
 						<div class="row">
 							<div class="input-field col s12">
@@ -115,9 +116,23 @@
 								</p>
 								<p class="help-block text-danger"></p>
 							</div>
-						</div>
-					<!-- </div>  
-					<div id="success"> -->
+                        </div>
+                        <!-- Chosen to exhibit? -->
+                        <div class="row">
+                            <div class="input-field col s12">
+								<p>
+									<label class="inputlabel">
+                                    <input name="exhibit" type="radio" value=True />
+                                    <span>Exhibit</span>
+                                    </label>
+									<label class="inputlabel">
+                                    <input name="exhibit" type="radio" value=False checked />
+                                    <span>Not Exhibit</span>
+                                    </label>
+								</p>
+							</div>
+					    </div>  
+					<div id="success"> 
 						<div class="row">
                             <div class="col s6">
 							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
@@ -134,11 +149,13 @@
                                 </a>
                             </div>    
 						</div>
-					<!-- </div> -->
-				</form>
+                    </div> 
+                </form>
 			</div>
 		</div>
+        </section>
 
+        <section>
 		<div class="carousel carousel-slider center" style="height:400px;">		
 			{% for artwork in gallery.artworks %}
 			<div class="carousel-item" >
@@ -156,7 +173,7 @@
 						<div class="col s8">
 						    <div class="card-content">
 								<span class="card-title grey-text text-darken-4">
-                                {{ artwork['title'] }} ({{ loop.index }} of {{ loop.length }})</span>
+                                {{ artwork['title'] }} <small>({{ loop.index }} of {{ loop.length }})</small></span>
 								<ul>
 								    <li>Artist: {{ artwork['artist'] }}</li>
 									<li>Media: {{ artwork['media'] }}</li>
@@ -164,10 +181,11 @@
 									<li>Width (cm): {{ artwork['width'] }}</li>
                                     <li>Price : {{ artwork['price'] }}</li> 
                                     <li>Sold: {{ artwork['sold'] }}</li>
+                                    <li>Exhibit: {{ artwork['exhibit'] }}</li>
 								</ul>
                                 <ul>
                                     <li>
-                                        <a href="{{ url_for('edit_artwork', art_id=artwork['art_id'], year=gallery.year) }}" 
+                                        <a href="{{ url_for('edit_artwork', art_id=artwork['art_id']) }}" 
                                                 id="btneditart"
                                                 class="btn-small light-blue crud-btn">
                                                 Edit this artwork 
@@ -206,7 +224,8 @@
 			</div>       
 			{% endfor %} <!-- endfor artworks of carousel item -->
 			<!--  end of carousel -->
-	    </div>
+        </div>
+        </section>
         {% endfor %}
     </div>
 </div>    

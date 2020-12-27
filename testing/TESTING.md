@@ -181,3 +181,5 @@ A button appears for a logged in administrative user for each activity.
 ### EmailJS News fixes
 1. The date of the activity appears more 'human' on the email form: ![Email form fix](../testing/screenshots/EmailJS_news_fix1.jpg).
 2. The date is emailed to a member: ![Email post fix](../testing/screenshots/EmailJS_news_fix2.jpg).
+3. The EmailJS documentation states 'total size of the dynamic variables cannot exceed 50kb' which may explain the loss of the 'led by' name. 
+- [Restrictions](https://www.emailjs.com/docs/user-guide/dynamic-variables-templates/#restrictions)

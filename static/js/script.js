@@ -22,8 +22,7 @@ $(document).ready(function() {
             done: "Select"
         }
     });
-
-    
+  
     $("select").formSelect();
     
     $("carousel").carousel();
@@ -34,7 +33,6 @@ $(document).ready(function() {
     });
 
     $(".modal").modal();
-    
     
 });
 
@@ -47,20 +45,6 @@ function add_artwork() {
     $("#addartwork").css("position","sticky");
     $("#addartwork").css("z-index","+1");
 }
-
-/*
-function edit_artwork() {
-    $("#editartwork").css("display","block");
-    $("#editartwork").css("position","sticky");
-    $("#editartwork").css("z-index","+1");
-    var btnedit = document.getElementById("btneditart")
-    if ( btnedit.hasFocus() ) {
-        btnedit.css("display","block")
-    } else {
-        btnedit.css("display","none")
-    }
-}
-*/
 
 function close_add_artwork() {
     $("#addartwork").css("display","none");
@@ -99,6 +83,15 @@ function enableCRUD() {
     $(".crud-btn").css("display","block");
     var crud = document.getElementsByClassName("crud-btn");
     crud.css("display","block");
+}
+
+/*
+    Called by log_off page
+*/    
+function disableCRUD() {
+    $(".crud-btn").css("display","none !important");
+    var crud = document.getElementsByClassName("crud-btn");
+    crud.css.style.visibility='hidden';
     displaySessionItems();
 }
 
@@ -134,7 +127,7 @@ function sendMail(contactForm) {
     })
     .then(
         function(response) {
-            console.log("SUCCESS", response);
+            console.log("SUCCESS", response.status, response.text);
         },
         function(error) {
             console.log("FAILED", error);
@@ -178,11 +171,11 @@ function sendNews(contactForm) {
         "time": contactForm.time.value,
         "duration": contactForm.duration.value,
         "location": contactForm.location.value,
-        "led": contactForm.led.value
+        "led_by": contactForm.led_by.value
     })
     .then(
         function(response) {
-            console.log("SUCCESS", response);
+            console.log("SUCCESS", response.status, response.text);
         },
         function(error) {
             console.log("FAILED", error);

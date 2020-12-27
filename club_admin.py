@@ -629,8 +629,13 @@ def logout():
     """
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("logoff"))
     
+
+@app.route("/logoff")
+def logoff():
+    return render_template("log_off.html", page_title="Logged Off")
+
 
 @app.route("/users")
 def users():
