@@ -15,9 +15,9 @@
         </div>
         <div class="row">
 			<div class="col s12">
-            <form action="{{ url_for('search_art') }}" method="post" class="col s12">
+            <form action="{{ url_for('search_art') }}" method="post">
             <div class="row center-align">
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                     <i class="prefix light-blue-text text-darken-4"></i>
                     <input type="text" name="artquery" id="artquery" minlength="3"
                            class="validate" required>
@@ -26,7 +26,9 @@
                         Search on artist and/or title
                     </span> 
                 </div>
-                <div class="col s6">
+            </div>        
+            <div class="row centre-align">    
+                <div class="col s12">
                     <a href="{{ url_for('gallery') }}" class="red btn text-shadow">Reset</a>
                     <button type="submit" class="light-blue darken-1 btn text-shadow">
                         <i class="material-icons left hide-on-small-only">search</i> Search
@@ -126,10 +128,6 @@
                                     <input name="sold" type="radio" value=True />
                                     <span>Sold</span>
                                     </label>
-									<label class="inputlabel">
-                                    <input name="sold" type="radio" value=False checked />
-                                    <span>Unsold</span>
-                                    </label>
 								</p>
 								<p class="help-block text-danger"></p>
 							</div>
@@ -185,7 +183,7 @@
 						<div class="col s4">
 							<div class="card-image waves-effect waves-block waves-light">
 								<img class="activator materialboxed responsive-img"
-                                    style="max-width: 75%"
+                                    style="max-width: 95%"
                                     src="{{ artwork['image'] }}"
                                     alt="artwork image"
                                 />
