@@ -544,12 +544,31 @@ def delete_artwork(art_id):
     if session["user"]:
         mongo.db.gallery.update_one({}, (
             {"$pull": {"artwork": {"art_id": ObjectId(art_id)}}}))
+        query = {"_id": ObjectId(art_id)}    
+        mongo.db.artworks.delete_one(query)    
         flash("** Thanks {}, art work deleted **".format(session["user"]))
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
     return redirect(url_for("gallery"))
 
+
+# Requires text index on artworks collection
+@app.route("/search_art", methods=["GET", "POST"])
+def search_art():
+    """
+        Visitors can search for an artwork based on text entries of:
+         artist and title.
+        There is an underlying text index to facilitate this search.
+    """
+    query = request.form.get("artquery")
+    gallery = mongo.db.gallery.find()
+    artworks = list(mongo.db.artworks.find({"$text": {"$search": query}}))
+    art_count = mongo.db.artworks.count_documents({"$text":
+                                                      {"$search":
+                                                       query}})
+    flash("Art work found: {} ".format(art_count))
+    return render_template("gallery.html", gallery=gallery,artworks=artworks)
 
 #
 #                                   Register  users
@@ -651,4 +670,4 @@ def users():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
