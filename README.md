@@ -64,7 +64,8 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 
 * The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
     - For accessibility the navigation will change to a sidebar for mobile viewports.
-* The information architecture is one of tables of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+* The information architecture is one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+    - There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
 
 ### Skeleton
 
