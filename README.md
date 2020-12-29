@@ -37,8 +37,6 @@ Club administrators will be able to keep up-to-date contact details, creating, u
 
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
 ### User Stories
 - As an art enthusiast I would like to join like-minded people in my local community.
 - As a member I would like to submit my work for the annual summer exhibition.
@@ -51,13 +49,16 @@ Use this section to provide insight into your UX process, focusing on who this w
 Provide the initial membership request form. 
 From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
-- Initially upon opening the website, the browser would open with the membership form. Upon review it is thought the browser should show artworks that would interest potential members.
+- Initially upon opening the website, the browser would open with the membership form.
+  Upon review it is thought the browser should show artworks that would interest potential members.
 
 ### Scope
 
 Following administrative Create, Read, Update and Delete (CRUD) procedures. 
 * Storing membership details with limited access. 
 * Associate the members with details, including stored images, of their work.
+* Ability to display club members work.
+* Facility to publicise events and activities run by club members.
 
 
 ### Structure
@@ -66,6 +67,8 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
     - For accessibility the navigation will change to a sidebar for mobile viewports.
 * The information architecture is one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
     - There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
+    - Decision made to store images externally to the database, with the database holding the image location on the server.
+      An example discussion of this issue [Images on database?](https://habiletechnologies.com/blog/better-saving-files-database-file-system/)
 
 ### Skeleton
 
@@ -83,16 +86,20 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 The project concerns club membership, club activities, exhibitions and a record of artists works.
  
 ### Existing Features
+- Membership application form.
+- Members list of club members details for club administrators, with search facility, if club becomes popular.
 - Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
 - Subscriptions - allows administrator to send email reminders to members when subscriptions are due.
-
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- Flag interest in activities - displays a count against each activity of interest shown.
+- Exhibition page showns images and artist names of all artworks flagegd for exhibit in club's annual exhibition.
+- Gallery page shows all artworks of members in a carousel, whether for exhibition, or not. 
+- Search facility for members artworks, search against index of artist name or artwork title.
 
 ### Features Left to Implement
 - A volunteer rosta for running the annual exhibition.
+- An administrator's view of those interested in activities. To inform of cancelations, etc.
+- A batch script to archive older artworks that have exhibited in previous years, have been sold, or by lapsed members.
 
 ## Technologies Used
 
@@ -258,3 +265,4 @@ Back to Heroku's deploy tab to ensure that Heroku's app picks up the GitHub's la
 - The coding instruction was gratefully received from [Code Institute](https://codeinstitute.net/)
 - Further help was found with [w3schools](https://www.w3schools.com/default.asp)
 - More advanced MongoDB queries were garnered from [MongoDB University](https://university.mongodb.com/courses/M001/about)
+- Thanks to mentor, Jonathan Munz, for pointing me to database image store debate article.
