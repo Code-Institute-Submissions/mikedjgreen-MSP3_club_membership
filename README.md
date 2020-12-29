@@ -128,6 +128,9 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - Using a [date picker](https://materializecss.com/pickers.html)
     - Using a [carousel](https://materializecss.com/carousel.html) for a gallery of art works.
 
+- [Font Awesome](https://fontawesome.com/) 
+    - to provide additional icons, especially 'facebook'.
+
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.
 
