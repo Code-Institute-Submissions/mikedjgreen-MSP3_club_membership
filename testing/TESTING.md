@@ -183,3 +183,15 @@ A button appears for a logged in administrative user for each activity.
 2. The date is emailed to a member: ![Email post fix](../testing/screenshots/EmailJS_news_fix2.jpg).
 3. The EmailJS documentation states 'total size of the dynamic variables cannot exceed 50kb' which may explain the loss of the 'led by' name. 
 - [Restrictions](https://www.emailjs.com/docs/user-guide/dynamic-variables-templates/#restrictions)
+
+## Experiencing some load speed issues
+
+### Size of Image Files
+Elected to reduce the size of the image files that may be degrading performance.
+Using an [Online Image Compressor](http://jpeg-optimizer.com/).
+
+- The initial compression ![initial compression](../testing/screenshots/jpeg-optimiser_1.jpg) reduced the largest image file by over 75%.
+- On the filestore this would be substantial savings ![substantial savings](../testing/screenshots/jpeg-optimiser_2.jpg) in space.
+- On inspection the optimised image ![optimised image](../testing/screenshots/jpeg-optimiser_3.jpg) did not diminish in quality.
+- The Exhibition page ![exhibition page](../testing/screenshots/jpeg-optimiser_4.jpg) with the compressed file appeared the same.
+

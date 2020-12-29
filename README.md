@@ -134,6 +134,9 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.
 
+- [Online Image Compressor](http://jpeg-optimizer.com/)
+    - to optimise speed of website loading on an image intensive site.    
+
 - [TOC for markdown](https://ecotrust-canada.github.io/markdown-toc/) to generate table of contents for README     
 
 ## Testing
