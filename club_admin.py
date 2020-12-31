@@ -504,7 +504,7 @@ def edit_artwork(art_id):
     if session["user"]:
         if request.method == "POST":
             is_exhibit = True if request.form.get("exhibit") else False
-            is_sold = True if request.form.get("sold") else False       
+            is_sold = True if request.form.get("sold") else False
             submit = {"_id": ObjectId(art_id),
                       "artist": request.form.get("artist"),
                       "title": request.form.get("title"),
@@ -518,7 +518,7 @@ def edit_artwork(art_id):
                       "amended_by": session["user"],
                       "amended_on": datetime.datetime.now()}
             mongo.db.artworks.update_one({"_id": ObjectId(art_id)},
-                                     {"$set": submit})
+                                         {"$set": submit})
             flash("** Thanks {}, art work amended **".format(session["user"]))
         try:
             artworks = mongo.db.artworks.find_one({"_id": ObjectId(art_id)})
@@ -544,8 +544,8 @@ def delete_artwork(art_id):
     if session["user"]:
         mongo.db.gallery.update_one({}, (
             {"$pull": {"artwork": {"art_id": ObjectId(art_id)}}}))
-        query = {"_id": ObjectId(art_id)}    
-        mongo.db.artworks.delete_one(query)    
+        query = {"_id": ObjectId(art_id)}
+        mongo.db.artworks.delete_one(query)
         flash("** Thanks {}, art work deleted **".format(session["user"]))
     else:
         flash("User not logged in to do this")
@@ -565,10 +565,9 @@ def search_art():
     gallery = mongo.db.gallery.find()
     artworks = list(mongo.db.artworks.find({"$text": {"$search": query}}))
     art_count = mongo.db.artworks.count_documents({"$text":
-                                                      {"$search":
-                                                       query}})
+                                                  {"$search": query}})
     flash("Art work found: {} ".format(art_count))
-    return render_template("gallery.html", gallery=gallery,artworks=artworks)
+    return render_template("gallery.html", gallery=gallery, artworks=artworks)
 
 #
 #                                   Register  users
@@ -649,7 +648,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("logoff"))
-    
+
 
 @app.route("/logoff")
 def logoff():

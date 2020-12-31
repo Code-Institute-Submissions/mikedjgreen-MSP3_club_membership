@@ -92,28 +92,32 @@
                                     data-validation-required-message="Price, if for sale, or 'NFS'."/>
 							<p class="help-block text-danger"></p>
 						</div>
-						<div class="input-field col s6">
-							<p>
-								<label class="inputlabel">
-                                    <input name="sold" type="radio" value=True />
-                                    <span>Sold</span>
+						<div class="switch col s6">
+								<label for="sold">
+                                     {% if artworks.sold == true %}
+                                        <input name="sold" type="checkbox" id="sold" value="{{ artworks.sold }}" checked />
+                                     {% else %}
+                                        <input name="sold" type="checkbox" id="sold" value=False /> 
+                                     {% endif %}
+                                     <span class="lever"></span>
+                                    Sold   
                                 </label>
-							</p>
-							<p class="help-block text-danger"></p>
 						</div>
                     </div>
                     <div class="row">
                         <div class="col s6">
                             <strong>Exhibit at the Summer Exhibition?</strong>
                         </div>
-                        <div class="input-field col s6">
-							<p>
-								<label class="inputlabel">
-                                    <input name="exhibit" id="exhibit" type="radio" value=True />
-                                    <span>Exhibit</span>
+                        <div class="switch col s6">
+								<label for="exhibit">
+                                    {% if artworks.exhibit == true %}
+                                        <input name="exhibit" id="exhibit" type="checkbox" value="{{ artworks.exhibit }}" checked />
+                                    {% else %}    
+                                        <input name="exhibit" id="exhibit" type="checkbox" value=False />
+                                    {% endif %}
+                                    <span class="lever"></span>
+                                    Exhibit
                                 </label>
-							</p>
-							<p class="help-block text-danger"></p>
 						</div>
                     </div>
 					<div class="row">

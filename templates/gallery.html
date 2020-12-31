@@ -192,16 +192,24 @@
 						<div class="col s8">
 						    <div class="card-content">
 								<span class="card-title grey-text text-darken-4">
-                                {{ artwork['title'] }} <small>({{ loop.index }} of {{ loop.length }})</small></span>
+                                {{ artwork['title'] }} <small>({{ loop.index }} of {{ loop.length }})</small>
+                                </span>
 								<ul>
 								    <li>Artist: {{ artwork['artist'] }}</li>
 									<li>Media: {{ artwork['media'] }}</li>
-									<li>Height (cm): {{ artwork['height']}}</li>
-									<li>Width (cm): {{ artwork['width'] }}</li>
+									<li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
                                     <li>Price : {{ artwork['price'] }}</li> 
-                                    <li>Sold: {{ artwork['sold'] }}</li>
-                                    <li>Exhibit: {{ artwork['exhibit'] }}</li>
-								</ul>
+                                    {% if artwork.sold == true %}
+                                        <li style="background-color: red;font-weight: bold;">Sold: {{ artwork['sold'] }}</li>
+                                    {% else %}
+                                        <li>Sold: {{ artwork['sold'] }}</li>
+                                    {% endif %}
+                                    {% if artwork.exhibit == true %}
+                                        <li style="background-color: lightgreen;font-weight: bold;">Exhibit: {{ artwork['exhibit'] }}</li>
+                                    {% else %}
+                                        <li>Exhibit: {{ artwork['exhibit'] }}</li>
+                                    {% endif %}    
+                                </ul>       
                                 <ul>
                                     <li>
                                         <a href="{{ url_for('edit_artwork', art_id=artwork['_id']) }}" 
@@ -224,7 +232,7 @@
                         </div>        
                     </div>                      
 				</div> 
-			</div>  
+		</div>  
             <div class="carousel-fixed-item center">
                 <div class="row">
                     <div class="col s3">
