@@ -70,73 +70,80 @@
                     value="{{ member.phone }}"
                     minlength="5" required
                     data-validation-required-message="Please enter your phone number."/>
-                <p class="help-block text-danger"></p>
             </div>
         </div>
         <!-- Membership Status-->
         <div class="row">
             <div class="input-field col s12">
-                <p>
-                <label class="inputlabel">
-                <input name="renewal" type="radio" />
-                <span>Renewal?</span>
-                </label>
-                <label class="inputlabel">
-                <input name="renewal" type="radio" checked value=" {{ member.newmember }}" />
-                <span>New Member</span>
-                </label>
-                </p>
-                <p class="help-block text-danger"></p>
-            </div>
+                <span>New Member?</span>
+                <div class="switch">
+			        <label class="inputlabel" for="newmember">
+                        False
+                    {% if member.newmember == true %}
+                        <input name="newmember" id="newmember" type="checkbox" value="{{ member.newmember }}" checked />
+                    {% else %}    
+                        <input name="newmember" id="newmember" type="checkbox" value=False />
+                    {% endif %}
+                    <span class="lever"></span>
+                        True
+                    </label>
+                </div>
+			</div>
         </div>
         <!--  Family Subscription Rate? -->
         <div class="row">
             <div class="input-field col s12">
-                <p>
                 <span>Family Subscription?</span>
                 <div class="switch">
-                    <label class="inputlabel">
+                    <label class="inputlabel" for="family">
                         False
-                        <input type="checkbox" name="family" value="{{ member.family }}" />
+                    {% if member.family == true %}    
+                        <input type="checkbox" name="family" id="family" value="{{ member.family }}" checked />
+                    {% else %}
+                        <input type="checkbox" name="family" id="family" value=False />
+                    {% endif %}   
                         <span class="lever"></span>
                         True
                     </label>
                 </div>
-                </p>
             </div>
         </div>
 
         <!-- Is the Member a guest? If so, no subscription due...-->    
         <div class="row">
             <div class="input-field col s12 ">
-                <p>  
                 <span>Guest Member?</span>
                 <div class="switch">
-                    <label class="inputlabel">
+                    <label class="inputlabel" for="guest">
                         False
-                        <input type="checkbox" name="guest" value="{{ member.guest }}" />
+                    {% if member.guest == true %}  
+                        <input type="checkbox" name="guest" id="guest" value="{{ member.guest }}" checked />
+                    {% else %}
+                        <input type="checkbox" name="guest" id="guest" value=False />
+                    {% endif %}
                         <span class="lever"></span>
                         True
                     </label>
                 </div>
-                </p> 
             </div>    
         </div>        
 
         <!--  Member paid subscription this year ? -->
         <div class="row">
-            <div class="input-field col s12 ">
-                <p>  
+            <div class="input-field col s12 "> 
                 <span>Subscription Paid?</span>
                 <div class="switch">
-                    <label class="inputlabel">
+                    <label class="inputlabel" for="paid">
                         False
-                        <input type="checkbox" name="paid" value="{{ member.paid }}" />
+                    {% if member.paid == true %}  
+                        <input type="checkbox" name="paid" id="paid" value="{{ member.paid }}" checked />
+                    {% else %}
+                        <input type="checkbox" name="paid" id="paid" value=False />
+                    {% endif %}
                         <span class="lever"></span>
                         True
                     </label>
-                </div>
-                </p> 
+                </div> 
             </div>    
         </div>   
 
