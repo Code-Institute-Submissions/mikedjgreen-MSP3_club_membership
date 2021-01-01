@@ -56,8 +56,9 @@ def membership():
             "lastname": request.form.get("lastname"),
             "email": request.form.get("email"),
             "phone": request.form.get("phone"),
-            "newmember": "true",
-            "paid": "false",
+            "newmember": True,
+            "paid": False,
+            "applicant": True,
             "requested_on": datetime.datetime.now()
         }
         mongo.db.members.insert_one(member)
@@ -118,6 +119,7 @@ def edit_member(member_id):
             "newmember": is_new,
             "guest": is_guest,
             "portrait": request.form.get("portrait"),
+            "applicant": False,
             "updated_by": session["user"],
             "updated_on": datetime.datetime.now()
         }
@@ -149,6 +151,26 @@ def dues():
         return render_template("members.html",
                                members=members,
                                page_title="Membership Due List")
+    else:
+        flash("User not logged in {} ".format(session["user"]))
+        return redirect(url_for("login"))
+
+
+@app.route("/applicant")
+def applicant():
+    """
+        Administrators would like a list of applicants
+         for further validation and processing.
+        Firstly check that the user logged in can do this.
+    """
+    if session["user"]:
+        query = {"applicant": True}
+        members = mongo.db.members.find(query)
+        cnt_apps = mongo.db.members.count_documents(query)
+        flash("applications: {} ".format(cnt_apps))
+        return render_template("members.html",
+                               members=members,
+                               page_title="Membership Applications")
     else:
         flash("User not logged in {} ".format(session["user"]))
         return redirect(url_for("login"))
