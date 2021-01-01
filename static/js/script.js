@@ -5,6 +5,7 @@
     Select ...
     Carousel...... [Gallery]
     Modal....[Gallery]
+    Materialbox...for enlarging images
 */
 
 $(document).ready(function() {
@@ -34,6 +35,7 @@ $(document).ready(function() {
 
     $(".modal").modal();
     
+    $(".materialboxed").materialbox();
 });
 
 /*
