@@ -86,11 +86,17 @@
         <br />
         <div id="success"></div>
         <div class="row">
-        <button class="col s12 btn-large waves-effect waves-light red lighten-3 black-text text-darken-2"
+            <div class="col s6">
+                 <!-- cancel button -->
+                    <a href="{{ url_for('membership') }}" class="btn-small">
+                        Cancel <i class="material-icons right">close</i>
+                    </a>
+            </div>
+            <button class="col s6 btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
                 type="submit" name="action" >
                 Submit
                 <i class="material-icons right">send</i>
-        </button>
+            </button>
         </div>
       </div>  
     </form>

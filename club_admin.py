@@ -41,16 +41,14 @@ def membership():
         # check if member's email already exists in db
         existing_member = mongo.db.members.find_one(
             {"email": request.form.get("email").lower()})
-
         if existing_member:
             flash("Email {} already exists".format(
                 request.form.get("email")))
             return redirect(url_for("membership"))
-
         flash("** Thanks {} {}, we have received your request **".
               format(request.form.get("forename"),
                      request.form.get("lastname")))
-
+        is_family = True if request.form.get("family") else False
         member = {
             "firstname": request.form.get("forename"),
             "lastname": request.form.get("lastname"),
@@ -58,6 +56,7 @@ def membership():
             "phone": request.form.get("phone"),
             "newmember": True,
             "paid": False,
+            "family": is_family,
             "applicant": True,
             "requested_on": datetime.datetime.now()
         }
