@@ -2,6 +2,8 @@
   * [Initial Lighthouse Report.](#initial-lighthouse-report)
   * [Navigation bar getting 'busy'.](#navigation-bar-getting--busy-)
   * [Membership form validation.](#membership-form-validation)
+  * [Membership application](#membership-application)
+    + [Findings of membership applications](#findings-of-membership-applications)
   * [Adding artworks into Gallery collection.](#adding-artworks-into-gallery-collection)
     + [Findings of initial artwork entry test](#findings-of-initial-artwork-entry-test)
   * [Implementation of EmailJS API](#implementation-of-emailjs-api)
@@ -12,6 +14,9 @@
   * [PEP8 compliant python code](#pep8-compliant-python-code)
   * [Second EmailJS for Activities News.](#second-emailjs-for-activities-news)
     + [Findings of initial EmailJS News implementation.](#findings-of-initial-emailjs-news-implementation)
+    + [EmailJS News fixes](#emailjs-news-fixes)
+  * [Experiencing some load speed issues](#experiencing-some-load-speed-issues)
+    + [Size of Image Files](#size-of-image-files)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
