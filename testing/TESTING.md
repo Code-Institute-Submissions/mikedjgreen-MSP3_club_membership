@@ -49,6 +49,43 @@ Also only the initial input error is indicated, not many.
 - ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg) only shown once first input error has been amended and submitted.
 - ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) again only shown once previous errors amended and submitted.
 
+## Membership application
+
+Tracing membership application to database and administration issues.
+
+- ![Applicant entry](../testing/screenshots/member_application_1.jpg) 
+    Details for initial club membership.
+    Sally has asked for family membership subscription. 
+    She has not been given the option to close the form without submission.
+- ![Database entry](../testing/screenshots/member_application_2.jpg) 
+    Details as seen on MongoDB Atlas. 
+    There is no indication recorded of family subscription.
+- ![administration of application](../testing/screenshots/member_application_3.jpg). 
+    A club administrator, 'antonia', checks for new applications made on the website.
+- ![Applicant identified](../testing/screenshots/member_application_4.jpg).
+    The applicant is identified by the club administrator. 
+    Additional information, such as a portrait can now be added.
+- ![Applicant edit](../testing/screenshots/member_application_5.jpg). 
+    Unfortunately the club administrator has no indication the the applicant wants family  subscription.
+- ![Applicant details finalised](../testing/screenshots/member_application_6.jpg)
+    Assuming administrator has been in contact with applicant, either by given phone number or email address,
+    the relevant details are applied.
+    There is a default 'no image' jpeg file for portraits if the applicant either does not  have an image or does not wish to have one shown.
+- ![Database details of additions](../testing/screenshots/member_application_7.jpg)
+    The applicant's details are recorded on the database.
+
+### Findings of membership applications
+1. The applicant's wish to have family subscription has not been initially recorded.
+2. The applicant is not given the option to cancel their membership request on the form.
+3. The image file associated with the membership is problematic. 
+    There is an assumption that the administrator has the tools and know-how to add a given image file to the server in the appropriate path.
+    Possibly this is a task left for the web administrator.
+4. The application has been correctly identified to the club administrator, 
+    and the applicant flag has been cleared once the applicant becomes a member.
+
+
+
+
 ## Adding artworks into Gallery collection.
 
 Initially tested [MaterializeCSS Carousel](https://materializecss.com/carousel.html) of artwork images and details within the Gallery page and collection.
