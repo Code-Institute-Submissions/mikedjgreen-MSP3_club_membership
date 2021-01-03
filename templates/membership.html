@@ -15,6 +15,7 @@
                 <input type="text" class="form-control"  placeholder="Forename"
                         name="forename" id="forename"
                         minlength="4" required
+                        onchange="mem_name('forename')"
                         data-validation-required-message="Please enter your first name."/>
                 <p class="help-block text-danger"></p>
             </div>
@@ -25,7 +26,8 @@
                 <label for="lastname" class="inputlabel">Lastname</label>
                 <input type="text" class="form-control" placeholder="Surname"
                         name="lastname" id="lastname"
-                        minlength="2" required
+                        minlength="4" required
+                        onchange="mem_name('lastname')"
                         data-validation-required-message="Please enter your last name."/>
                 <p class="help-block text-danger"></p>
             </div>
@@ -37,8 +39,9 @@
                 <input type="email" class="form-control" placeholder="Email Address"
                         name="email" id="email"
                         minlength="10" required
+                        onchange="mem_email()"
                         data-validation-required-message="Please enter your email address."/>
-                <p class="help-block text-danger"></p>
+                <p id="emailerror" class="help-block text-danger"></p>
              </div>
         </div>
         <!-- Phone Number -->
@@ -48,6 +51,7 @@
                 <input type="tel" class="form-control" placeholder="Phone Number"
                     name="phone" id="phone"
                     minlength="5" required
+                    onchange="mem_phone()"
                     data-validation-required-message="Please enter your phone number."/>
                 <p class="help-block text-danger"></p>
             </div>

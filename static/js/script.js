@@ -39,6 +39,48 @@ $(document).ready(function() {
 });
 
 /*
+    Membership form client-side validation
+    onchange event occurs when the element loses focus
+*/
+
+function mem_name(field) {
+    var x = document.getElementById(field).value;
+    if ( x.length < 4 ) {
+        document.getElementById(field).style.backgroundColor = "red";
+    } else {
+        document.getElementById(field).style.backgroundColor = "green";
+        document.getElementById(field).style.color = "white";
+        document.getElementById(field).style.fontWeight = "bold";
+    }
+}
+
+function mem_email() {
+    var x = document.getElementById("email").value;
+    var pattern = 	new RegExp("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+).([a-zA-Z]{2,5})$")
+    if ( pattern.test(x)) {
+        document.getElementById("email").style.backgroundColor = "green";
+        document.getElementById("email").style.color = "white";
+        document.getElementById("email").style.fontWeight = "bold";
+        document.getElementById("emailerror").innerHTML = "";
+    } else {
+        document.getElementById("email").style.backgroundColor = "red";
+        document.getElementById("emailerror").innerHTML = "format incorrect - e.g. no @ ?";
+    }
+
+}
+
+function mem_phone() {
+    var x = document.getElementById("phone").value;
+    var pattern = 	new RegExp("[^0-9]","g")
+    if ( pattern.test(x)) {
+        document.getElementById("phone").style.backgroundColor = "red";
+    } else {
+        document.getElementById("phone").style.backgroundColor = "green";
+        document.getElementById("phone").style.color = "white";
+        document.getElementById("phone").style.fontWeight = "bold";
+    }
+}
+/*
     Art Work buttons...
 */
 
