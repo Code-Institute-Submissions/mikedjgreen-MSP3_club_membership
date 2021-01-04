@@ -46,7 +46,8 @@ Club administrators will be able to keep up-to-date contact details, creating, u
 
 ### Strategy
 
-Provide the initial membership request form. 
+A local collection of artists and art enthusiasts would like an pnline meeting, or focal point to share their enthusiasm.
+With that in mind, provide the initial membership request form. 
 From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
 - Initially upon opening the website, the browser would open with the membership form.
@@ -54,6 +55,7 @@ Administrators also need the ability to enter membership details if the requesto
 
 ### Scope
 
+The minimum viable product would be the ability to record membership and show artwork in some easy to view way.
 Following administrative Create, Read, Update and Delete (CRUD) procedures. 
 * Storing membership details with limited access. 
 * Associate the members with details, including stored images, of their work.
@@ -65,6 +67,7 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 
 * The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
     - For accessibility the navigation will change to a sidebar for mobile viewports.
+    - A coherent visual display across all pages should be presented to the browser of the site.
 * The information architecture is one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
     - There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
     - Decision made to store images externally to the database, with the database holding the image location on the server.
@@ -79,6 +82,7 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 
 * The backround colour will be the muted pale blue of #D9E6F3.
 * The font chosen will be Roboto.
+* The 'coherent visual display' will be provided by the MaterializeCSS framework.
 
 
 ## Features
@@ -86,24 +90,25 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 The project concerns club membership, club activities, exhibitions and a record of artists works.
  
 ### Existing Features
-- Membership application form.
+- Membership application form. Both client and server side validation for 'belt-and-braces' defensive programming.
 - Members list of club members details for club administrators, with search facility, if club becomes popular.
 - Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
 - Subscriptions - allows administrator to send email reminders to members when subscriptions are due.
 - Flag interest in activities - displays a count against each activity of interest shown.
-- Exhibition page showns images and artist names of all artworks flagegd for exhibit in club's annual exhibition.
+- Exhibition page showns images and artist names of all artworks flagged for exhibit in club's annual exhibition.
 - Gallery page shows all artworks of members in a carousel, whether for exhibition, or not. 
+    also shows whether an artwork has been sold.
 - Search facility for members artworks, search against index of artist name or artwork title.
 
 ### Features Left to Implement
 - A volunteer rosta for running the annual exhibition.
 - An administrator's view of those interested in activities. To inform of cancelations, etc.
 - A batch script to archive older artworks that have exhibited in previous years, have been sold, or by lapsed members.
+- Further client-side form validation for administrators, such as editing artworks.
+- A cleaner, clearer procedure to ensure images arrive correctly on the server and recorded on artwork and member forms.
 
 ## Technologies Used
-
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 - [JavaScript](https://www.javascript.com/)
     - For dynamic, front-end interaction on HTML forms.
