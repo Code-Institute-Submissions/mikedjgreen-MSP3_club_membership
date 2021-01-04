@@ -131,35 +131,21 @@ function checkLogin() {
 
 function enableCRUD() {
     $(".crud-btn").css("display","block");
-    var crud = document.getElementsByClassName("crud-btn");
-    crud.css("display","block");
 }
 
-/*
-    Called by log_off page
-*/    
 function disableCRUD() {
-    $(".crud-btn").css("display","none !important");
-    var crud = document.getElementsByClassName("crud-btn");
-    crud.css.style.visibility='hidden';
-    displaySessionItems();
+    $(".crud-btn").css("display","none");
 }
 
 function setSession(username) {
     sessionStorage.setItem("logged",username);
 }
+
+/*
+    Called by log_off page
+*/  
 function unsetSession() {
     sessionStorage.removeItem("logged");
-}
-
-function displaySessionItems() {
-  var i;
-  document.getElementById("demo").innerHTML = "";
-  for (i = 0; i < sessionStorage.length; i++) {
-    x = sessionStorage.key(i);
-    y = sessionStorage.getItem(x);
-    document.getElementById("demo").innerHTML += x + ":" + y + "<br>";
-  }
 }
 
 /*
