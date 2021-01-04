@@ -2,6 +2,7 @@
   * [Initial Lighthouse Report.](#initial-lighthouse-report)
   * [Navigation bar getting 'busy'.](#navigation-bar-getting--busy-)
   * [Membership form validation.](#membership-form-validation)
+    + [Client-side form validation.](#client-side-form-validation)
   * [Membership application](#membership-application)
     + [Findings of membership applications](#findings-of-membership-applications)
   * [Adding artworks into Gallery collection.](#adding-artworks-into-gallery-collection)
@@ -53,6 +54,29 @@ Also only the initial input error is indicated, not many.
 - ![First input error](../testing/screenshots/membership_validation_serverside_1.jpg) only error indicated on selecting Submit button.
 - ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg) only shown once first input error has been amended and submitted.
 - ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) again only shown once previous errors amended and submitted.
+
+### Client-side form validation.
+
+Introduced javascript client side validation to the membership form to address issues above. 
+Notably that an error is captured before the client attempts to fill another field.
+
+- ![Forename Incorrect](../testing/screenshots/membership_validation_client_1.jpg)
+    Forename entered with only 1 character. Flagged as error, displaying red background.
+    Focus returned to field in error.
+- ![Surname incorrect](../testing/screenshots/membership_validation_client_2.jpg)   
+    As with forename, validation behaves the same way.
+- ![Email address incorrect](../testing/screenshots/membership_validation_client_3.jpg) 
+    The email validation relies on regular expression matches.
+- ![Phone number incorrect](../testing/screenshots/membership_validation_client_4.jpg)
+    Phone number validates on numeric digits and hyphens, no alpha characters.
+- ![All validated](../testing/screenshots/membership_validation_client_5.jpg) 
+    All textual input fields deemed valid, ready to submit application.
+- ![Application submitted](../testing/screenshots/membership_validation_client_6.jpg)
+    The applicant gets feedback.
+
+ Currently the applicant submitting a valid form is returned to the application form.
+ It would be better if the applicant is now directed to an interesting page, such as exhibition.              
+
 
 ## Membership application
 
