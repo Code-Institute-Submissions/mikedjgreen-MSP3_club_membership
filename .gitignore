@@ -8,3 +8,5 @@ testing/activities_crud_menu.py
 testing/exhibition_crud_menu.py
 testing/members_crud_menu.py
 testing/activities_insert.py
+asset-manifest.json
+manifest.webmanifest
