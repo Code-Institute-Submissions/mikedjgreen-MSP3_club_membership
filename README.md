@@ -65,10 +65,21 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 
 ### Structure
 
-* The interaction design is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
+#### The interaction design 
+
+    This is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
     - For accessibility the navigation will change to a sidebar for mobile viewports.
     - A coherent visual display across all pages should be presented to the browser of the site.
-* The information architecture is one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+
+#### The information architecture
+
+    Will be one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+    It was originally envisaged that there would be separate arrays of artworks associated with exhibitions and another array of artworks for a more general gallery.
+    This was reorganised into a collection of artworks with a Boolean indicators as to whether they were for exhibit as well as gallery.
+    - The original exhibition collection would contain details of the annual exhibition for that year.
+    - The activities collection will hold the date and time the activity will take place, an image to publicise the event, along with venue,
+         duration and who will be leading the activity.
+    - With club administrators needing secured access to members details their login authentication details would be collected as 'users'.
     - There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
     - Decision made to store images externally to the database, with the database holding the image location on the server.
       An example discussion of this issue [Images on database?](https://habiletechnologies.com/blog/better-saving-files-database-file-system/)
@@ -107,6 +118,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 - A batch script to archive older artworks that have exhibited in previous years, have been sold, or by lapsed members.
 - Further client-side form validation for administrators, such as editing artworks.
 - A cleaner, clearer procedure to ensure images arrive correctly on the server and recorded on artwork and member forms.
+  Possibly utilizing an application such as [cloudinary](https://cloudinary.com/documentation).
 
 ## Technologies Used
 
@@ -161,10 +173,18 @@ Passed code through [JSHint](https://jshint.com/about/)
 Passed code through [PEP8](http://pep8online.com/).
 Especially for long lines [PEP8 long lines](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
 
+#### Testing user login
+To test the CRUD capabilities of the application a login is available: 
+    **percival/zygote** 
+    
 ## Deployment
 
 Developed on GitPod using git and GitHub.
 Gitpod repository has already been created, MSP3_club_membership, master git branch.
+
+### Command line execution.
+The application can be run in the workspace from python script club_admin.py :
+``` python3 club_admin.py ```
 
 ### Cloning repository using command line
 Following the process documented in [cloning a repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository ).

@@ -18,6 +18,7 @@
     + [EmailJS News fixes](#emailjs-news-fixes)
   * [Experiencing some load speed issues](#experiencing-some-load-speed-issues)
     + [Size of Image Files](#size-of-image-files)
+  * [Test Scripts](#test-scripts)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -261,3 +262,13 @@ Using an [Online Image Compressor](http://jpeg-optimizer.com/).
 - On inspection the optimised image ![optimised image](../testing/screenshots/jpeg-optimiser_3.jpg) did not diminish in quality.
 - The Exhibition page ![exhibition page](../testing/screenshots/jpeg-optimiser_4.jpg) with the compressed file appeared the same.
 
+## Test Scripts
+
+A number of python scripts were written to populate, and if neccessary, repopulate the collections with test data.
+These are found in the testing subdirectory:
+- [Activities insert](../testing/activities_insert.py)
+- [Activities CRUD menu](../testing/activities_crud_menu.py)
+- [Artworks insert](../testing/artworks_insert.py)
+- [Exhibition CRUD menu](../testing/exhibition_crud_menu.py)
+- [Members insert](../testing/members_insert.py)
+- [Members CRUD menu](../testing/members_crud_menu.py)
