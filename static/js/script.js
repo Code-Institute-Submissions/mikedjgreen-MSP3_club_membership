@@ -60,7 +60,7 @@ function mem_name(field) {
 
 function mem_email() {
     var x = document.getElementById("email").value;
-    var pattern = 	new RegExp("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+).([a-zA-Z]{2,5})$")
+    var pattern = 	new RegExp("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+).([a-zA-Z]{2,5})$");
     if ( pattern.test(x)) {
         document.getElementById("email").style.backgroundColor = clubBlue;
         document.getElementById("email").style.color = "black";
@@ -76,7 +76,7 @@ function mem_email() {
 
 function mem_phone() {
     var x = document.getElementById("phone").value;
-    var pattern = 	new RegExp("[^0-9]","g")
+    var pattern = 	new RegExp("[^0-9]","g");
     if ( pattern.test(x)) {
         document.getElementById("phone").style.backgroundColor = "red";
         document.getElementById("phone").focus();
