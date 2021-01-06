@@ -46,12 +46,12 @@ Club administrators will be able to keep up-to-date contact details, creating, u
 
 ### Strategy
 
-A local collection of artists and art enthusiasts would like an pnline meeting, or focal point to share their enthusiasm.
-With that in mind, provide the initial membership request form. 
+A local collection of artists and art enthusiasts would like an online meeting, or focal point to share their enthusiasm.
+With that in mind, provide an initial membership request form. 
 From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
 - Initially upon opening the website, the browser would open with the membership form.
-  Upon review it is thought the browser should show artworks that would interest potential members.
+  _Upon review it is thought the browser should show artworks that would interest potential members._
 
 ### Scope
 
@@ -67,21 +67,21 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures.
 
 #### The interaction design 
 
-    This is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
-    - For accessibility the navigation will change to a sidebar for mobile viewports.
-    - A coherent visual display across all pages should be presented to the browser of the site.
+This is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
+- For accessibility the navigation will change to a sidebar for mobile viewports.
+- A coherent visual display across all pages should be presented to the browser of the site.
 
 #### The information architecture
 
-    Will be one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
-    It was originally envisaged that there would be separate arrays of artworks associated with exhibitions and another array of artworks for a more general gallery.
-    This was reorganised into a collection of artworks with a Boolean indicators as to whether they were for exhibit as well as gallery.
-    - The original exhibition collection would contain details of the annual exhibition for that year.
-    - The activities collection will hold the date and time the activity will take place, an image to publicise the event, along with venue,
+Will be one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
+It was originally envisaged that there would be separate arrays of artworks associated with exhibitions and another array of artworks for a more general gallery.
+This was reorganised into a collection of artworks with a Boolean indicators as to whether they were for exhibit as well as gallery.
+- The original exhibition collection would contain details of the annual exhibition for that year.
+- The activities collection will hold the date and time the activity will take place, an image to publicise the event, along with venue,
          duration and who will be leading the activity.
-    - With club administrators needing secured access to members details their login authentication details would be collected as 'users'.
-    - There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
-    - Decision made to store images externally to the database, with the database holding the image location on the server.
+- With club administrators needing secured access to members details their login authentication details would be collected as 'users'.
+- There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
+- Decision made to store images externally to the database, with the database holding the image location on the server.
       An example discussion of this issue [Images on database?](https://habiletechnologies.com/blog/better-saving-files-database-file-system/)
 
 ### Skeleton
@@ -106,6 +106,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 - Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
 - Subscriptions - allows administrator to send email reminders to members when subscriptions are due.
+- Applications - allows administrator to ascertain new applications and add information to become member.
 - Flag interest in activities - displays a count against each activity of interest shown.
 - Exhibition page showns images and artist names of all artworks flagged for exhibit in club's annual exhibition.
 - Gallery page shows all artworks of members in a carousel, whether for exhibition, or not. 

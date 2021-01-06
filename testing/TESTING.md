@@ -52,9 +52,14 @@ A redesign of the navigation bar with further drop-down options is called for.
 Currently the membership entry form validates at the server side only. So any invalid entries are only caught once a submission is attempted.
 Also only the initial input error is indicated, not many.
 
-- ![First input error](../testing/screenshots/membership_validation_serverside_1.jpg) only error indicated on selecting Submit button.
-- ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg) only shown once first input error has been amended and submitted.
-- ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) again only shown once previous errors amended and submitted.
+- ![First input error](../testing/screenshots/membership_validation_serverside_1.jpg)
+   Only error indicated on selecting Submit button.
+
+- ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg)
+   Only shown once first input error has been amended and submitted.
+   
+- ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) 
+  Again only shown once previous errors amended and submitted.
 
 ### Client-side form validation.
 
