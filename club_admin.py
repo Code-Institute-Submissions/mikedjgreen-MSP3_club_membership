@@ -231,6 +231,7 @@ def add_activity():
                 "description": request.form.get("description"),
                 "activity_time": request.form.get("activity_time"),
                 "activity_duration": request.form.get("activity_duration"),
+                "activity_location": request.form.get("activity_location"),
                 "lead_firstname": request.form.get("lead_firstname"),
                 "lead_lastname": request.form.get("lead_lastname"),
                 "added_by": session["user"],

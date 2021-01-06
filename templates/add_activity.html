@@ -16,6 +16,7 @@
                     <input id="description" name="description" type="text" 
                         minlength="10" maxlength="255" 
                         placeholder="min 10 chars, max 255 chars"
+                        onchange="act_desc()"
                         class="validate" required/>
                     <label for="description" 
                         title="Briefly describe activity">
@@ -51,18 +52,21 @@
                 <!--    Activity Duration   -->
                 <div class="row">
                     <div class="input-field col s12">                        
-                        <input id="activity_duration" name="activity_duration" type="text" 
+                        <input id="activity_duration" name="activity_duration" type="text"
+                            onchange="act_dur()" 
                             class="validate" required/>
                         <label for="activity_duration" 
                             title="To the nearest half hour">
                             Activity Duration
                         </label> 
+                        <p id="duration_error" class="help-block text-danger"></p>
                     </div>
                 </div>
                 <!--    Activity Location   -->
                 <div class="row">
                     <div class="input-field col s12">                        
-                        <input id="activity_location" name="activity_location" type="text" 
+                        <input id="activity_location" name="activity_location" type="text"
+                            onchange="act_loc()" 
                             class="validate" required/>
                         <label for="activity_location" 
                             title="Like 'village hall'">
@@ -79,7 +83,8 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="lead_firstname" name="lead_firstname" type="text" 
-                             minlength="2" maxlength="255" 
+                            minlength="4" maxlength="255"
+                            onchange="act_name('lead_firstname')" 
                             class="validate" required/>
                         <label for="lead_firstname" 
                             title="Organiser's first name">
@@ -88,7 +93,8 @@
                     </div>
                     <div class="input-field col s6">
                         <input id="lead_lastname" name="lead_lastname" type="text" 
-                            minlength="5" maxlength="255" 
+                            minlength="4" maxlength="255"
+                            onchange="act_name('lead_lastname')" 
                             class="validate" required/>
                         <label for="lead_lastname" 
                             title="Organiser's last name">
@@ -97,18 +103,18 @@
                     </div>
                 </div>        
                 <div class="row">
-                    <div class="col s6" >
-                        <!--   Submmit button   -->
-                        <button type="submit" class="btn-small red darken-4 text-shadow">
-                        Add Activity
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
                     <div class="col s6">
                         <!-- cancel button -->
                         <a href="{{ url_for('activities') }}" class="btn-small">
                         Cancel <i class="material-icons right">close</i>
                         </a>
+                    </div>
+                    <div class="col s6" >
+                        <!--   Submmit button   -->
+                        <button type="submit" class="btn-small red darken-4 text-shadow">
+                        Add Activity
+                        <i class="material-icons right">send</i>
+                        </button>
                     </div>
                 </div>                
             </div>

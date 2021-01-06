@@ -28,6 +28,8 @@ Separate testing documentation, linked to [README](../README.md)
 
 ## Initial Lighthouse Report.
 
+Using Chrome's Developer Tools [Lighthouse](https://developers.google.com/web/tools/lighthouse) to audit the site.
+This gave me the following report.
 [Lighthouse report 1](../testing/lighthouse_20201104_1413.html)
 
 - Adjusted the label font weight within css to fix:
@@ -57,7 +59,7 @@ Also only the initial input error is indicated, not many.
 
 - ![Second input error](../testing/screenshots/membership_validation_serverside_2.jpg)
    Only shown once first input error has been amended and submitted.
-   
+
 - ![Third input error](../testing/screenshots/membership_validation_serverside_3.jpg) 
   Again only shown once previous errors amended and submitted.
 
@@ -69,14 +71,19 @@ Notably that an error is captured before the client attempts to fill another fie
 - ![Forename Incorrect](../testing/screenshots/membership_validation_client_1.jpg)
     Forename entered with only 1 character. Flagged as error, displaying red background.
     Focus returned to field in error.
+
 - ![Surname incorrect](../testing/screenshots/membership_validation_client_2.jpg)   
     As with forename, validation behaves the same way.
+
 - ![Email address incorrect](../testing/screenshots/membership_validation_client_3.jpg) 
     The email validation relies on regular expression matches.
+
 - ![Phone number incorrect](../testing/screenshots/membership_validation_client_4.jpg)
     Phone number validates on numeric digits and hyphens, no alpha characters.
+
 - ![All validated](../testing/screenshots/membership_validation_client_5.jpg) 
     All textual input fields deemed valid, ready to submit application.
+
 - ![Application submitted](../testing/screenshots/membership_validation_client_6.jpg)
     The applicant gets feedback.
 
@@ -92,19 +99,25 @@ Tracing membership application to database and administration issues.
     Details for initial club membership.
     Sally has asked for family membership subscription. 
     She has not been given the option to close the form without submission.
+
 - ![Database entry](../testing/screenshots/member_application_2.jpg) 
     Details as seen on MongoDB Atlas. 
     There is no indication recorded of family subscription.
-- ![administration of application](../testing/screenshots/member_application_3.jpg). 
+
+- ![Administration of application](../testing/screenshots/member_application_3.jpg). 
     A club administrator, 'antonia', checks for new applications made on the website.
+
 - ![Applicant identified](../testing/screenshots/member_application_4.jpg).
     The applicant is identified by the club administrator. 
     Additional information, such as a portrait can now be added.
+
 - ![Applicant edit](../testing/screenshots/member_application_5.jpg). 
     Unfortunately the club administrator has no indication the the applicant wants family  subscription.
+
 - ![Applicant details finalised](../testing/screenshots/member_application_6.jpg)
     Assuming administrator has been in contact with applicant, either by given phone number or email address,
     the relevant details are applied.
+
     There is a default 'no image' jpeg file for portraits if the applicant either does not  have an image or does not wish to have one shown.
 - ![Database details of additions](../testing/screenshots/member_application_7.jpg)
     The applicant's details are recorded on the database.
@@ -118,7 +131,49 @@ Tracing membership application to database and administration issues.
 4. The application has been correctly identified to the club administrator, 
     and the applicant flag has been cleared once the applicant becomes a member.
 
+## Adding activities
+As with original membership application form validation, so with an administrator's new activity form, it is currently server-side validation only.
 
+- ![New Activity entry](../testing/screenshots/add_activity_1.jpg)
+    The initial invalid entry is marked, but the rest of the form can still be filled in, and sent to the server for validation.
+    Would be better to capture each invalid entry at the client side.
+
+- ![Invalid entries not captured](../testing/screenshots/add_activity_2.jpg)
+    Not all the fields have been validated by the server-side. 
+    Invalid (past) dates are allowed and terse locations.
+    Duration of activity should have a unit of measure.
+
+### Client-side form validation
+
+Introduced javascripted client-side validation to adding activity form.
+Using javascript's [regular expression](https://www.w3schools.com/js/js_regexp.asp) object to test for  a duration containing hour or minute.
+
+- ![Invalid duration](../testing/screenshots/add_activity_3.jpg)
+    The date of the activity can still be set to a past date.
+    Focus remains at the captured error, and an indication of what is invalid displayed.
+
+- ![Invalid location](../testing/screenshots/add_activity_4.jpg)
+    The duration having been corrected, the location is now found to be invalid.
+
+- ![Invalid Name](../testing/screenshots/add_activity_5.jpg)
+    Again the invalid field retains focus, before moving to next field to answer.
+
+- ![Valid form sent](../testing/screenshots/add_activity_6.jpg)
+    Currently the validated form is submitted, and a blank new activity form displayed.
+    Inspecting the newly entered activity on the activities list shows that the date is wrong, and no image associated.
+    These can be edited.
+- ![Activity details](../testing/screenshots/add_activity_7.jpg)
+    The details of the new activity unfortunately does not show the location, that was set on the form.
+
+#### Findings of activity client-side validation.
+
+- ![Database document](../testing/screenshots/add_activity_8.jpg)
+
+1. Date validation still needs to be implemented.
+2. Investigation needs to be done on missing location entry.
+3. Need to test that an activity image can be added.
+
+   
 
 
 ## Adding artworks into Gallery collection.

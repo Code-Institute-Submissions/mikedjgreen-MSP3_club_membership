@@ -86,6 +86,70 @@ function mem_phone() {
         document.getElementById("phone").style.fontWeight = "bold";
     }
 }
+
+/*
+    Add activity form client-side validation.
+    'onchange' event occurs when the element loses focus
+    if a field in error, retrieving focus.
+*/
+
+function act_name(field) {
+    var x = document.getElementById(field).value;
+    if ( x.length < 4 ) {
+        document.getElementById(field).style.backgroundColor = "red";
+        document.getElementById(field).focus();
+    } else {
+        document.getElementById(field).style.backgroundColor = clubBlue;
+        document.getElementById(field).style.color = "black";
+        document.getElementById(field).style.fontWeight = "bold";
+    }
+}
+
+function act_desc() {
+    var x = document.getElementById("description").value;
+    if ( x.length < 10 ) {
+        document.getElementById("description").style.backgroundColor = "red";
+        document.getElementById("description").focus();
+    } else {
+        document.getElementById("description").style.backgroundColor = clubBlue;
+        document.getElementById("description").style.color = "black";
+        document.getElementById("description").style.fontWeight = "bold";
+    }
+}
+
+function act_dur() {
+    var x = document.getElementById("activity_duration").value;
+    var patHour = new RegExp(/hour/i);
+    var patMin  = new RegExp(/min/i);
+    if ( patHour.test(x)) {
+        document.getElementById("activity_duration").style.backgroundColor = clubBlue;
+        document.getElementById("activity_duration").style.color = "black";
+        document.getElementById("activity_duration").style.fontWeight = "bold";
+        document.getElementById("duration_error").innerHTML = "";
+    } else if ( patMin.test(x) ) {
+        document.getElementById("activity_duration").style.backgroundColor = clubBlue;
+        document.getElementById("activity_duration").style.color = "black";
+        document.getElementById("activity_duration").style.fontWeight = "bold";
+        document.getElementById("duration_error").innerHTML = "";        
+    } else {    
+        document.getElementById("activity_duration").style.backgroundColor = "red";
+        document.getElementById("activity_duration").focus();
+        document.getElementById("duration_error").innerHTML = "Duration should contain hour and/or minute";
+    }    
+}
+
+function act_loc() {
+    var x = document.getElementById("activity_location").value;
+    if ( x.length < 10 ) {
+        document.getElementById("activity_location").style.backgroundColor = "red";
+        document.getElementById("activity_location").focus();
+    } else {
+        document.getElementById("activity_location").style.backgroundColor = clubBlue;
+        document.getElementById("activity_location").style.color = "black";
+        document.getElementById("activity_location").style.fontWeight = "bold";
+    }
+}
+
 /*
     Art Work buttons...
 */

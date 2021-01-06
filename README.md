@@ -71,6 +71,10 @@ This is to have a navigation bar for each page, with a header showing the identi
 - For accessibility the navigation will change to a sidebar for mobile viewports.
 - A coherent visual display across all pages should be presented to the browser of the site.
 
+The membership application form's number of input fields will be kept to a minimum. 
+This is to keep the applicant's experience as clear and concise as possible.
+The onus then is on the administrator to 'fill in the blanks' when needed.
+
 #### The information architecture
 
 Will be one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
@@ -120,6 +124,8 @@ The project concerns club membership, club activities, exhibitions and a record 
 - Further client-side form validation for administrators, such as editing artworks.
 - A cleaner, clearer procedure to ensure images arrive correctly on the server and recorded on artwork and member forms.
   Possibly utilizing an application such as [cloudinary](https://cloudinary.com/documentation).
+- As the number of club activities increase, and the number of exhibition artworks increase, 
+  there will be a need for limiting the intial page loads and implementation of pagination.  
 
 ## Technologies Used
 
