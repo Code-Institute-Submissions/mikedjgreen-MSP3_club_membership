@@ -169,6 +169,74 @@ function close_edit_artwork() {
 }
 
 /*
+    artworks form client-side validation.
+    'onchange' event occurs when the element loses focus
+    if a field in error, retrieving focus.
+*/
+
+function art_title() {
+    var x = document.getElementById("title").value;
+    if ( x.length < 10 ) {
+        document.getElementById("title").style.backgroundColor = "red";
+        document.getElementById("title").focus();
+    } else {
+        document.getElementById("title").style.backgroundColor = clubBlue;
+        document.getElementById("title").style.color = "black";
+        document.getElementById("title").style.fontWeight = "bold";
+    }
+}
+
+function art_image() {
+    var x = document.getElementById("image").value;
+    var pattern = 	new RegExp(/..\/static\/img\/gallery/);
+    if ( pattern.test(x)) {
+        document.getElementById("image").style.backgroundColor = "red";
+        document.getElementById("image").focus();
+    } else {
+        document.getElementById("image").style.backgroundColor = clubBlue;
+        document.getElementById("image").style.color = "black";
+        document.getElementById("image").style.fontWeight = "bold";
+    }
+}
+
+function art_artist() {
+    var x = document.getElementById("artist").value;
+    if ( x.length < 4 ) {
+        document.getElementById("artist").style.backgroundColor = "red";
+        document.getElementById("artist").focus();
+    } else {
+        document.getElementById("artist").style.backgroundColor = clubBlue;
+        document.getElementById("artist").style.color = "black";
+        document.getElementById("artist").style.fontWeight = "bold";
+    }
+}
+
+
+function art_media() {
+    var x = document.getElementById("media").value;
+    if ( x.length < 5 ) {
+        document.getElementById("media").style.backgroundColor = "red";
+        document.getElementById("media").focus();
+    } else {
+        document.getElementById("media").style.backgroundColor = clubBlue;
+        document.getElementById("media").style.color = "black";
+        document.getElementById("media").style.fontWeight = "bold";
+    }
+}
+
+function art_dim(field) {
+    var x = document.getElementById(field).value;
+    if ( x.length < 5 ) {
+        document.getElementById(field).style.backgroundColor = "red";
+        document.getElementById(field).focus();
+    } else {
+        document.getElementById(field).style.backgroundColor = clubBlue;
+        document.getElementById(field).style.color = "black";
+        document.getElementById(field).style.fontWeight = "bold";
+    }
+}
+
+/*
     Carousel specific method calls with jQuery, though being 
     phased out by Materialize..
 */

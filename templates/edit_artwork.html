@@ -19,6 +19,7 @@
 							<input type="text" class="form-control"
                                         name="title" id="title"
                                         value="{{ artworks.title }}"
+                                        onchange="art_title()"
                                         minlength="2" required
                                         data-validation-required-message="Please enter the artwork's title."/>
 							<p class="help-block text-danger"></p>
@@ -31,6 +32,7 @@
 							<input type="text" class="form-control"
                                         name="image" id="image"
                                         value="{{ artworks.image }}"
+                                        onchange="art_image()"
                                         minlength="23" required
                                         data-validation-required-message="Image filepath: (e.g.) ../static/img/gallery/no_image.jpg."/>
 							<p class="help-block text-danger"></p>
@@ -43,6 +45,7 @@
 							<input type="text" class="form-control"
                                         name="artist" id="artist"
                                         value="{{ artworks.artist }}"
+                                        onchange="art_artist()"
                                         minlength="4" required
                                         data-validation-required-message="Please enter the artist's name."/>
 							<p class="help-block text-danger"></p>
@@ -55,6 +58,7 @@
 							<input type="text" class="form-control"
                                         name="media" id="media"
                                         value="{{ artworks.media }}"
+                                        onchange="art_media()"
                                         minlength="5" required
                                         data-validation-required-message="Please the principal media used."/>
 							<p class="help-block text-danger"></p>
@@ -67,6 +71,7 @@
 							<input type="number" class="form-control"
                                         name="height" id="height"
                                         value="{{ artworks.height }}"
+                                        onchange="art_dim('height')"
                                         minlength="5" required
                                         data-validation-required-message="Please enter the artworks height in cm."/>
 							<p class="help-block text-danger"></p>
@@ -76,6 +81,7 @@
 							<input type="number" class="form-control"
                                        name="width" id="width"
                                        value="{{ artworks.width }}"
+                                       onchange="art_dim('width')"
                                        minlength="5" required
                                        data-validation-required-message="Please enter the artworks Width in cm."/>
 							<p class="help-block text-danger"></p>
@@ -121,17 +127,17 @@
 						</div>
                     </div>
 					<div class="row">
+                        <div class="col s6">
+                            <a href="{{ url_for('gallery') }}" class="btn-small blue waves-effect waves-green">
+                                Close <i class="material-icons right">close</i>
+                            </a>
+						</div>
 						<div class="col s6">                     
 							<button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
                                     type="submit">
                                     Edit Artwork
                                     <i class="material-icons right">send</i>
                             </button>
-						</div>
-						<div class="col s6">
-                            <a href="{{ url_for('gallery') }}" class="btn-small blue waves-effect waves-green">
-                                Close <i class="material-icons right">close</i>
-                            </a>
 						</div>
 					</div>
 				</form>

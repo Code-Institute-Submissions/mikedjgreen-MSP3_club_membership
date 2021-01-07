@@ -277,6 +277,41 @@ This becomes more pronounced on the smallest viewports...
 The art work was successfully added, as the flash message advises, but the user was not returned to  the gallery page.
 The art work form can be closed without entry, but does not seem to take advantage of MaterializeCSS's documented process.
 
+## Edit Artworks
+
+- ![Candidate to edit](../testing/screenshots/edit_artwork_1.jpg)
+
+    Artwork selected to edit. Has no image. Has been sold.
+
+- ![Initial Database entry](../testing/screenshots/edit_artwork_2.jpg)
+
+- ![Edited details](../testing/screenshots/edit_artwork_3.jpg)
+
+    There is no client-side validation.
+    The order of the close and edit buttons need to be reversed.
+
+ - ![actioned details](../testing/screenshots/edit_artwork_4.jpg)  
+   
+   Server-side validation of dimensions enforced.
+
+ - ![Database details changed](../testing/screenshots/edit_artwork_5.jpg) 
+
+    Amended details made it to the database.
+
+- ![Amended artwork displayed](../testing/screenshots/edit_artwork_6.jpg)
+
+    - The artwork was searched for by title.
+    - The 'Sold' indicator was correct.
+    - The image displayed as did the other amendments.
+
+#### Finding of editing artwork.
+The artwork is amendable.
+1. There is no client-side validation.
+2. The image name and location on the server nneds to be known before entry.
+3. The close and submit buttons are in reverse to othersite forms.
+
+
+
 ## Implementation of EmailJS API 
 The emailJS implementation is in response to the user story: 'As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
 '. Simple process testing of the EmailJS showed some procedural and functional shortcomings.
