@@ -179,7 +179,7 @@ Using javascript's [regular expression](https://www.w3schools.com/js/js_regexp.a
 2. Investigation needs to be done on missing location entry.
 3. Need to test that an activity image can be added.
 
-## Editing Activities   
+## Editing Activities.   
 Another administrative, CRUD, procedure is to be able to amend a posted club activity.
 
 - ![Edit Activity](../testing/screenshots/edit_activity_1.jpg)
@@ -203,7 +203,7 @@ Another administrative, CRUD, procedure is to be able to amend a posted club act
 - ![Client-side Validation](../testing/screenshots/edit_activity_6.jpg)
     **There is little or no client-side validation of the edit activity form.**
 
-### Client-side validation for edit activities
+### Client-side validation for edit activities.
 
 - ![Activity to edit](../testing/screenshots/edit_activity_7.jpg)
 
@@ -224,6 +224,27 @@ Another administrative, CRUD, procedure is to be able to amend a posted club act
 Although the client side validation has been introduced,**a bug has entered the works**.
 1. Activity Date will not display properly.
 2. An activity image can be added, but the server's image file and pathname must be known.
+
+## Deleting activities.
+
+Past activities need to be cleared from the activity list.
+
+- ![Dummy activity](../testing/screenshots/drop_activity_1.jpg)
+    A dummy activity has been added to the datbase to test deletion.
+
+- ![Dummy document](../testing/screenshots/drop_activity_2.jpg)
+    
+    The database document view.
+
+- ![The Only feedback](../testing/screenshots/drop_activity_3.jpg)
+    The only feedback from dropping the activity is a terse flash message.
+
+#### Findings from dropping activity.
+
+The deleting of an activity itself had no errors. 
+1. However, the lack of confirmation and terse feedback message leaves the administrator open to deleting the wrong activity by mistake.
+2. In the future it may be better to archive the past activity, for future reference. Especially if it is an instructional session with reference documentation to store.
+
 
 ## Adding artworks into Gallery collection.
 

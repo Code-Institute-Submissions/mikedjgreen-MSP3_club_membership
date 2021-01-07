@@ -320,15 +320,14 @@ def delete_activity(activity_id):
         Once an activity is identified, it can be dropped
         if cancelled, a past event or no interest shown.
     """
-    if request.method == "POST":
+    if session["user"]:
         query = {"_id": ObjectId(activity_id)}
         mongo.db.activities.delete_one(query)
         flash("** Thanks {}, activity deleted **".format(session["user"]))
-
-    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
-    return render_template("delete_activity.html",
-                           activity=activity,
-                           page_title="Delete Activity")
+    else:
+        flash("User not logged in to do this")
+        return redirect(url_for("login"))
+    return redirect(url_for("activities"))
 
 
 @app.route("/send_news/<activity_id>", methods=["GET", "POST"])
