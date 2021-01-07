@@ -5,6 +5,12 @@
     + [Client-side form validation.](#client-side-form-validation)
   * [Membership application](#membership-application)
     + [Findings of membership applications](#findings-of-membership-applications)
+  * [Adding activities](#adding-activities)
+    + [Client-side form validation](#client-side-form-validation)
+      - [Findings of activity client-side validation.](#findings-of-activity-client-side-validation)
+  * [Editing Activities](#editing-activities)
+    + [Client-side validation for edit activities](#client-side-validation-for-edit-activities)
+      - [Findings for editing activities.](#findings-for-editing-activities)
   * [Adding artworks into Gallery collection.](#adding-artworks-into-gallery-collection)
     + [Findings of initial artwork entry test](#findings-of-initial-artwork-entry-test)
   * [Implementation of EmailJS API](#implementation-of-emailjs-api)
@@ -20,7 +26,7 @@
     + [Size of Image Files](#size-of-image-files)
   * [Test Scripts](#test-scripts)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+_[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
 # Testing MSP3_club_membership.
 
