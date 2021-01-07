@@ -197,6 +197,27 @@ Another administrative, CRUD, procedure is to be able to amend a posted club act
 - ![Client-side Validation](../testing/screenshots/edit_activity_6.jpg)
     **There is little or no client-side validation of the edit activity form.**
 
+### Client-side validation for edit activities
+
+- ![Activity to edit](../testing/screenshots/edit_activity_7.jpg)
+
+- ![Database entry](../testing/screenshots/edit_activity_8.jpg)
+
+- ![Editing activity](../testing/screenshots/edit_activity_9.jpg)
+    The edit activity form, amended for client-side validation shows successful captures,
+     but also a flaw displaying activity date.
+
+- ![Completed edit](../testing/screenshots/edit_activity_10.jpg)
+    The edit completes, but the activity date is still not displayed.
+
+- ![Amended Database entry](../testing/screenshots/edit_activity_11.jpg)
+    Edit form successfully amends database.
+
+#### Findings for editing activities.
+
+Although the client side validation has been introduced,**a bug has entered the works**.
+1. Activity Date will not display properly.
+2. An activity image can be added, but the server's image file and pathname must be known.
 
 ## Adding artworks into Gallery collection.
 

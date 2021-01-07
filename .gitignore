@@ -10,3 +10,5 @@ testing/members_crud_menu.py
 testing/activities_insert.py
 asset-manifest.json
 manifest.webmanifest
+static/img/artclub192.png
+static/img/artclub512.png

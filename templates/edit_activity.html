@@ -36,6 +36,7 @@
                     <input id="description" name="description" type="text" 
                         minlength="10" maxlength="255" 
                         placeholder="min 10 chars, max 255 chars"
+                        onchange="act_desc()"
                         value="{{ activity.description }}"
                         class="validate" required/>
                     <label for="description" 
@@ -50,7 +51,7 @@
                 <!--    Activity Date       -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="activity_date" name="activity_date" type="text" 
+                        <input id="activity_date" name="activity_date" type="date" 
                             value="{{ activity.activity_date }}"
                             class="datepicker validate" required/>
                         <label for="activity_date" 
@@ -76,6 +77,7 @@
                     <div class="input-field col s12">                        
                         <input id="activity_duration" name="activity_duration" type="text"
                             value="{{ activity.activity_duration }}" 
+                            onchange="act_dur()"
                             class="validate" required/>
                         <label for="activity_duration" 
                             title="To the nearest half hour">
@@ -87,7 +89,8 @@
                 <div class="row">
                     <div class="input-field col s12">                        
                         <input id="activity_location" name="activity_location" type="text"
-                            value="{{ activity.activity_location }}" 
+                            value="{{ activity.activity_location }}"
+                            onchange="act_loc()" 
                             class="validate" required/>
                         <label for="activity_location" 
                             title="Like 'village hall'">
@@ -106,6 +109,7 @@
                         <input id="lead_firstname" name="lead_firstname" type="text" 
                             minlength="2" maxlength="255" 
                             value="{{ activity.lead_firstname }}" 
+                            onchange="act_name('lead_firstname')"
                             class="validate" required/>
                         <label for="lead_firstname" 
                             title="Organiser's first name">
@@ -115,7 +119,8 @@
                     <div class="input-field col s6">
                         <input id="lead_lastname" name="lead_lastname" type="text" 
                             minlength="5" maxlength="255"
-                            value="{{ activity.lead_lastname }}" 
+                            value="{{ activity.lead_lastname }}"
+                            onchange="act_name('lead_lastname')" 
                             class="validate" required/>
                         <label for="lead_lastname" 
                             title="Organiser's last name">
@@ -131,7 +136,8 @@
                         Cancel <i class="material-icons right hide-on-small-only">close</i>
                         </a>
                     </div>
-                    <div class="col s6">                 
+                    <div class="col s6">
+                        <!--   Submmit button   -->                 
                         <button type="submit" class="col s6 btn-small red darken-4">
                             Edit Activity
                             <i class="material-icons right hide-on-small-only">send</i>
