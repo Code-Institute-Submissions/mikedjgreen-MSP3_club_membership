@@ -173,7 +173,29 @@ Using javascript's [regular expression](https://www.w3schools.com/js/js_regexp.a
 2. Investigation needs to be done on missing location entry.
 3. Need to test that an activity image can be added.
 
-   
+## Editing Activities   
+Another administrative, CRUD, procedure is to be able to amend a posted club activity.
+
+- ![Edit Activity](../testing/screenshots/edit_activity_1.jpg)
+    Shows that the activity needs an image.
+
+- ![Document entry](../testing/screenshots/edit_activity_2.jpg)    
+    Pre amendment, the database also does not show the location of the activity.
+
+- ![Edit Activity Form](../testing/screenshots/edit_activity_3.jpg)
+    The image file name and relative path has been manually entered. 
+    This is the part that [cloudinary](https://cloudinary.com/documentation) may improve.
+    The location field is not populated, as found above.
+
+- ![Activity amended](../testing/screenshots/edit_activity_4.jpg)
+    The edit form submitted, the resulting edited activity is returned, with the image and location displayed.
+    Went back to amend the activity date from 2020 to 2021.
+
+- ![Database amended](../testing/screenshots/edit_activity_5.jpg)    
+    The edit form successfully amended details on the database document.
+
+- ![Client-side Validation](../testing/screenshots/edit_activity_6.jpg)
+    **There is little or no client-side validation of the edit activity form.**
 
 
 ## Adding artworks into Gallery collection.
