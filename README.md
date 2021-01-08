@@ -121,11 +121,15 @@ The project concerns club membership, club activities, exhibitions and a record 
 - A volunteer rosta for running the annual exhibition.
 - An administrator's view of those interested in activities. To inform of cancelations, etc.
 - A batch script to archive older artworks that have exhibited in previous years, have been sold, or by lapsed members.
-- Further client-side form validation for administrators, such as editing artworks.
 - A cleaner, clearer procedure to ensure images arrive correctly on the server and recorded on artwork and member forms.
   Possibly utilizing an application such as [cloudinary](https://cloudinary.com/documentation).
 - As the number of club activities increase, and the number of exhibition artworks increase, 
-  there will be a need for limiting the intial page loads and implementation of pagination.  
+  there will be a need for limiting the intial page loads and implementation of pagination.
+
+#### Features Testing has shown left to implement.    
+- Further client-side confirmation of deletions (members, activities and artworks) for administrators.
+- Date validation, especially validating against entering dates in the past.
+
 
 ## Technologies Used
 

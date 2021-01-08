@@ -5,6 +5,10 @@
     + [Client-side form validation.](#client-side-form-validation)
   * [Membership application](#membership-application)
     + [Findings of membership applications](#findings-of-membership-applications)
+  * [Editing member's details.](#editing-member-s-details)
+      - [Findings of member edit.](#findings-of-member-edit)
+  * [Drop member](#drop-member)
+      - [Findings of dropping art club member.](#findings-of-dropping-art-club-member)
   * [Adding activities](#adding-activities)
     + [Client-side form validation](#client-side-form-validation)
       - [Findings of activity client-side validation.](#findings-of-activity-client-side-validation)
@@ -142,6 +146,47 @@ Tracing membership application to database and administration issues.
     Possibly this is a task left for the web administrator.
 4. The application has been correctly identified to the club administrator, 
     and the applicant flag has been cleared once the applicant becomes a member.
+
+## Editing member's details.
+
+- ![Edit member](../testing/screenshots/edit_member_1.jpg)
+
+- ![Database edit](../testing/screenshots/edit_member_2.jpg)
+
+- ![Edit details](../testing/screenshots/edit_member_3.jpg)
+
+- ![Database amends](../testing/screenshots/edit_member_4.jpg)
+
+- ![Validation problem](../testing/screenshots/edit_member_5.jpg)
+
+Unfortunately there is no effective client-side validation for editing a member.
+
+- ![Phone number](../testing/screenshots/edit_member_6.jpg)
+
+Even server-side validation did not catch error in phone number.
+
+#### Findings of member edit.
+
+1. When entered properly the member's details can be altered on the database.
+2. No client-side validation.
+3. Server-side validation incomplete, allowed alphabetic phone number.
+
+
+## Drop member
+
+There comes a time when a membership lapses, or an error in application has occured.
+
+- ![Delete member](../testing/screenshots/delete_member_1.jpg)
+
+- ![Database candidate](../testing/screenshots/delete_member_2.jpg)
+
+- ![Member deleted](../testing/screenshots/delete_member_3.jpg)
+
+- ![Database check](../testing/screenshots/delete_member_4.jpg)
+
+
+#### Findings of dropping art club member.
+1. The lack of confirmation and terse feedback message leaves the administrator open to deleting the wrong member by mistake.
 
 ## Adding activities
 As with original membership application form validation, so with an administrator's new activity form, it is currently server-side validation only.
@@ -339,7 +384,7 @@ and therefore candidate for deletion.
 #### Findings of deleting artwork.
 
 The deletion was successful.
-1. As with dropping activity, the the lack of confirmation and terse feedback message leaves the administrator open to deleting the wrong artwork by mistake.
+1. As with dropping activity, the lack of confirmation and terse feedback message leaves the administrator open to deleting the wrong artwork by mistake.
 2. This example test was obviously a duplication, but there is a need to archive rather than delete artworks, even if they are sold and unexhibited.
 
 
