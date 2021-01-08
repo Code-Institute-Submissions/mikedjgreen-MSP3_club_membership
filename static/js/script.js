@@ -58,6 +58,18 @@ function mem_name(field) {
     }
 }
 
+function mem_bio() {
+    var x = document.getElementById("bio").value;
+    if ( x.length < 10 ) {
+        document.getElementById("bio").style.backgroundColor = "red";
+        document.getElementById("bio").focus();
+    } else {
+        document.getElementById("bio").style.backgroundColor = clubBlue;
+        document.getElementById("bio").style.color = "black";
+        document.getElementById("bio").style.fontWeight = "bold";
+    }
+}
+
 function mem_email() {
     var x = document.getElementById("email").value;
     var pattern = 	new RegExp("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+).([a-zA-Z]{2,5})$");

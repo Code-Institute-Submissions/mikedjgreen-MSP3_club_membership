@@ -32,6 +32,7 @@
                 <input type="text" class="form-control"  placeholder="Forename"
                         name="forename" id="forename"
                         value="{{ member.firstname }}"
+                        onchange="mem_name('forename')"
                         minlength="4" required
                         data-validation-required-message="Please enter your first name."/>
                 <p class="help-block text-danger"></p>
@@ -44,7 +45,8 @@
                 <input type="text" class="form-control" placeholder="Surname"
                         name="lastname" id="lastname"
                         value="{{ member.lastname }}"
-                        minlength="2" required
+                        onchange="mem_name('lastname')"
+                        minlength="4" required
                         data-validation-required-message="Please enter your last name."/>
                 <p class="help-block text-danger"></p>
             </div>
@@ -56,6 +58,7 @@
                 <input type="email" class="form-control" placeholder="Email Address"
                         name="email" id="email"
                         value="{{ member.email }}"
+                        onchange="mem_email()"
                         minlength="10" required
                         data-validation-required-message="Please enter your email address."/>
                 <p class="help-block text-danger"></p>
@@ -68,6 +71,7 @@
                 <input type="tel" class="form-control" placeholder="Phone Number"
                     name="phone" id="phone"
                     value="{{ member.phone }}"
+                    onchange="mem_phone()"
                     minlength="5" required
                     data-validation-required-message="Please enter your phone number."/>
             </div>
@@ -154,7 +158,8 @@
                 <input type="text" class="form-control flow-text" placeholder="Biography"
                         name="bio" id="bio"
                         value="{{ member.bio }}"
-                        minlength="2" required
+                        onchange="mem_bio()"
+                        minlength="10" required
                         data-validation-required-message="Please enter a short introduction."/>
                 <p class="help-block text-danger"></p>
             </div>
