@@ -8,11 +8,17 @@
   * [Adding activities](#adding-activities)
     + [Client-side form validation](#client-side-form-validation)
       - [Findings of activity client-side validation.](#findings-of-activity-client-side-validation)
-  * [Editing Activities](#editing-activities)
-    + [Client-side validation for edit activities](#client-side-validation-for-edit-activities)
+  * [Editing Activities.](#editing-activities)
+    + [Client-side validation for edit activities.](#client-side-validation-for-edit-activities)
       - [Findings for editing activities.](#findings-for-editing-activities)
+  * [Deleting activities.](#deleting-activities)
+      - [Findings from dropping activity.](#findings-from-dropping-activity)
   * [Adding artworks into Gallery collection.](#adding-artworks-into-gallery-collection)
     + [Findings of initial artwork entry test](#findings-of-initial-artwork-entry-test)
+  * [Edit Artworks](#edit-artworks)
+      - [Finding of editing artwork.](#finding-of-editing-artwork)
+  * [Deleting artworks](#deleting-artworks)
+      - [Findings of deleting artwork.](#findings-of-deleting-artwork)
   * [Implementation of EmailJS API](#implementation-of-emailjs-api)
     + [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
     + [EmailJS fixes](#emailjs-fixes)
@@ -230,7 +236,7 @@ Although the client side validation has been introduced,**a bug has entered the 
 Past activities need to be cleared from the activity list.
 
 - ![Dummy activity](../testing/screenshots/drop_activity_1.jpg)
-    A dummy activity has been added to the datbase to test deletion.
+    A dummy activity has been added to the database to test deletion.
 
 - ![Dummy document](../testing/screenshots/drop_activity_2.jpg)
     
@@ -238,6 +244,7 @@ Past activities need to be cleared from the activity list.
 
 - ![The Only feedback](../testing/screenshots/drop_activity_3.jpg)
     The only feedback from dropping the activity is a terse flash message.
+
 
 #### Findings from dropping activity.
 
@@ -307,9 +314,33 @@ The art work form can be closed without entry, but does not seem to take advanta
 #### Finding of editing artwork.
 The artwork is amendable.
 1. There is no client-side validation.
-2. The image name and location on the server nneds to be known before entry.
+2. The image name and location on the server needs to be known before entry.
 3. The close and submit buttons are in reverse to othersite forms.
 
+## Deleting artworks
+
+A search for an artwork via title 'Little Devils' revealed a possible duplication, 
+and therefore candidate for deletion.
+
+- ![Artwork Candidate](../testing/screenshots/delete_artwork_1.jpg)
+
+- ![Artwork deleted](../testing/screenshots/delete_artwork_2.jpg)
+
+    The artwork deleted, the administrator is taken back to the first artwork entry of the gallery list.
+
+- ![Database after deletion](../testing/screenshots/delete_artwork_3.jpg)
+
+    Only one artwork title of 'Little Devils' remains. 
+
+- ![Repeat search](../testing/screenshots/delete_artwork_4.jpg)   
+
+    The administrator searched for the same title again. Only one artwork returned.
+
+#### Findings of deleting artwork.
+
+The deletion was successful.
+1. As with dropping activity, the the lack of confirmation and terse feedback message leaves the administrator open to deleting the wrong artwork by mistake.
+2. This example test was obviously a duplication, but there is a need to archive rather than delete artworks, even if they are sold and unexhibited.
 
 
 ## Implementation of EmailJS API 

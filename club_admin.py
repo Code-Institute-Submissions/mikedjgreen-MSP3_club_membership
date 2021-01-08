@@ -323,7 +323,7 @@ def delete_activity(activity_id):
     if session["user"]:
         query = {"_id": ObjectId(activity_id)}
         mongo.db.activities.delete_one(query)
-        flash("** Thanks {}, activity deleted **".format(session["user"]))
+        flash("** Thanks {}, activity deleted **".format(session["user"])) 
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
