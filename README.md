@@ -172,7 +172,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 For the sake of brevity, the testing documentation has been separated and linked to a [TESTING document](testing/TESTING.md).
 
 ### HTML Validated
-[W3.org Validator](https://validator.w3.org/).
+[W3.org Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2F#l275c9)
 
 ### CSS Validated
 [W3C Validator](https://jigsaw.w3.org/css-validator) By Direct Input, of copied 'stylesheet.css'.
