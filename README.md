@@ -271,7 +271,7 @@ Register a Heroku account.
 
 Create new app ('msp3-club-membership') with an appropriately close region (Europe).
 
-![msp3-club-membership](/static/docs/screenshots/Heroku_App.jpg)
+![msp3-club-membership](/static/docs/screenshots/heroku_app.jpg)
 
 From Heroku's deploy tab the GitHub deployment method was selected.
 
@@ -288,7 +288,7 @@ Add the key:value pairs with the same settings as the 'env.py' file above. (No q
 
 Back to Heroku's deploy tab to ensure that Heroku's app picks up the GitHub's latest repository.
 
-![Enable Automatic Deploys](/static/docs/screenshots/Heroku_Auto_Deploy.jpg)
+![Enable Automatic Deploys](/static/docs/screenshots/heroku_auto_deploy.jpg)
 
 
 
