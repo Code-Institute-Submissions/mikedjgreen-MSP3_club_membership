@@ -172,10 +172,13 @@ The project concerns club membership, club activities, exhibitions and a record 
 For the sake of brevity, the testing documentation has been separated and linked to a [TESTING document](testing/TESTING.md).
 
 ### HTML Validated
-[W3.org Validator](https://validator.w3.org/nu/?doc=https://mikedjgreen.github.io/MSP3_club_membership/templates/base.html).
+[W3.org Validator](https://validator.w3.org/).
 
 ### CSS Validated
-[W3C Validator](https://jigsaw.w3.org/css-validator/validator?uri=https://github.com/mikedjgreen/MSP3_club_membership/tree/master/static/css/stylesheet.css).
+[W3C Validator](https://jigsaw.w3.org/css-validator) By Direct Input, of copied 'stylesheet.css'.
+
+- ![Valid CSS!](http://jigsaw.w3.org/css-validator/images/vcss)
+
 
 ### JavaScript tidied
 Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/)
