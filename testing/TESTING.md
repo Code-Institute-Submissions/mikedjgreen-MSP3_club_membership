@@ -303,28 +303,28 @@ The deleting of an activity itself had no errors.
 Initially tested [MaterializeCSS Carousel](https://materializecss.com/carousel.html) of artwork images and details within the Gallery page and collection.
 It is designed as an image slider and is touch compatible. The initial test had no direction buttons.
 Mouse slide:
-- ![Art works carousel](../testing/screenshots/Artworks_carousel_1.jpg)
-- ![Art works carousel](../testing/screenshots/Artworks_carousel_2.jpg)
-- ![Art works carousel](../testing/screenshots/Artworks_carousel_3.jpg)
+- ![Art works carousel](../testing/screenshots/artworks_carousel_1.jpg)
+- ![Art works carousel](../testing/screenshots/artworks_carousel_2.jpg)
+- ![Art works carousel](../testing/screenshots/artworks_carousel_3.jpg)
 
 Added initial artworks as an array into the Gallery documents, by using a [python script](../testing/artworks_insert.py). 
 To work properly the script will have to be moved back to the IDE's root directory, rather than the testing subdirectory.
 
 Added an artwork entry to an artworks array within a gallery document.
 
-- ![Initial Modal form](../testing/screenshots/Add_artwork_1.jpg)
-- ![Art work details filled](../testing/screenshots/Add_artwork_2.jpg)
-- ![Successfully added](../testing/screenshots/Add_artwork_3.jpg)  viewed at 50% zoom.
-- ![Gallery view](../testing/screenshots/Add_artwork_4.jpg) viewed at 50% zoom.
-- ![Database view](../testing/screenshots/Add_artwork_5.jpg)
+- ![Initial Modal form](../testing/screenshots/add_artwork_1.jpg)
+- ![Art work details filled](../testing/screenshots/add_artwork_2.jpg)
+- ![Successfully added](../testing/screenshots/add_artwork_3.jpg)  viewed at 50% zoom.
+- ![Gallery view](../testing/screenshots/add_artwork_4.jpg) viewed at 50% zoom.
+- ![Database view](../testing/screenshots/add_artwork_5.jpg)
 
 ### Findings of initial artwork entry test
 Although the entry form displayed well, it is too narrow for the image file entry.
 On a normal monitor screen at 100% zoom, the screen estate is not used well, and depends upon vertical scrolling.
-- ![Screen Estate issues](../testing/screenshots/Add_artwork_6.jpg)
+- ![Screen Estate issues](../testing/screenshots/add_artwork_6.jpg)
 
 This becomes more pronounced on the smallest viewports...
-- ![Small viewport](../testing/screenshots/Add_artwork_7.jpg)
+- ![Small viewport](../testing/screenshots/add_artwork_7.jpg)
 
 The art work was successfully added, as the flash message advises, but the user was not returned to  the gallery page.
 The art work form can be closed without entry, but does not seem to take advantage of MaterializeCSS's documented process.
@@ -396,30 +396,30 @@ The API key was hardcoded into the javascript file, again not ideal.
 
 The button to initiate email reminders appears on the membership page.
 One problem is that this would appear to remind all members of their subscription renewals, whether they have paid, or not.
-- ![Initial EmailJS appearance](../testing/screenshots/EmailJS_1.jpg)
+- ![Initial EmailJS appearance](../testing/screenshots/email_js_1.jpg)
 The same email reminder button is also placed against each member entry.
-- ![Each member entry](../testing/screenshots/EmailJS_2.jpg)
+- ![Each member entry](../testing/screenshots/email_js_2.jpg)
 The  form that is opened by the button (against a paid member) contains the correct information, but is not labeled as such.
 Also the email account used to send the email is a private email account.
-- ![EmailJS form](../testing/screenshots/EmailJS_3.jpg)
+- ![EmailJS form](../testing/screenshots/email_js_3.jpg)
 Closing the reminder form returns the administrator to the members page correctly.
 
 Selecting 'Membership Dues' button takes the administrator to the membership dues list where the reminder emails are to be used.
-- ![Members due renewal](../testing/screenshots/EmailJS_4.jpg)
+- ![Members due renewal](../testing/screenshots/email_js_4.jpg)
 
 Selecting 'Send Reminders' now displays a member's details accurately, although the labels are still needed:
-- ![Member due renewal form](../testing/screenshots/EmailJS_5.jpg)
+- ![Member due renewal form](../testing/screenshots/email_js_5.jpg)
 
 For further testing of the email, the selected member's email account has been amended to one accessible for the test.
-- ![Member received email](../testing/screenshots/EmailJS_6.jpg)
+- ![Member received email](../testing/screenshots/email_js_6.jpg)
 
 This compares with the club's EmailJS template for members renewals.
-- ![EmailJS template](../testing/screenshots/EmailJS_7.jpg)
+- ![EmailJS template](../testing/screenshots/email_js_7.jpg)
 
 Unfortunately when another renewal member's email reminder is selected:
-- ![Another member due renewal](../testing/screenshots/EmailJS_8.jpg)
+- ![Another member due renewal](../testing/screenshots/email_js_8.jpg)
 ..the first member on the due list is still selected..
-- ![Not Gale](../testing/screenshots/EmailJS_9.jpg)
+- ![Not Gale](../testing/screenshots/email_js_9.jpg)
 
 This leads to two failures, 
 1. the inability to select members to remind by email.
@@ -434,24 +434,24 @@ This leads to two failures,
 6. The reminder sent successfully, a flag should be set indicating that the member has been emailed with a reminder.
 
 ### EmailJS fixes
-1. The service is connected to a more club oriented account: ![Club email account](../testing/screenshots/EmailJS_10_fix.jpg).
-4. The reminder should pick up the member in focus: ![Gale due](../testing/screenshots/EmailJS_12_fix1.jpg)
-            ...which leads to:    ![Gale reminder](../testing/screenshots/EmailJS_12_fix2.jpg)
-5. The reminder form has been reconfigured:  ![Reminder form](../testing/screenshots/EmailJS_11_fix.jpg).
+1. The service is connected to a more club oriented account: ![Club email account](../testing/screenshots/email_js_10_fix.jpg).
+4. The reminder should pick up the member in focus: ![Gale due](../testing/screenshots/email_js_12_fix1.jpg)
+            ...which leads to:    ![Gale reminder](../testing/screenshots/email_js_12_fix2.jpg)
+5. The reminder form has been reconfigured:  ![Reminder form](../testing/screenshots/email_js_11_fix.jpg).
 
 ## Recording interest in club activites.
 Testing the ability to flag a member's interest in an upcoming club activity.
 
 The activities page contains a button to help a viewer indicate their interest in an event.
-- ![Activities Page flag interest](../testing/screenshots/Flag_interest_1.jpg)
+- ![Activities Page flag interest](../testing/screenshots/flag_interest_1.jpg)
 The viewer is presented with a flag interest form.
-- ![Flag Interest form](../testing/screenshots/Flag_interest_2.jpg)
+- ![Flag Interest form](../testing/screenshots/flag_interest_2.jpg)
 The viewer elects to indicate interest.
-- ![Returns message](../testing/screenshots/Flag_interest_3.jpg)
+- ![Returns message](../testing/screenshots/flag_interest_3.jpg)
 The collection activities' document for the selected activity has had an interest recorded.
-- ![Activity document](../testing/screenshots/Flag_interest_4.jpg) 
+- ![Activity document](../testing/screenshots/flag_interest_4.jpg) 
 The next interest shown in the activities overwrites the previous interest.
-- ![Activity interest overwritten](../testing/screenshots/Flag_interest_5.jpg)
+- ![Activity interest overwritten](../testing/screenshots/flag_interest_5.jpg)
 
 ### Findings of intiial activity interest flag.
 1. The form needs further styling.
@@ -469,13 +469,13 @@ A user story has led to the need for a second EmailJS API implementation.
 "As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club."
 A personal email account was eschewed in favour of a generic club account name.
 A button appears for a logged in administrative user for each activity.
-- ![Email news](../testing/screenshots/EmailJS_news_1.jpg)
+- ![Email news](../testing/screenshots/email_js_news_1.jpg)
 
  This allows the administrator to view a form to be sent to each paid member of an activities details.
- - ![Email News Form](../testing/screenshots/EmailJS_news_2.jpg)
+ - ![Email News Form](../testing/screenshots/email_js_news_2.jpg)
 
  The email is sent to the paid-up member of a new club activity's details.
- - ![Email news post](../testing/screenshots/EmailJS_news_3.jpg)
+ - ![Email news post](../testing/screenshots/email_js_news_3.jpg)
 
 ### Findings of initial EmailJS News implementation.
 1. Unlike the initial members' dues reminder, the activity news email used a generic club email account.
@@ -487,8 +487,8 @@ A button appears for a logged in administrative user for each activity.
 7. The functionality currently only allows one email to be sent to one member at a time.
 
 ### EmailJS News fixes
-1. The date of the activity appears more 'human' on the email form: ![Email form fix](../testing/screenshots/EmailJS_news_fix1.jpg).
-2. The date is emailed to a member: ![Email post fix](../testing/screenshots/EmailJS_news_fix2.jpg).
+1. The date of the activity appears more 'human' on the email form: ![Email form fix](../testing/screenshots/email_js_news_fix1.jpg).
+2. The date is emailed to a member: ![Email post fix](../testing/screenshots/email_js_news_fix2.jpg).
 3. The EmailJS documentation states 'total size of the dynamic variables cannot exceed 50kb' which may explain the loss of the 'led by' name. 
 - [Restrictions](https://www.emailjs.com/docs/user-guide/dynamic-variables-templates/#restrictions)
 
@@ -513,3 +513,31 @@ These are found in the testing subdirectory:
 - [Exhibition CRUD menu](../testing/exhibition_crud_menu.py)
 - [Members insert](../testing/members_insert.py)
 - [Members CRUD menu](../testing/members_crud_menu.py)
+
+## Responsiveness Testing
+
+Using [Am I Responsive](http://ami.responsivedesign.is/)
+
+- ![AmIResponsive](../testing/screenshots/responsive_1.jpg)
+
+Using URL: [Exhibition](https://msp3-club-membership.herokuapp.com/exhibition)
+
+- ![AmIStillResponsive](../testing/screenshots/responsive_2.jpg)
+
+Using URL: [Activities](https://msp3-club-membership.herokuapp.com/activities)
+
+- ![ResponiveForMembers](../testing/screenshots/responsive_3.jpg)
+
+Using URL: [Membership](https://msp3-club-membership.herokuapp.com/membership)
+
+### Testing different screen sizes:
+
+Chrome's Inspect emulator |	width	| breakpoint
+--------------------------|---------|-------------
+Nokia Lumia	|320px	|(default)
+Nexus 7	    |600px	|s
+iPad :	    |768px	|m
+Kindle Fire:	        |800px|	m
+iPad Pro:	            |1024px|	l
+Laptop with MDPI screen	|1280px|	xl
+
