@@ -281,6 +281,10 @@ function disableCRUD() {
     $(".crud-btn").css("display","none");
 }
 
+function enableRemind() {
+    $(".remind-btn").css("display","block");
+}
+
 function setSession(username) {
     sessionStorage.setItem("logged",username);
 }

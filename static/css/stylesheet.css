@@ -92,8 +92,7 @@ body{
 
 .card-image {
     border-radius:inherit;
-    resize: both;
-    overflow: scroll;
+    max-width: 100%;
 }
 
 .card-content {
@@ -193,7 +192,7 @@ div.exhibit_details {
     color:black;
 }
 
-.buttom {
+.button {
     font-weight: bold;
 }
 
@@ -205,6 +204,7 @@ div.exhibit_details {
 .crud-btn {
     display: none;
     margin: 5px 0px 5px 0px;
+    max-width: fit-content;
 }
 
 .remind-btn {
