@@ -179,7 +179,7 @@
         {% if artworks %}
 			{% for artwork in artworks %}
 			<div class="carousel-item" >
-				<div class="card">
+				<div class="card hoverable">
 					<div class="row">
 						<div class="col s4">
 							<div class="card-image waves-effect waves-block waves-light">
@@ -190,9 +190,17 @@
 						</div>
 						<div class="col s8">
 						    <div class="card-content">
-								<span class="card-title grey-text text-darken-4">
+								<span class="card-title  activator grey-text text-darken-4">
                                 {{ artwork['title'] }} <small>({{ loop.index }} of {{ loop.length }})</small>
+                                <i class="material-icons right">more_vert</i>
                                 </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row card-reveal">
+                        <div class="col s12 ">
+                            <span class="card-title grey-text text-darken-4">{{ artwork['title'] }}
+                                <i class="material-icons right">close</i></span>            
 								<ul>
 								    <li>Artist: {{ artwork['artist'] }}</li>
 									<li>Media: {{ artwork['media'] }}</li>
@@ -208,8 +216,12 @@
                                     {% else %}
                                         <li>Exhibit: {{ artwork['exhibit'] }}</li>
                                     {% endif %}    
-                                </ul>       
-                                <ul>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">                   
+                            <ul>
                                     <li>
                                         <a href="{{ url_for('edit_artwork', art_id=artwork['_id']) }}" 
                                                 class="btn-small black-text light-blue crud-btn">
@@ -224,12 +236,11 @@
                                                 <i class="material-icons right hide-on-small-only">delete</i>
                                         </a>
                                     </li> 
-                                </ul>        
-                            </div>    
-                        </div>        
-                    </div>                      
-				</div> 
-		</div>  
+                            </ul>        
+                        </div>    
+                    </div>        
+                </div>                      
+            </div>
             <div class="carousel-fixed-item center">
                 <div class="row">
                     <div class="col s3">
