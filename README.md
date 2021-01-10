@@ -185,10 +185,10 @@ For the sake of brevity, the testing documentation has been separated and linked
 
 ### JavaScript tidied
 Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/)
->There are 23 functions in this file.
+>There are 33 functions in this file.
 >Function with the largest signature take 1 arguments, while the median is 0.
->Largest function has 10 statements in it, while the median is 1.
->The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+>Largest function has 15 statements in it, while the median is 3.
+>The most complex function has a cyclomatic complexity value of 3 while the median is 1.
 
 ### PEP8 compliant python code
 Passed code through [PEP8](http://pep8online.com/).
