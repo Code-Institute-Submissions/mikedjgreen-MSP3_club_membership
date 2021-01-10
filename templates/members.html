@@ -10,7 +10,7 @@
             <div class="row center-align">
                 <div class="input-field col s12 m8">
                     <i class="prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="memberquery" minlength="3" class="validate" required>
+                    <input type="text" name="memberquery" id="memberquery" minlength="3" class="validate" required>
                     <label for="memberquery">Search Members</label>
                 </div>
                 <div class="col s12 m4">
@@ -98,20 +98,20 @@
              <br>
 
             <!-- Modal EmailJS subs renewal reminder form --> 
-            <div class="modal">
+            <div id="emailreminder" class="modal">
                 <div class="modal-content">
                     <h4>Email Membership Reminder Form</h4>
                         <form onsubmit="return sendMail(this);" class="col s12 m8 offset-m2">
                             <label for="member">Full Name</label>
-                            <input type="text" name="member" class="form-control" value="{{member.firstname }} {{member.lastname}}" required /><br/>
+                            <input type="text" name="member" id="fullname" class="form-control" value="{{member.firstname }} {{member.lastname}}" required /><br/>
                             <label for="target">Member's email address</label>
-						    <input type="email" name="target" class="form-control" value="{{ member.email }}" required /><br/>
+						    <input type="email" name="target" id="emailaddress" class="form-control" value="{{ member.email }}" required /><br/>
                             <label for="member">Annual Subscription &pound;</label>
-						    <input type="text" name="dues" class="form-control" value="20.00" required /><br/>
+						    <input type="text" name="dues" id="dues" class="form-control" value="20.00" required /><br/>
                             <label for="name">From</label>
-                            <input type="text" name="name" class="form-control" value="Prickwillow Art Club" required /><br/>
+                            <input type="text" name="name" id="from_name" class="form-control" value="Prickwillow Art Club" required /><br/>
                             <label for="email">reply to</label>
-                            <input type="text" name="email" class="form-control" value="prickwillowartclub@gmail.com" required /><br/>
+                            <input type="text" name="email" id="from_email" class="form-control" value="prickwillowartclub@gmail.com" required /><br/>
 						    <div class="form-row text-center">
 							    <div class="col s6">
 								    <button type="submit" class="btn-small">

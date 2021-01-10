@@ -175,6 +175,7 @@ For the sake of brevity, the testing documentation has been separated and linked
 - [W3.org Validator for home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2F#l275c9)
 - [W3.org Validator for activities](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Factivities#l110c55)
 - [W3.org Validator for exhibition](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fexhibition#l104c25)
+- [W3.org Validator for membership](https://validator.w3.org/nu/?doc=http%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fmembership#l275c9)
 
 
 ### CSS Validated
