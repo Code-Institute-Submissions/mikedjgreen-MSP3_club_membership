@@ -394,6 +394,7 @@ def exhibition():
 
 
 @app.route("/")
+@app.route("/gallery")
 def gallery():
     """
         Displays a 'gallery' of members works
@@ -668,11 +669,6 @@ def logout():
     """
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("logoff"))
-
-
-@app.route("/logoff")
-def logoff():
     return render_template("log_off.html", page_title="Logged Off")
 
 
