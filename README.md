@@ -56,11 +56,14 @@ Administrators also need the ability to enter membership details if the requesto
 ### Scope
 
 The minimum viable product would be the ability to record membership and show artwork in some easy to view way.
-Following administrative Create, Read, Update and Delete (CRUD) procedures. 
+Following administrative Create, Read, Update and Delete (CRUD) procedures for membership and artworks. 
 * Storing membership details with limited access. 
 * Associate the members with details, including stored images, of their work.
 * Ability to display club members work.
 * Facility to publicise events and activities run by club members.
+* Login and logout to limit CRUD procedures to administrators only.
+* Ability to search for artworks on title or artist.
+
 
 
 ### Structure
@@ -74,6 +77,16 @@ This is to have a navigation bar for each page, with a header showing the identi
 The membership application form's number of input fields will be kept to a minimum. 
 This is to keep the applicant's experience as clear and concise as possible.
 The onus then is on the administrator to 'fill in the blanks' when needed.
+
+The casual browser of the site will be presented with images of club member's artworks to scroll through.
+They will have an option on the navigation bar to apply for membership.
+
+A logged-in administrator has further options to:
+- maintain a member's list.
+- maintain artworks.
+- add and remove artworks from the exhibition page.
+- maintain the club activities page.
+
 
 #### The information architecture
 
@@ -95,7 +108,7 @@ This was reorganised into a collection of artworks with a Boolean indicators as 
 
 ### Surface
 
-* The backround colour will be the muted pale blue of #D9E6F3.
+* The backround colour for the header and footer will be the muted pale blue of #D9E6F3.
 * The font chosen will be Roboto.
 * The 'coherent visual display' will be provided by the MaterializeCSS framework.
 
@@ -186,9 +199,11 @@ For the sake of brevity, the testing documentation has been separated and linked
 
 ### JavaScript tidied
 Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/)
->There are 33 functions in this file.
+
+#### Metrics
+>There are 34 functions in this file.
 >Function with the largest signature take 1 arguments, while the median is 0.
->Largest function has 15 statements in it, while the median is 3.
+>Largest function has 15 statements in it, while the median is 2.5.
 >The most complex function has a cyclomatic complexity value of 3 while the median is 1.
 
 ### PEP8 compliant python code
