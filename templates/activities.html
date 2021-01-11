@@ -28,8 +28,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col s8 m6">
-                    <span class="card-title"> {{ activity.description }} </span>
+                <div class="col s8 m6  card-title">
+                    <span> {{ activity.description }} </span>
                     <div class="row flag-interest">
                         <div class="col s8 m6 flag-interest">
                             <a href="{{ url_for('flag_activity', activity_id=activity._id) }}"
@@ -56,7 +56,7 @@
             <div class="card-content">
                 <div class="row">
                     <div class="col s12">
-                        <span class="card-title activator grey-text text-darken-4">
+                        <span class="card-date activator grey-text text-darken-4">
                             Date and time: {{ activity.activity_date.strftime("%A")}}
                             {{ activity.activity_date.strftime("%d")}}
                             {{ activity.activity_date.strftime("%B")}}
@@ -67,14 +67,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s4 m6">
                         <a href="{{ url_for('edit_activity', activity_id=activity._id) }}"
                             class="btn-small crud-btn black-text light-blue lighten-1">
                             Edit
                             <i class="material-icons right hide-on-small-only">edit</i>
                         </a>
                     </div>
-                    <div class="col s6">
+                    <div class="col s8 m6">
                         <a href="{{ url_for('send_news', activity_id=activity._id) }}"
                             class="btn-small crud-btn black-text light-blue lighten-1 remind-btn">
                             Send News
