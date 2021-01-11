@@ -111,6 +111,7 @@ This was reorganised into a collection of artworks with a Boolean indicators as 
 * The backround colour for the header and footer will be the muted pale blue of #D9E6F3.
 * The font chosen will be Roboto.
 * The 'coherent visual display' will be provided by the MaterializeCSS framework.
+* Any delete/drop (cruD) button should be coloured red.
 
 
 ## Features

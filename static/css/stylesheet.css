@@ -96,11 +96,18 @@ body{
 }
 
 .card-content {
-    padding: 1rem;
+    padding: 1rem !important;
 }
 
 .card-title {
+    overflow: auto;
+    height:auto;
+    text-overflow: ellipsis;
+}
+
+.card-date {
     font-size: 1rem;
+    font-weight: bolder;
 }
 
 .indicator-item {
@@ -139,8 +146,10 @@ div.gallery img {
 }
 
 div.exhibit_details {
-  padding: 15px;
   text-align: center;
+  overflow: auto;
+  height:auto;
+  text-overflow: ellipsis;
 }
 
 .responsive {
@@ -149,18 +158,6 @@ div.exhibit_details {
   width: 24.99999%;
 }
 
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-  }
-}
 
 .clearfix:after {
   content: "";
@@ -209,6 +206,8 @@ div.exhibit_details {
 
 .remind-btn {
     margin: 5px 0px 5px 0px;
+    max-width: fit-content;
+    font-weight: bolder;
 }
 
 /*--------------------------------------------Footer   */

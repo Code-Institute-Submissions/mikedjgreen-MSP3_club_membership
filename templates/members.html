@@ -50,8 +50,8 @@
                             </div>
                         </div>  
                         <div class="col s6">
-                            <div class="row">
-                                <span class="card-title black-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}</span>
+                            <div class="row card-title">
+                                <span class="black-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}</span>
                             </div>  
                             <div class="row">
                                 <a href="{{ url_for('edit_member', member_id=member._id) }}" 
