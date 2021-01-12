@@ -35,6 +35,14 @@
   * [Experiencing some load speed issues](#experiencing-some-load-speed-issues)
     + [Size of Image Files](#size-of-image-files)
   * [Test Scripts](#test-scripts)
+  * [Responsiveness Testing](#responsiveness-testing)
+    + [Testing different screen sizes:](#testing-different-screen-sizes-)
+  * [Second Lighthouse Report](#second-lighthouse-report)
+    + [Best Practices.](#best-practices)
+    + [Performance.](#performance)
+      - [Lazy Loading](#lazy-loading)
+      - [Size images](#size-images)
+      - [Render blocking resources](#render-blocking-resources)
 
 _[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
@@ -578,6 +586,15 @@ Another opportunity presented by the report is to properly size images.
 
 ![Size Images](../testing/screenshots/performance_5.jpg)
 
+Used [jpeg optimzer](http://jpeg-optimizer.com/) to reduce the main images causing the performance degradation:
+- to a width of 116px,
+- renaming the images *_sm.jpg,
+- editing the gallery artworks to pick up the *_sm.jpg images.
+     Via the existing CRUD functionality.
+
+This increased the performance score to 73.
+
+![Performance 73](../testing/screenshots/performance_7.jpg)
 
 #### Render blocking resources
 Another opportunity presented by the report is to eliminate render blocking resources.
@@ -585,4 +602,4 @@ Another opportunity presented by the report is to eliminate render blocking reso
 ![Render Blocking](../testing/screenshots/performance_6.jpg)
 
 It identifies scripts and stylesheets that may slow down page loads.
-Scripts should have boolean attribute ```async``` or ```defer``` set, without either the page parsing is delayed.
+Scripts should have boolean attribute ```async``` or ```defer``` set, without either, the page parsing is delayed.
