@@ -541,3 +541,48 @@ Kindle Fire:	        |800px|	m
 iPad Pro:	            |1024px|	l
 Laptop with MDPI screen	|1280px|	xl
 
+
+
+## Second Lighthouse Report
+
+### Best Practices.
+
+Followed Best Practices advice about 3rd part links using ```target="_blank"```.
+Links to cross-origin destinations are unsafe.
+[Links unsafe](https://web.dev/external-anchors-use-rel-noopener/?utm_source=lighthouse&utm_medium=devtools)
+```rel="noopener"```
+
+### Performance.
+
+Lighthouse performance report, especially for gallery page was low, as low as score 28.
+
+![Low performance for gallery](../testing/screenshots/performance_1.jpg)
+
+#### Lazy Loading
+One opportunity the report provides to pursue is 'lazy-loading'.
+
+[Lazy Loading](https://web.dev/native-lazy-loading/) such as:
+```<img src="image.png" loading="lazy"```
+
+![Lazy loading opportunity](../testing/screenshots/performance_2.jpg)
+
+By installing lazy-loading the performance score  was raised to 55.
+
+![Lazy loading installed](../testing/screenshots/performance_3.jpg)
+
+The 'defer offscreen images' audit was passed.
+![Defer images](../testing/screenshots/performance_4.jpg)
+
+#### Size images
+Another opportunity presented by the report is to properly size images.
+
+![Size Images](../testing/screenshots/performance_5.jpg)
+
+
+#### Render blocking resources
+Another opportunity presented by the report is to eliminate render blocking resources.
+
+![Render Blocking](../testing/screenshots/performance_6.jpg)
+
+It identifies scripts and stylesheets that may slow down page loads.
+Scripts should have boolean attribute ```async``` or ```defer``` set, without either the page parsing is delayed.

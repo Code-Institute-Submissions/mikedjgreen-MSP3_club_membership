@@ -183,9 +183,16 @@
 					<div class="row">
 						<div class="col s4">
 							<div class="card-image waves-effect waves-block waves-light">
-								<img class="activator responsive-img"
-                                     src="{{ artwork['image'] }}"
-                                     alt="artwork image" width="600" />
+                                {% if loop.index == 1 %}
+								    <img class="activator responsive-img"
+                                        src="{{ artwork['image'] }}"
+                                        alt="artwork image" width="600" />
+                                {% else %}
+                                    <img class="activator responsive-img"
+                                         loading="lazy"
+                                         src="{{ artwork['image'] }}"
+                                         alt="artwork image" width="600" />
+                                {% endif %}        
                             </div>
 						</div>
 						<div class="col s8">
