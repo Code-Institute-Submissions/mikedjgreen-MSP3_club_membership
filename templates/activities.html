@@ -23,8 +23,14 @@
                 <div class="col s4 m6">
                     <div class="card-image waves-effect waves-block waves-light">
                         <a target="_blank" href="{{ activity.activity_image }}">
-                            <img class="activator responsive-img" src="{{ activity.activity_image }}"
-                                alt="activity image">
+                            {% if loop.index == 1 %}
+                                <img class="activator responsive-img" src="{{ activity.activity_image }}"
+                                    alt="activity image" width="600">
+                            {% else %}
+                                <img class="activator responsive-img" src="{{ activity.activity_image }}"
+                                    loading="lazy"
+                                    alt="activity image" width="600">
+                            {% endif %}        
                         </a>
                     </div>
                 </div>
@@ -106,9 +112,9 @@
                 activity image file: {{ activity.activity_image }} <br>
                 interest shown:
                 {% for flag in activity.interest %}
-                {% if loop.last %}
-                {{ loop.length }}
-                {% endif %}
+                    {% if loop.last %}
+                        {{ loop.length }}
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
