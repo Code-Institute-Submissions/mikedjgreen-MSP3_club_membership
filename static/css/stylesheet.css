@@ -210,6 +210,14 @@ div.exhibit_details {
     font-weight: bolder;
 }
 
+/*
+    reminder page initially hides form submit button
+*/
+
+#btnSend {
+    display: none;
+}
+
 /*--------------------------------------------Footer   */
 
 footer {

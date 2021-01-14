@@ -299,25 +299,40 @@ function unsetSession() {
     Using EmailJS API to send reminder emails to members to renew their subscription.
     ServiceId = gmail
     TemplateID = msp3
+    Called from reminder.html
 */
-function sendMail(contactForm) {
+function sendMail() {
+    var target = document.getElementById("target").value;
+    var fullname = document.getElementById("fullname").value;
+    var fromName = document.getElementById("from_name").value;
+    var fromEmail = document.getElementById("from_email").value;
+    var duesInput = document.getElementById("dues").value;
+
+    var btn = document.getElementById("btnRemind");
+    var btnText = document.createTextNode("sendMail FAILED");
+
     emailjs.send("gmail", "msp3", {
-        "to_email": contactForm.target.value,
-        "from_name": contactForm.from_name.value,
-        "from_email": contactForm.from_email.value,
-        "to_member": contactForm.fullname.value,
-        "membership_dues" : contactForm.dues.value
+        "to_email": target,
+        "from_name": fromName,  // "Prickwillow Art Club",
+        "from_email": fromEmail, //"prickwillowartclub@gmail.com",
+        "to_member": fullname,
+        "membership_dues": duesInput // "20.00"
     })
     .then(
         function(response) {
-            console.log("SUCCESS", response.status, response.text);
+            btn.remove();
+            document.getElementById("btnLand").innerHTML = "<b>REMINDED</b>";
+            $("#btnSend").css("display","block");
         },
         function(error) {
-            console.log("FAILED", error);
+            console.log("sendMail FAILED", error);
+            btn.appendChild(btnText);
+            $("#btnSend").css("display","none");
         }
     );
     return false;  // To block from loading a new page
 }
+
 /*
     Display the email reminder form to send dues
 */
@@ -329,6 +344,13 @@ function show_reminder() {
 
 function close_reminder() {
     $("#emailreminder").css("display","none");
+    var txt = document.getElementById("btnLand").innerHTML;
+    var patRemind = new RegExp(/reminded/i);
+    if ( patRemind.text(txt) ) {
+
+    } else {
+
+    }
 }
 
 function display_reminder() {
@@ -358,10 +380,10 @@ function sendNews(contactForm) {
     })
     .then(
         function(response) {
-            console.log("SUCCESS", response.status, response.text);
+            console.log("sendNews SUCCESS", response.status, response.text);
         },
         function(error) {
-            console.log("FAILED", error);
+            console.log("sendNews FAILED", error);
         }
     );
     return false;  // To block from loading a new page

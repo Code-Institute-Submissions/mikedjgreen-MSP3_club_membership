@@ -7,11 +7,14 @@
 
 <div id="emailreminder" class="remind-content">
     <h4>Email Membership Reminder Form</h4>
-            <form onsubmit="return sendMail(this);" method="POST" >
+            <form  method="POST" 
+                   onsubmit="{{ url_for('reminder', member_id=member._id ) }}"
+                   id="remindForm">
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field inline">
-                            <input type="text" name="fullname" id="fullname" value="{{member.firstname }} {{member.lastname}}" required />
+                            <input type="text" name="fullname" id="fullname" 
+                                   value="{{member.firstname }} {{member.lastname}}" required />
                             <label for="fullname">Full Name</label>
                         </div>
                      </div>
@@ -19,7 +22,8 @@
                 <div class="row">
                     <div class="col s12">                
                         <div class="input-field inline">
-				            <input type="email" name="target" id="target" class="validate" value="{{ member.email }}" required />
+                            <input type="email" name="target" id="target" class="validate" 
+                                   value="{{ member.email }}" required />
                             <label for="target">Member's email address</label>
                             <span class="helper-text" data-error="incorrect format" data-success="correct format"></span>
                         </div>
@@ -36,7 +40,8 @@
                 <div class="form-row row">
                     <div class="col s12">                
                         <div class="input-field inline">
-                            <input type="text" name="from_name" id="from_name" value="Prickwillow Art Club" required />
+                            <input type="text" name="from_name" id="from_name" 
+                                   value="Prickwillow Art Club" required />
                             <label for="from_name">From</label>
                         </div>
                     </div>
@@ -44,16 +49,19 @@
                 <div class="form-row row">
                     <div class="col s12">                
                         <div class="input-field inline">
-                            <input type="text" name="from_email" id="from_email" class="validate" value="prickwillowartclub@gmail.com" required />
+                            <input type="text" name="from_email" id="from_email" class="validate" 
+                                   value="prickwillowartclub@gmail.com" required />
                             <label for="from_email">Reply to</label>
                         </div>
                     </div>
                 </div>                  
 				<div class="form-row text-center row">
-				    <div class="col s6">
-					    <button type="submit" class="btn-small blue">
+				    <div class="col s6" id="btnLand">
+                        <button type="button" class="btn-small blue" 
+                                onclick="return sendMail()"
+                                id="btnRemind">
                             Send Reminder 
-                            <i class="material-icons right">email</i>
+                            <i class="material-icons right hide-on-small-only">email</i>
                         </button>
 				    </div>
                     <div class="col s6">
@@ -65,6 +73,16 @@
                     </div>
 				</div>
             </form>
+         <div class="row">
+             <div class="col s3"></div>
+             <div class="col s6">
+                 <button type="submit" class="btn-small blue" form="remindForm">
+                     Send Form
+                     <i class="material-icons right hide-on-small-only">send</i>
+                 </button>
+             </div>
+             <div class="col s3"></div>
+         </div>   
 </div>
 
 

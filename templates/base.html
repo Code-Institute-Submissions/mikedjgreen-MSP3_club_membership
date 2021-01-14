@@ -8,7 +8,7 @@
 	<meta name="author" content="Mike Green">
 
 	<!--  To be able to hover over an element and display additional information -->
-	<link rel="preload" as="style" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
 		type="text/css" />
 
 	<!--Import Google Icon Font  for Materialize to use -->
@@ -24,7 +24,7 @@
     <!--
         emailJS service
     --> 
-	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js" async></script>
+	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js" ></script>
 	<script>
 		(function(){
                 emailjs.init("user_RPR7eK8NiQDQX1usQ8NRw");
@@ -149,6 +149,8 @@
 
 	<!-- Compiled and minified JavaScript For Materialize -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" async></script>
+
+
 
 	<!-- Project specific javascript/jQuery -->
 	<script src="{{ url_for('static',filename='js/script.js') }}" async></script>

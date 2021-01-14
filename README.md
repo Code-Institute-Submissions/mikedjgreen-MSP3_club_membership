@@ -143,6 +143,8 @@ The project concerns club membership, club activities, exhibitions and a record 
 #### Features Testing has shown left to implement.    
 - Further client-side confirmation of deletions (members, activities and artworks) for administrators.
 - Date validation, especially validating against entering dates in the past.
+- Email reminders of membership dues needs some refinement. 
+  A member can be enmailed, but the email not recorded against the member's document.
 
 
 ## Technologies Used

@@ -70,6 +70,17 @@
                                 {% endif %} 
                             </div> 
                             <div class="row">
+                                {% if page_title == "Membership Due List" %} 
+                                    {% if member.reminder %}
+                                        <b>Last Reminder: </b>
+                                        {{ member.reminder.strftime("%A")}}
+                                        {{ member.reminder.strftime("%d")}}
+                                        {{ member.reminder.strftime("%B")}}
+                                        {{ member.reminder.strftime("%Y")}}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            <div class="row">
                                 {% if page_title == "Membership Due List" %}   
                                     <a href="{{ url_for('delete_member', member_id=member._id) }}" 
                                     class="btn-small black-text red darken-1 crud-btn">

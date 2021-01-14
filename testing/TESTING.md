@@ -26,8 +26,10 @@
   * [Implementation of EmailJS API](#implementation-of-emailjs-api)
     + [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
     + [EmailJS fixes](#emailjs-fixes)
+    + [Further EmailJS implementation and fixes.](#further-emailjs-implementation-and-fixes)
+      - [Some outstanding procedural issues with reminders.](#some-outstanding-procedural-issues-with-reminders)
   * [Recording interest in club activites.](#recording-interest-in-club-activites)
-    + [Findings of intiial activity interest flag.](#findings-of-intiial-activity-interest-flag)
+    + [Findings of initial activity interest flag.](#findings-of-initial-activity-interest-flag)
   * [PEP8 compliant python code](#pep8-compliant-python-code)
   * [Second EmailJS for Activities News.](#second-emailjs-for-activities-news)
     + [Findings of initial EmailJS News implementation.](#findings-of-initial-emailjs-news-implementation)
@@ -43,6 +45,7 @@
       - [Lazy Loading](#lazy-loading)
       - [Size images](#size-images)
       - [Render blocking resources](#render-blocking-resources)
+
 
 _[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
@@ -447,7 +450,26 @@ This leads to two failures,
             ...which leads to:    ![Gale reminder](../testing/screenshots/email_js_12_fix2.jpg)
 5. The reminder form has been reconfigured:  ![Reminder form](../testing/screenshots/email_js_11_fix.jpg).
 
+### Further EmailJS implementation and fixes.
+1. Flag is now set when a reminder has been sent.
+![Reminder date against member](../testing/screenshots/emailjs_13_fix.jpg).
+2. When members' dues list has been selected, any members who have had an email reminder will be evident.
+![Reminder date displayed](../testing/screenshots/emailjs_14_fix.jpg)
+3. A member needs to be reminded of subscription due.
+![Subs Due](../testing/screenshots/emailjs_15_fix.jpg)
+4. The procedure firstly emails the member with 'send reminder'.
+![Send Reminder](../testing/screenshots/emailjs_16_fix.jpg)
+The button is thus removed to stop duplicated emails.
+5. The reminder form is finally sent, to update the member's document.
+![Member reminded](../testing/screenshots/emailjs_17_fix.jpg)
+
+#### Some outstanding procedural issues with reminders.
+1. There is still scope for the email to be sent and the member's document not to be flagged as reminded.
+The administrator is presented with a 'close' button on the reminder form at each stage, rather than at the start, and the removed when an email has been sent,
+this will force an update of the member's document.
+
 ## Recording interest in club activites.
+
 Testing the ability to flag a member's interest in an upcoming club activity.
 
 The activities page contains a button to help a viewer indicate their interest in an event.
@@ -461,7 +483,7 @@ The collection activities' document for the selected activity has had an interes
 The next interest shown in the activities overwrites the previous interest.
 - ![Activity interest overwritten](../testing/screenshots/flag_interest_5.jpg)
 
-### Findings of intiial activity interest flag.
+### Findings of initial activity interest flag.
 1. The form needs further styling.
 2. The radio buttons do not record boolean values for membership.
 3. A non-member's email entry is not recorded.

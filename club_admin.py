@@ -182,11 +182,10 @@ def reminder(member_id):
         Used for calling EmailJS against.
     """
     if request.method == "POST":
-        print("Reminder POST")
         newremind = {"$set": {"reminder": datetime.datetime.now()}}
         mongo.db.members.update_one({"_id": ObjectId(member_id)},
                                     newremind)
-        return redirect(url_for("members"))
+        return redirect(url_for("dues"))
     member = mongo.db.members.find_one({"_id": ObjectId(member_id)})
     return render_template("reminder.html",
                            member=member,
