@@ -17,6 +17,10 @@ body{
     font-size: 1.2rem;
 }
 
+.card-panel {
+    padding: 0.5rem !important;
+}
+
 .img-icon {
     max-width: 40%;
 }
