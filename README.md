@@ -213,9 +213,6 @@ Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/
 Passed code through [PEP8](http://pep8online.com/).
 Especially for long lines [PEP8 long lines](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
 
-#### Testing user login
-To test the CRUD capabilities of the application a login is available: 
-    **percival/zygote** 
     
 ## Deployment
 
@@ -273,8 +270,8 @@ import os
 os.environ.setdefault("IP", "0.0.0.0")
 os.environ.setdefault("PORT", "5000")
 os.environ.setdefault("SECRET_KEY", "***************")
-os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:*************@msp3cluster.pihdu.mongodb.net/msp3DB?retryWrites=true&w=majority")
-os.environ.setdefault("MONGO_DBNAME", "msp3DB") 
+os.environ.setdefault("MONGO_URI", "***********")
+os.environ.setdefault("MONGO_DBNAME", "*******") 
 ```
 
 ### Creating file .gitignore
@@ -308,8 +305,8 @@ Add the key:value pairs with the same settings as the 'env.py' file above. (No q
 - IP, 0.0.0.0
 - PORT, 5000
 - SECRET_KEY, <whatever>
-- MONGO_URI, mongodb+srv://<username>:*************...
-- MONGO_DBNAME, msp3DB
+- MONGO_URI, *************...
+- MONGO_DBNAME, ******
 
 Back to Heroku's deploy tab to ensure that Heroku's app picks up the GitHub's latest repository.
 
