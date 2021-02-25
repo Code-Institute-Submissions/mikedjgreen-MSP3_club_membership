@@ -114,39 +114,6 @@
                 </div>
              <br>
 
-            <!-- Modal EmailJS subs renewal reminder form --> 
-            <div class="modal">
-                <div class="modal-content">
-                    <h4>Email Membership Reminder Form</h4>
-                        <form onsubmit="return sendMail(this);" class="col s12 m8 offset-m2">
-                            <label for="member">Full Name</label>
-                            <input type="text" name="member" class="form-control" value="{{member.firstname }} {{member.lastname}}" required /><br/>
-                            <label for="target">Member's email address</label>
-						    <input type="email" name="target" class="form-control" value="{{ member.email }}" required /><br/>
-                            <label for="member">Annual Subscription &pound;</label>
-						    <input type="text" name="dues" class="form-control" value="20.00" required /><br/>
-                            <label for="name">From</label>
-                            <input type="text" name="name" class="form-control" value="Prickwillow Art Club" required /><br/>
-                            <label for="email">reply to</label>
-                            <input type="text" name="email" class="form-control" value="prickwillowartclub@gmail.com" required /><br/>
-						    <div class="form-row text-center">
-							    <div class="col s6">
-								    <button type="submit" class="btn-small">
-                                        Send Reminder  ({{ loop.index }} of {{ loop.length }})
-                                        <i class="material-icons right">email</i>
-                                    </button>
-							    </div>
-                                <div class="col s6">
-                                    <a href="#!" onclick="close_reminder()" 
-                                        class="modal-close btn-small blue waves-effect waves-green">
-                                        Close
-                                        <i class="material-icons right">close</i>
-                                    </a>
-                                </div>
-						    </div>
-                        </form>
-                </div>
-            </div>
          {% endfor %}
 
         {% else %}
