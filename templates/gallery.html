@@ -170,18 +170,17 @@
         </div>
     </div>    
 </section>    
-        <!-- Artwork Carousel -->
+        <!-- Artwork Gallery -->
 <section>
-    <h6>Artworks carousel:</h6>
     <div class="row">    
-        <div class="carousel carousel-slider center" style="height:400px;">		
+        <div class="col s12" style="height:400px;">		
         <!-- Text search above could have returned no artworks -->
         {% if artworks %}
 			{% for artwork in artworks %}
 			<div class="carousel-item" >
 				<div class="card hoverable">
 					<div class="row">
-						<div class="col s4">
+						<div class="col s4 m6">
 							<div class="card-image waves-effect waves-block waves-light">
                                 {% if loop.index == 1 %}
 								    <img class="activator responsive-img"
@@ -195,7 +194,7 @@
                                 {% endif %}        
                             </div>
 						</div>
-						<div class="col s8">
+						<div class="col s8 m6">
 						    <div class="card-content card-title">
 								<span class=" activator grey-text text-darken-4">
                                 {{ artwork['title'] }}<br><small>({{ loop.index }} of {{ loop.length }})</small> <br>{{ artwork['artist'] }}
@@ -247,28 +246,11 @@
                         </div>    
                     </div>        
                 </div>                      
-            </div>
-            <div class="carousel-fixed-item center">
-                <div class="row">
-                    <div class="col s3">
-                        <button onclick="prevSlide()" type="button" class="btn-small blue lighten-3 black-text text-darken-2">
-                        <i class="material-icons left">chevron_left</i>
-                        </button>
-                    </div>
-                    <div class="col s6">
-                    </div>
-                    <div class="col s3">
-                        <button onclick="nextSlide()" type="button" class="btn-small blue lighten-3 black-text text-darken-2">
-                        <i class="material-icons right">chevron_right</i>
-                        </button>
-                    </div>    
-                </div>    
-			</div>       
-            {% endfor %} <!-- endfor artworks of carousel item -->
+            </div>       
+            {% endfor %} <!-- endfor artworks search -->
         {% else %}
             <h3 class="red-text center-align">No Art Works Found</h3>
         {% endif %}
-			<!--  end of carousel -->
         </div>
     </div>
 </section>

@@ -47,11 +47,13 @@ Club administrators will be able to keep up-to-date contact details, creating, u
 ### Strategy
 
 A local collection of artists and art enthusiasts would like an online meeting, or focal point to share their enthusiasm.
-With that in mind, provide an initial membership request form. 
-From the request form the administrative processes emerge of reporting, updating and, if need be, deleting art club members.
+
+The casual browser of the site should be shown members' artworks that would encourage further membership applications.
+With that in mind, provide an initial membership request form.
+
+From the request form the administrative processes emerge of reporting, updating and, if need be, deleting lapsed art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
-- Initially upon opening the website, the browser would open with the membership form.
-  _Upon review it is thought the browser should show artworks that would interest potential members._
+
 
 ### Scope
 
