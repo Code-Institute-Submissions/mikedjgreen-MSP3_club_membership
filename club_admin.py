@@ -539,8 +539,6 @@ def delete_artwork(art_id):
         Firstly check if user logged in to do this
     """
     if session["user"]:
-        mongo.db.gallery.update_one({}, (
-            {"$pull": {"artwork": {"art_id": ObjectId(art_id)}}}))
         query = {"_id": ObjectId(art_id)}
         mongo.db.artworks.delete_one(query)
         flash("** Thanks {}, art work deleted **".format(session["user"]))
@@ -559,7 +557,6 @@ def search_art():
         There is an underlying text index to facilitate this search.
     """
     query = request.form.get("artquery")
-    gallery = mongo.db.gallery.find()
     artworks = list(mongo.db.artworks.find({"$text": {"$search": query}}))
     art_count = mongo.db.artworks.count_documents({"$text":
                                                   {"$search": query}})
