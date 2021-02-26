@@ -399,59 +399,12 @@ def gallery():
         Displays a 'gallery' of members works
         The initial default page upon opening the site
     """
-    gallery = mongo.db.gallery.find()
     artworks = mongo.db.artworks.find()
     return render_template("gallery.html",
-                           gallery=gallery,
                            artworks=artworks,
                            page_title="Gallery of Members works")
 
 
-@app.route("/add_gallery", methods=["GET", "POST"])
-def add_gallery():
-    """
-        A gallery entry details is recorded here.
-        Firstly check if user logged in to do  this
-    """
-    if session["user"]:
-        if request.method == "POST":
-            gallery = {
-                "year": request.form.get("year"),
-                "added_by": session["user"],
-                "added_on": datetime.datetime.now()
-            }
-            flash("** Thanks {}, Gallery entry added **"
-                  .format(session["user"]))
-            mongo.db.gallery.insert_one(gallery)
-    else:
-        flash("User not logged in to do this")
-        return redirect(url_for("login"))
-    return render_template("gallery.html", page_title="Add Gallery")
-
-
-@app.route("/edit_gallery/<gallery_id>", methods=["GET", "POST"])
-def edit_gallery(gallery_id):
-    """
-        A particular gallery entry being identified, it can be modified.
-        Firstly check if user logged in to do this
-    """
-    if session["user"]:
-        submit = {
-            "year": request.form.get("year"),
-            "updated_by": session["user"],
-            "updated_on": datetime.datetime.now()
-        }
-        flash("** Thanks {}, Gallery entry edited **"
-              .format(session["user"]))
-        mongo.db.gallery.replace_one({"_id": ObjectId(gallery_id)},
-                                     submit)
-    else:
-        flash("User not logged in to do this")
-        return redirect(url_for("login"))
-    gallery = mongo.db.gallery.find_one({"_id": ObjectId(gallery_id)})
-    return render_template("edit_gallery.html",
-                           gallery=gallery,
-                           page_title="Edit Gallery Details")
 
 
 @app.route("/add_artwork", methods=["GET", "POST"])
@@ -561,7 +514,7 @@ def search_art():
     art_count = mongo.db.artworks.count_documents({"$text":
                                                   {"$search": query}})
     flash("Art work found: {} ".format(art_count))
-    return render_template("gallery.html", gallery=gallery, artworks=artworks)
+    return render_template("gallery.html", artworks=artworks)
 
 #
 #                                   Register  users

@@ -36,13 +36,13 @@ Evening and weekend activities set up by the members, for the members, at other 
 Club administrators will be able to keep up-to-date contact details, creating, updating and deleting lapsed memberships.
 
 ## UX
- 
+--- 
 ### User Stories
-- As an art enthusiast I would like to join like-minded people in my local community.
-- As a member I would like to submit my work for the annual summer exhibition.
-- As a member I would like to flag my interest in a forthcoming event.
-- As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.
-- As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
+1. As an art enthusiast I would like to join like-minded people in my local community.
+2. As a member I would like to submit my work for the annual summer exhibition.
+3. As a member I would like to flag my interest in a forthcoming event.
+4. As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.
+5. As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
 
 ### Strategy
 
@@ -117,7 +117,7 @@ This was reorganised into a collection of artworks with a Boolean indicators as 
 
 
 ## Features
-
+---
 The project concerns club membership, club activities, exhibitions and a record of artists works.
  
 ### Existing Features
@@ -150,7 +150,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 
 
 ## Technologies Used
-
+---
 - [JavaScript](https://www.javascript.com/)
     - For dynamic, front-end interaction on HTML forms.
 
@@ -186,15 +186,20 @@ The project concerns club membership, club activities, exhibitions and a record 
 - [TOC for markdown](https://ecotrust-canada.github.io/markdown-toc/) to generate table of contents for README     
 
 ## Testing
-
+---
 For the sake of brevity, the testing documentation has been separated and linked to a [TESTING document](testing/TESTING.md).
 
 ### HTML Validated
 - [W3.org Validator for home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2F#l275c9)
 - [W3.org Validator for activities](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Factivities#l110c55)
 - [W3.org Validator for exhibition](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fexhibition#l104c25)
+- [W3.org Validator for gallery](https://validator.w3.org/nu/?doc=http%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fgallery#l275c9)
+- [W3.org Validator for login](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Flogin#l275c9)
+- [W3.org Validator for members](https://validator.w3.org/nu/?doc=http%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fmembers#l275c9)
 - [W3.org Validator for membership](https://validator.w3.org/nu/?doc=http%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fmembership#l275c9)
-
+- [W3.org Validator for register](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fregister#l275c9)
+- [W3.org Validator for reminder](https://validator.w3.org/nu/?doc=http%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Freminder%2F5f9af26bc6bb7b1a91fdadeb#l275c9)
+- [W3.org Validator for users](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmsp3-club-membership.herokuapp.com%2Fusers#l275c9)
 
 ### CSS Validated
 [W3C Validator](https://jigsaw.w3.org/css-validator) By Direct Input, of copied 'stylesheet.css'.
@@ -217,7 +222,7 @@ Especially for long lines [PEP8 long lines](https://www.python.org/dev/peps/pep-
 
     
 ## Deployment
-
+---
 Developed on GitPod using git and GitHub.
 Gitpod repository has already been created, MSP3_club_membership, master git branch.
 
@@ -322,7 +327,7 @@ Back to Heroku's deploy tab to ensure that Heroku's app picks up the GitHub's la
 
 
 ## Credits
-
+---
 ### Content
 - The text, for better or worse, is my own.
 

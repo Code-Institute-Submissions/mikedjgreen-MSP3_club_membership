@@ -53,6 +53,7 @@
   * [Responsiveness Testing](#responsiveness-testing)
     + [Testing different screen sizes:](#testing-different-screen-sizes-)
 
+
 _[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
 
@@ -132,6 +133,24 @@ Tracing membership application to database and administration issues.
     and the applicant flag has been cleared once the applicant becomes a member.
 ---
 ### As a member I would like to submit my work for the annual summer exhibition.
+
+A member may not neccesarily be a user able to login to edit an artwork. 
+In this instance a club administrator with login access would submit the work on the member's behalf.
+
+- ![Candidate artwork for exhibition](../testing/screenshots/submit_for_exhibition_1.jpg)
+    An artwork is searched for and found to be unsubmitted to exhibition.
+
+- ![Artwork is set to exhibit](../testing/screenshots/submit_for_exhibition_2.jpg)
+    The artwork's details are amended.
+
+- ![Database entry changes](../testing/screenshots/submit_for_exhibition_3.jpg)  
+    The underlying database entry for the artwork has the exhibit flag 'on'.
+
+- ![Artwork is now marked for exhibition](../testing/screenshots/submit_for_exhibition_4.jpg)
+
+    As well as the Gallery entry, the artwork now appears on the Exhibition page.
+
+
 ---
 ### As a member I would like to flag my interest in a forthcoming event.
 
