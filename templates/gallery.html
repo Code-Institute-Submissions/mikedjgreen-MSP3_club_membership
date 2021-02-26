@@ -173,11 +173,10 @@
         <!-- Artwork Gallery -->
 <section>
     <div class="row">    
-        <div class="col s12" style="height:400px;">		
+        <div class="col s12">		
         <!-- Text search above could have returned no artworks -->
         {% if artworks %}
 			{% for artwork in artworks %}
-			<div class="carousel-item" >
 				<div class="card hoverable">
 					<div class="row">
 						<div class="col s4 m6">
@@ -197,19 +196,11 @@
 						<div class="col s8 m6">
 						    <div class="card-content card-title">
 								<span class=" activator grey-text text-darken-4">
-                                {{ artwork['title'] }}<br><small>({{ loop.index }} of {{ loop.length }})</small> <br>{{ artwork['artist'] }}
-                                <i class="material-icons right">more_vert</i>
+                                {{ artwork['title'] }} <br>{{ artwork['artist'] }}
                                 </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row card-reveal">
-                        <div class="col s12 ">
-                            <span class="card-title grey-text text-darken-4">{{ artwork['title'] }}
-                                <i class="material-icons right">close</i></span>            
-								<ul>
-								    <li>Artist: {{ artwork['artist'] }}</li>
-									<li>Media: {{ artwork['media'] }}</li>
+                                <ul>
+                                    <small>
+                                    <li>Media: {{ artwork['media'] }}</li>
 									<li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
                                     <li>Price : {{ artwork['price'] }}</li> 
                                     {% if artwork.sold == true %}
@@ -222,7 +213,10 @@
                                     {% else %}
                                         <li>Exhibit: {{ artwork['exhibit'] }}</li>
                                     {% endif %}    
+                                    <br>({{ loop.index }} of {{ loop.length }})
+                                    </small>
                                 </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -245,8 +239,7 @@
                             </ul>        
                         </div>    
                     </div>        
-                </div>                      
-            </div>       
+                </div>                            
             {% endfor %} <!-- endfor artworks search -->
         {% else %}
             <h3 class="red-text center-align">No Art Works Found</h3>
