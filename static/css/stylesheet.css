@@ -114,6 +114,10 @@ body{
     font-weight: bolder;
 }
 
+.card-details {
+    font-size: 0.9rem !important;
+}
+
 .indicator-item {
     background-color: black;
 }

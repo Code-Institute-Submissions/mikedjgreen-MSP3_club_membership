@@ -200,8 +200,8 @@
 								<span class=" activator grey-text text-darken-4">
                                 {{ artwork['title'] }} <br>{{ artwork['artist'] }}
                                 </span>
-                                <ul>
-                                    <li><small>Media: {{ artwork['media'] }}</li>
+                                <ul class="card-details">
+                                    <li>Media: {{ artwork['media'] }}</li>
 									<li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
                                     <li>Price : {{ artwork['price'] }}</li> 
                                     {% if artwork.sold == true %}
@@ -214,7 +214,7 @@
                                     {% else %}
                                         <li>Exhibit: {{ artwork['exhibit'] }}</li>
                                     {% endif %}    
-                                    <li>({{ loop.index }} of {{ loop.length }})</small></li>
+                                    <li>({{ loop.index }} of {{ loop.length }})</li>
                                 </ul>
                             </div>
                         </div>
