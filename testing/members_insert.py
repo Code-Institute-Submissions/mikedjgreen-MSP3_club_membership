@@ -6,7 +6,7 @@ if os.path.exists("env.py"):
 
 
 MONGO_URI = os.environ.get("MONGO_URI")
-DATABASE = "msp3DB"
+DATABASE =  os.environ.get("MONGO_DBNAME")
 COLLECTION = "members"
 
 

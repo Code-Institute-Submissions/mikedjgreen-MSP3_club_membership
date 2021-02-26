@@ -3,6 +3,7 @@
  Adding artworks array items (objects).
 """
 import os
+import datetime
 import pymongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -10,8 +11,8 @@ if os.path.exists("env.py"):
 
 
 MONGO_URI = os.environ.get("MONGO_URI")
-DATABASE = "msp3DB"
-COLLECTION = "gallery"
+DATABASE = os.environ.get("MONGO_DBNAME")
+COLLECTION = "artworks"
 
 
 def mongo_connect(url):
@@ -29,90 +30,68 @@ coll = conn[DATABASE][COLLECTION]
 
 
 """
-    Gallery contains an array of artworks.
+    Artworks documents will eventually be
+    elements in an exhibition and/or gallery array.
     Each element is an object of art.
 """
-agallery = coll.find_one({"year": "2021"})
 
 
-print(agallery)
+ins_artwork = { "artist": "Mike Green",
+                "title": "Torso",
+                "media": "soft pastels",
+                "height": 16.0,
+                "width": 10.0,
+                "image": "../static/img/gallery/torso.jpg",
+                "price": "NFS",
+                "sold": False,
+                "added_by": "antonia",
+                "added_on": datetime.datetime.now()}                             
+coll.insert_one(ins_artwork)
 
 
-upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": { "art_id": ObjectId(),
-                                                         "artist": "Mike Green",
-                                                         "title": "Torso",
-                                                         "media": "soft pastels",
-                                                         "height": 16.0,
-                                                         "width": 10.0,
-                                                         "image": "../static/img/gallery/torso.jpg",
-                                                         "price": "NFS",
-                                                         "sold": False}}})
+print(ins_artwork)
 
 
-print(upd_artwork)
+ins_artworks = [ { "artist": "Mike Green",
+                   "title": "Therapy",
+                   "media": "soft pastels",
+                   "height": 16.0,
+                   "width": 10.0,
+                   "image": "../static/img/gallery/therapy_58.jpg",
+                   "price": "NFS",
+                   "sold": False,
+                   "added_by": "antonia",
+                   "added_on": datetime.datetime.now()},
+                 {  "artist": "Mike Green",
+                    "title": "Becca",
+                    "media": "soft pastels",
+                    "height": 10.0,
+                    "width": 16.0,
+                    "image": "../static/img/gallery/pict2434_becca.jpg",
+                    "price": "NFS",
+                    "sold": False,
+                    "added_by": "antonia",
+                    "added_on": datetime.datetime.now()},
+                 {  "artist": "Tarquin Chalmondley-Smythe",
+                    "title": "The Age of Anxiety",
+                    "media": "soft pastels",
+                    "height": 16.0,
+                    "width": 10.0,
+                    "image": "../static/img/gallery/no_image.jpg",
+                    "price": "NFS",
+                    "sold": False,
+                    "added_by": "antonia",
+                    "added_on": datetime.datetime.now()},
+                {   "artist": "Petunia Pootle-Phipps",
+                    "title": "Vox",
+                    "media": "soft pastels",
+                    "height": 16.0,
+                    "width": 10.0,
+                    "image": "../static/img/gallery/voxserene_27.jpg",
+                    "price": "NFS",
+                    "sold": False,
+                    "added_by": "antonia",
+                    "added_on": datetime.datetime.now()}]
 
-
-upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
-                                                          "artist": "Mike Green",
-                                                          "title": "Therapy",
-                                                          "media": "soft pastels",
-                                                          "height": 16.0,
-                                                          "width": 10.0,
-                                                          "image": "../static/img/gallery/therapy_58.jpg",
-                                                          "price": "NFS",
-                                                          "sold": False}}})
-
-
-print(upd_artwork)
-
-
-upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
-                                                            "artist": "Mike Green",
-                                                          "title": "Becca",
-                                                          "media": "soft pastels",
-                                                          "height": 10.0,
-                                                          "width": 16.0,
-                                                          "image": "../static/img/gallery/pict2434_becca.jpg",
-                                                          "price": "NFS",
-                                                          "sold": False}}})
-
-
-print(upd_artwork)
-
-
-upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
-                                                            "artist": "Tarquin Chalmondley-Smythe",
-                                                          "title": "The Age of Anxiety",
-                                                          "media": "soft pastels",
-                                                          "height": 16.0,
-                                                          "width": 10.0,
-                                                          "image": "../static/img/gallery/no_image.jpg",
-                                                          "price": "NFS",
-                                                          "sold": False}}})
-
-
-print(upd_artwork)
-
-
-upd_artwork = coll.update_one({"year": "2021"},
-                              {"$addToSet": {"artworks": {  "art_id": ObjectId(),
-                                                            "artist": "Petunia Pootle-Phipps",
-                                                          "title": "Vox",
-                                                          "media": "soft pastels",
-                                                          "height": 16.0,
-                                                          "width": 10.0,
-                                                          "image": "../static/img/gallery/voxserene_27.jpg",
-                                                          "price": "NFS",
-                                                          "sold": False}}})
-
-
-print(upd_artwork)
-
-agallery = coll.find_one({"year": "2021"})
-
-
-print(agallery)
+coll.insert_many(ins_artworks)
+print(ins_artworks)
