@@ -18,14 +18,16 @@
 <div class="row">
     <div class="col s12">        
             {% for artwork in artworks %}
-                <div class="responsive">
-                    <div class="gallery">
-                        <a target="_blank" href="{{ artwork.image }}">
+                {% if artwork.exhibit == true %}
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="{{ artwork.image }}">
                             <img src="{{ artwork.image }}" alt="{{ artwork.title }}" class="responsive-img" width="600">
-                        </a>
-                        <div class="exhibit_details">{{ artwork.artist }}</div>
-                    </div>
-                </div>    
+                            </a>
+                            <div class="exhibit_details">{{ artwork.artist }}</div>
+                        </div>
+                    </div>  
+                {% endif %}  
             {% endfor %}
     </div>
 </div>
