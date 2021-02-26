@@ -454,8 +454,8 @@ def edit_gallery(gallery_id):
                            page_title="Edit Gallery Details")
 
 
-@app.route("/add_artwork/<gallery_id>", methods=["GET", "POST"])
-def add_artwork(gallery_id):
+@app.route("/add_artwork", methods=["GET", "POST"])
+def add_artwork():
     """
         Within a gallery entry an art work can be added.
         Firstly check if user logged in to do  this
@@ -481,30 +481,6 @@ def add_artwork(gallery_id):
                 artstub = mongo.db.artworks.insert_one(artwork)
             except OperationFailure:
                 raise OperationFailure("Failure to add an artwork")
-            except Exception as e:
-                return e
-            """
-            Once artwork added, need to record id within Gallery's
-            artworks array
-            """
-            try:
-                mongo.db.gallery.update_one(
-                    {"_id": ObjectId(gallery_id)},
-                    {"$addToSet": {"artworks":
-                                   {"art_id": (ObjectId(artstub.inserted_id)),
-                                    "artist": (request.form.get("artist")),
-                                    "title": (request.form.get("title")),
-                                    "media": (request.form.get("media")),
-                                    "height": (request.form.get("height")),
-                                    "width": (request.form.get("width")),
-                                    "image": (request.form.get("image")),
-                                    "price": (request.form.get("price")),
-                                    "sold": (request.form.get("sold")),
-                                    "added_by": (session["user"]),
-                                    "added_on": (datetime.datetime.now())}
-                                   }})
-            except OperationFailure:
-                raise OperationFailure("Failure to add an artwork to gallery")
             except Exception as e:
                 return e
             flash("** Thanks {}, art work entry added **"
