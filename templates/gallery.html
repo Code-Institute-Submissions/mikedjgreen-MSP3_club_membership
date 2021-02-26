@@ -201,7 +201,6 @@
                                 {{ artwork['title'] }} <br>{{ artwork['artist'] }}
                                 </span>
                                 <ul>
-                                    <small>
                                     <li>Media: {{ artwork['media'] }}</li>
 									<li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
                                     <li>Price : {{ artwork['price'] }}</li> 
@@ -216,7 +215,6 @@
                                         <li>Exhibit: {{ artwork['exhibit'] }}</li>
                                     {% endif %}    
                                     <br>({{ loop.index }} of {{ loop.length }})
-                                    </small>
                                 </ul>
                             </div>
                         </div>
