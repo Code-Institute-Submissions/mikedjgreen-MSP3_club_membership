@@ -5,7 +5,6 @@ const clubBlue = "#D9E6F3";
     Mobile sidebar...
     Date Picker...
     Select ...
-    Carousel...... [Gallery]
     Modal....[Gallery]
     Materialbox...for enlarging images
 */
@@ -28,12 +27,6 @@ $(document).ready(function() {
   
     $("select").formSelect();
     
-    $("carousel").carousel();
-
-    $(".carousel.carousel-slider").carousel({
-        fullWidth: true,
-        indicators: false,
-    });
 
     $(".modal").modal();
     
@@ -247,18 +240,6 @@ function art_dim(field) {
     }
 }
 
-/*
-    Carousel specific method calls with jQuery, though being 
-    phased out by Materialize..
-*/
-
-function nextSlide() {
-    $('.carousel').carousel('next');
-}
-
-function prevSlide() {
-    $('.carousel').carousel('prev');
-}
 
 /*
         once logged in successfully and loading members page,
