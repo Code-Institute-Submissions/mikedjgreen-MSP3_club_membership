@@ -1,9 +1,11 @@
-{% extends 'base.html' %} {% block headercontent %} {{ page_title }} {% endblock
-%} {% block content %}
+{% extends 'base.html' %}
+{% block headercontent %} 
+{{ page_title }} 
+{% endblock%} 
+{% block content %}
 
 <div class="row card-panel"> 
 	<div class="col s12 m10 l8">
-        {% for gallery in gallery %}
 		<div class="row">
 			<div class="col s12">
 				<button data-target="addartwork" 
@@ -151,7 +153,7 @@
 						<div class="row">
                             <div class="col s6">
 							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
-                                    type="submit" name="action" onclick="{{ url_for('add_artwork', gallery_id=gallery._id) }}" >
+                                    type="submit" name="action" onclick="{{ url_for('add_artwork') }}" >
                                     Submit
                                     <i class="material-icons right">send</i>
                                 </button>
@@ -247,7 +249,6 @@
         </div>
     </div>
 </section>
-        {% endfor %}
     </div>
 </div>    
 
