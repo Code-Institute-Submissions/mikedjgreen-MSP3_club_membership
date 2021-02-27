@@ -116,6 +116,12 @@ body{
 
 .card-details {
     font-size: 0.9rem !important;
+    text-overflow:ellipsis;
+    overflow: hidden; 
+}
+
+.card-details:hover {
+    overflow: visible;
 }
 
 .indicator-item {

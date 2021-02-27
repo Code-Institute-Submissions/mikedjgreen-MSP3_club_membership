@@ -5,44 +5,44 @@
 
 {% block content %}
 
-    <div class="row card-panel hoverable">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row center-align">
-                <div class="input-field col s12 m8">
-                    <i class="prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="memberquery" id="memberquery" minlength="3" class="validate" required>
-                    <label for="memberquery">Search Members</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('members') }}" class="red btn-small black-text text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn-small black-text text-shadow">
-                        <i class="material-icons left hide-on-small-only">search</i> Search
-                    </button>
-                </div>
+<div class="row card-panel hoverable">
+    <form action="{{ url_for('search') }}" method="post" class="col s12">
+        <div class="row center-align">
+            <div class="input-field col s12 m8">
+                <i class="prefix light-blue-text text-darken-4"></i>
+                <input type="text" name="memberquery" id="memberquery" minlength="3" class="validate" required>
+                <label for="memberquery">Search Members</label>
             </div>
-            <div class="row">
-                <div class="col s6 m4">
-                    <a href="{{ url_for('dues') }}" class="black-text light-blue btn-small text-shadow" onclick="enableRemind()">
+            <div class="col s12 m4">
+                <a href="{{ url_for('members') }}" class="red btn-small black-text text-shadow">Reset</a>
+                <button type="submit" class="light-blue darken-1 btn-small black-text text-shadow">
+                   <i class="material-icons left hide-on-small-only">search</i> Search
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6 m4">
+                <a href="{{ url_for('dues') }}" class="black-text light-blue btn-small text-shadow" onclick="enableRemind()">
                         Dues
                         <i class="material-icons right hide-on-small-only">payment</i>
-                    </a>
-                </div>
-                <div class="col s6 m4">
-                    <a href="{{ url_for('applicant') }}" class="black-text light-blue btn-small text-shadow" onclick="enableRemind()">
+                </a>
+            </div>
+            <div class="col s6 m4">
+                <a href="{{ url_for('applicant') }}" class="black-text light-blue btn-small text-shadow" onclick="enableRemind()">
                         Applicants
                         <i class="material-icons right hide-on-small-only">thumb_up</i>
-                    </a>
-                </div>                  
-            </div>
-        </form>
-    </div>
+                </a>
+            </div>                  
+        </div>
+    </form>
+</div>
 
 <div class="row card-panel">
     <div class="col s12">
         <!-- Text search above could have returned no members -->
         {% if members %}
-         {% for member in members %} 
-                <div class="card  hoverable">
+            {% for member in members %} 
+                <div class="card">
                     <div class="row">
                         <div class="col s6">
                             {% if member.portrait != "" %}
@@ -95,32 +95,30 @@
                                     </a>
                                 {% endif %}
                             </div>
+                            <div class="card-details">
+                                <ul>
+                                    <li>Portrait path: {{ member.portrait }} </li>
+                                    <li>Email: {{ member.email }} </li>
+                                    <li>Phone: {{ member.phone }} </li>
+                                    <li>New Member: {{ member.newmember}} </li>
+                                    <li>Family Subscription: {{ member.family }} </li> 
+                                    <li>Guest: {{ member.guest }} </li>
+                                    <li>Paid up: {{ member.paid }} </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                <div class="card-content">
+                    <div class="card-content">
                         <div class="row">
                             <div class="col s12">
-                                <span class="activator"> {{ member.bio }}<i class="material-icons right">more_vert</i></span> 
+                                <span> {{ member.bio }}</span> 
                             </div>
                         </div>        
-                </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{ member.firstname }}  {{ member.lastname }}<i class="material-icons right">close</i></span>
-                        <ul>
-                        <li>Portrait path: {{ member.portrait }} </li>
-                        <li>Email: {{ member.email }} </li>
-                        <li>Phone: {{ member.phone }} </li>
-                        <li>New Member: {{ member.newmember}} </li>
-                        <li>Family Subscription: {{ member.family }} </li> 
-                        <li>Guest: {{ member.guest }} </li>
-                        <li>Paid up: {{ member.paid }} </li>
-                        <li>Biography: {{ member.bio }} .</li>
-                        </ul>
                     </div>
                 </div>
-             <br>
+                <br>
 
-         {% endfor %}
+            {% endfor %}
 
         {% else %}
             <h3 class="red-text center-align">No Members Found</h3>
