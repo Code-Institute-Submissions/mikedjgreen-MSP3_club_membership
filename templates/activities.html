@@ -56,19 +56,23 @@
                             </span>
                         </div>
                     </div>
+                    <div class="card-details">
+                        How long? {{ activity.activity_duration }} <br>
+                        Where? {{ activity.activity_location }} <br>
+                        Led by: {{ activity.lead_firstname }} {{ activity.lead_lastname }}
+                    </div>    
                 </div>
             </div>
 
             <div class="card-content">
                 <div class="row">
                     <div class="col s12">
-                        <span class="card-date activator grey-text text-darken-4">
+                        <span class="card-date grey-text text-darken-4">
                             Date and time: {{ activity.activity_date.strftime("%A")}}
                             {{ activity.activity_date.strftime("%d")}}
                             {{ activity.activity_date.strftime("%B")}}
                             {{ activity.activity_date.strftime("%Y")}},
                             {{ activity.activity_time}}
-                            <i class="material-icons right">more_vert</i>
                         </span>
                     </div>
                 </div>
@@ -97,25 +101,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title"> {{ activity.description }} </span>
-                <span class="card-title grey-text text-darken-4">Date and time:
-                    {{ activity.activity_date.strftime("%A")}}
-                    {{ activity.activity_date.strftime("%d")}}
-                    {{ activity.activity_date.strftime("%B")}}
-                    {{ activity.activity_date.strftime("%Y")}},
-                    {{ activity.activity_time}}<i class="material-icons right">close</i></span>
-                How long? {{ activity.activity_duration }} <br>
-                Where? {{ activity.activity_location }} <br>
-                Led by: {{ activity.lead_firstname }} {{ activity.lead_lastname }} <br>
-                activity image file: {{ activity.activity_image }} <br>
-                interest shown:
-                {% for flag in activity.interest %}
-                    {% if loop.last %}
-                        {{ loop.length }}
-                    {% endif %}
-                {% endfor %}
             </div>
         </div>
         {% endfor %}
