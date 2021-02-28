@@ -1,21 +1,23 @@
 - [Testing MSP3_club_membership.](#testing-msp3-club-membership)
   * [Feature Testing](#feature-testing)
     + [Navigation bar getting 'busy'.](#navigation-bar-getting--busy-)
+    + [Sending news of club activities.](#sending-news-of-club-activities)
+      - [Activity news findings.](#activity-news-findings)
   * [Bug Testing](#bug-testing)
     + [Experiencing some load speed issues](#experiencing-some-load-speed-issues)
       - [Size of Image Files](#size-of-image-files)
   * [User Story Testing](#user-story-testing)
-    + [As an art enthusiast I would like to join like-minded people in my local community.](#as-an-art-enthusiast-i-would-like-to-join-like-minded-people-in-my-local-community)
+    + [1. As an art enthusiast I would like to join like-minded people in my local community.](#1-as-an-art-enthusiast-i-would-like-to-join-like-minded-people-in-my-local-community)
       - [Membership application](#membership-application)
       - [Findings of membership applications](#findings-of-membership-applications)
-    + [As a member I would like to submit my work for the annual summer exhibition.](#as-a-member-i-would-like-to-submit-my-work-for-the-annual-summer-exhibition)
-    + [As a member I would like to flag my interest in a forthcoming event.](#as-a-member-i-would-like-to-flag-my-interest-in-a-forthcoming-event)
+    + [2. As a member I would like to submit my work for the annual summer exhibition.](#2-as-a-member-i-would-like-to-submit-my-work-for-the-annual-summer-exhibition)
+    + [3. As a member I would like to flag my interest in a forthcoming event.](#3-as-a-member-i-would-like-to-flag-my-interest-in-a-forthcoming-event)
       - [Findings of initial activity interest flag.](#findings-of-initial-activity-interest-flag)
-    + [As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.](#as-a-club-administrator-i-would-like-to-be-able-to-contact-paid-members-to-inform-of-new-activities-and-developments-within-the-club)
+    + [4. As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.](#4-as-a-club-administrator-i-would-like-to-be-able-to-contact-paid-members-to-inform-of-new-activities-and-developments-within-the-club)
       - [EmailJS for Activities News.](#emailjs-for-activities-news)
       - [Findings of initial EmailJS News implementation.](#findings-of-initial-emailjs-news-implementation)
       - [EmailJS News fixes](#emailjs-news-fixes)
-    + [As a club administrator I would like to remind members of forthcoming club dues and subscriptions.](#as-a-club-administrator-i-would-like-to-remind-members-of-forthcoming-club-dues-and-subscriptions)
+    + [5. As a club administrator I would like to remind members of forthcoming club dues and subscriptions.](#5-as-a-club-administrator-i-would-like-to-remind-members-of-forthcoming-club-dues-and-subscriptions)
         * [Implementation of EmailJS API for subscription reminders.](#implementation-of-emailjs-api-for-subscription-reminders)
       - [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
       - [EmailJS fixes](#emailjs-fixes)
@@ -53,7 +55,6 @@
   * [Responsiveness Testing](#responsiveness-testing)
     + [Testing different screen sizes:](#testing-different-screen-sizes-)
 
-
 _[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
 
@@ -71,6 +72,31 @@ A redesign of the navigation bar with further drop-down options is called for.
 - ![Large viewport navigation](../testing/screenshots/navbar_user_busy_1.jpg)
 
 - ![Small viewport navigation](../testing/screenshots/navbar_user_busy_2.jpg)
+
+### Sending news of club activities.
+
+When logged in as an administrator, each activity has the option to send emails giving details of the activity to paid-up members.
+
+- ![Send news option for activity](../testing/screenshots/activity_news_1.jpg)
+
+So a page is displayed with activity details and target member.
+- ![Member given activity email](../testing/screenshots/activity_news_2.jpg)
+
+Unfortunately each individual member has to be selected separately.
+- ![Next Member to be notified](../testing/screenshots/activity_news_3.jpg)
+
+For each member the email does contain the details the club wants to inform them about.
+- ![Resulting activity email news](../testing/screenshots/activity_news_4.jpg)
+
+There is no record of an email being set against the activity.
+- ![Activity record](../testing/screenshots/activity_news_5.jpg)
+
+#### Activity news findings.
+1. There is a need for one email button to send emails of activity news to each paid-up member at once.
+2. There is a need to keep track of emails news of an activity being sent, to prevent multiple emails ('spam').
+
+
+
 
 
 ---
