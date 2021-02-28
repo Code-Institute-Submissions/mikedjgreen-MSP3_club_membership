@@ -90,7 +90,7 @@ Using an [Online Image Compressor](http://jpeg-optimizer.com/).
 ---
 ## User Story Testing
 
-### As an art enthusiast I would like to join like-minded people in my local community.
+### 1. As an art enthusiast I would like to join like-minded people in my local community.
 
 #### Membership application
 
@@ -132,7 +132,7 @@ Tracing membership application to database and administration issues.
 4. The application has been correctly identified to the club administrator, 
     and the applicant flag has been cleared once the applicant becomes a member.
 ---
-### As a member I would like to submit my work for the annual summer exhibition.
+### 2. As a member I would like to submit my work for the annual summer exhibition.
 
 A member may not neccesarily be a user able to login to edit an artwork. 
 In this instance a club administrator with login access would submit the work on the member's behalf.
@@ -152,7 +152,7 @@ In this instance a club administrator with login access would submit the work on
 
 
 ---
-### As a member I would like to flag my interest in a forthcoming event.
+### 3. As a member I would like to flag my interest in a forthcoming event.
 
 
 The activities page contains a button to help a viewer indicate their interest in an event.
@@ -175,7 +175,7 @@ The next interest shown in the activities overwrites the previous interest.
 6. The latest interest should not overwrite earlier interest in the activity.
 
 ---
-### As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.
+### 4. As a club administrator I would like to be able to contact paid members to inform of new activities and developments within the club.
 
 #### EmailJS for Activities News.
 
@@ -207,7 +207,7 @@ A button appears for a logged in administrative user for each activity.
 
 
 ---
-### As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
+### 5. As a club administrator I would like to remind members of forthcoming club dues and subscriptions.
 
 ##### Implementation of EmailJS API for subscription reminders.
 The emailJS implementation is in response to this user story.

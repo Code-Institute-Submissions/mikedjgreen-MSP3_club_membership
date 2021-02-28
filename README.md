@@ -46,18 +46,27 @@ Club administrators will be able to keep up-to-date contact details, creating, u
 
 ### Strategy
 
-A local collection of artists and art enthusiasts would like an online meeting, or focal point to share their enthusiasm.
+A local collection of artists and art enthusiasts would like an online presence, or focal point to share their enthusiasm.
 
-The casual browser of the site should be shown members' artworks that would encourage further membership applications.
+The casual browser of the site should be shown members' artworks that would entice further membership applications.
+
+Another encouragement is the list of club activities run throughout the year to encourage club participation.
+
 With that in mind, provide an initial membership request form.
 
 From the request form the administrative processes emerge of reporting, updating and, if need be, deleting lapsed art club members.
 Administrators also need the ability to enter membership details if the requestor does not have access to the web site.
 
+Administrators also need to administer members' artworks, what to display, what details are relevant for exhibition, or potential sale of the members' work.
+
+Administrators need to enter, refine and delete past club activities for the members (and casual browsers) to attend to encourage their interest in local art.
+
 
 ### Scope
 
 The minimum viable product would be the ability to record membership and show artwork in some easy to view way.
+
+#### Functional Specification.
 Following administrative Create, Read, Update and Delete (CRUD) procedures for membership and artworks. 
 * Storing membership details with limited access. 
 * Associate the members with details, including stored images, of their work.
@@ -66,15 +75,28 @@ Following administrative Create, Read, Update and Delete (CRUD) procedures for m
 * Login and logout to limit CRUD procedures to administrators only.
 * Ability to search for artworks on title or artist.
 
+#### Content Requirements.
 
+Members details, such as email address, last subscription paid, what their interests are in art.
+Where, when and what club activities are to take place.
+Where and when the summer exhibition will be held this year.
+Artworks, their images, titles and who made them are to be held for view.
 
 ### Structure
 
 #### The interaction design 
 
-This is to have a navigation bar for each page, with a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
-- For accessibility the navigation will change to a sidebar for mobile viewports.
-- A coherent visual display across all pages should be presented to the browser of the site.
+This is to have a navigation bar for each page:
+-  a 'gallery' of members' works being the initial link,
+- then a link to club activities, 
+- then a link to exhibition work,
+- a link to apply for art club membership,
+- then a login option for administrators.
+
+For accessibility the navigation will change to a sidebar for mobile viewports.
+
+A coherent visual display across all pages should be presented to the browser of the site.
+ With a header showing the identity of the art club, and a footer with links to social media and other sites of interest.
 
 The membership application form's number of input fields will be kept to a minimum. 
 This is to keep the applicant's experience as clear and concise as possible.
@@ -85,28 +107,69 @@ They will have an option on the navigation bar to apply for membership.
 
 A logged-in administrator has further options to:
 - maintain a member's list.
-- maintain artworks.
+- maintain artworks details.
 - add and remove artworks from the exhibition page.
 - maintain the club activities page.
 
 
 #### The information architecture
 
-Will be one of collections of data holding member details, another holding artwork details, another holding exhibition and another activity details.
-It was originally envisaged that there would be separate arrays of artworks associated with exhibitions and another array of artworks for a more general gallery.
-This was reorganised into a collection of artworks with a Boolean indicators as to whether they were for exhibit as well as gallery.
-- The original exhibition collection would contain details of the annual exhibition for that year.
-- The activities collection will hold the date and time the activity will take place, an image to publicise the event, along with venue,
+The first priority for the casual user would be the examples of the current club member's art on display.
+Artwork images, who made them, how large are the works, what price (if any) are they?
+This would act as an advertisement for the club.
+From there an opportunity to join the club. 
+
+Club members would like to see their exhibition work and what activities are planned for the rest of the year.
+
+For the club administrators the priority will be one of collection of data holding member contact details and a bried description of their work or motivations ('bio').
+
+A collection of artworks will have Boolean indicators as to whether they were for exhibit as well as gallery, whether they are already sold, or 'NFS' not for sale.
+
+The  exhibition collection would contain details such as location and dates of the annual exhibition for that year.
+
+The activities collection will hold the date and time the activity will take place, an image to publicise the event, along with venue,
          duration and who will be leading the activity.
-- With club administrators needing secured access to members details their login authentication details would be collected as 'users'.
-- There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
-- Decision made to store images externally to the database, with the database holding the image location on the server.
+         
+With club administrators needing secured access to members details their login authentication details would be collected as 'users'.
+
+There will be a need for text indexes on collections to ease searches. [Create indexes](static/docs/indexes.md)
+
+The decision is made to store images externally to the database, with the database holding the image location on the server.
       An example discussion of this issue [Images on database?](https://habiletechnologies.com/blog/better-saving-files-database-file-system/)
 
 ### Skeleton
 
+#### Interface Design
 * Public link to wireframes used as mockups : [Balsamiq](https://balsamiq.cloud/)
 * [Wireframes in PDF](static/docs/club_administration.pdf) are provided covering a number of different sized viewports.
+
+#### Navigation Design
+
+There are three types of user of the site identified.
+
+Each is first presented with a gallery page of club members works.
+
+Casual browsers of the site can then navigate to club activities details, exhibition display or apply for membership.
+
+Members have the same options, but at the discretion of the club administrators could login to the site to amend their artworks and membership details.
+
+Club Administrors have login access and from login can create, read, update and delete member details, activity details and artwork details (CRUD).
+
+
+#### Information Design
+
+Artworks collection would contain the title of the piece, the artist's name who made the piece, the price (if any) of the piece, the height and width of the piece,
+and whether it is to be exhibited that year.
+
+Members collection would contain forename, surname, email address and optionally phone number.
+A member may be wanting membership for their family as well.
+Club administrators would also like to know whether the member is a 'guest', i.e. not qualifying for club subscription fees.
+The member collection would also contain a brief description or 'biography' of the member.
+
+Exhibition would contain the location and start and end dates for that coming year.
+
+Club activities would need the title, date, start time and duration and the leader of the artivity, whether a club member, or a guest.
+
 
 ### Surface
 
