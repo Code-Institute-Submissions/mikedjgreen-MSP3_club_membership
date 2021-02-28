@@ -70,6 +70,12 @@ body{
     display: inline;
 }
 
+/* used by membership bio */
+textarea {
+    font-family: Roboto, Arial, sans-serif;
+    resize: none;
+    margin-top: 5px;
+}
 /*
     Activities specific overrides
 */

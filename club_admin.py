@@ -58,6 +58,7 @@ def membership():
             "paid": False,
             "family": is_family,
             "applicant": True,
+            "bio": request.form.get("bio"),
             "requested_on": datetime.datetime.now()
         }
         mongo.db.members.insert_one(member)
