@@ -406,8 +406,6 @@ def gallery():
                            page_title="Gallery of Members works")
 
 
-
-
 @app.route("/add_artwork", methods=["GET", "POST"])
 def add_artwork():
     """

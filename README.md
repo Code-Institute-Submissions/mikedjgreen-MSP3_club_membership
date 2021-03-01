@@ -86,6 +86,10 @@ Artworks, their images, titles and who made them are to be held for view.
 
 #### The interaction design 
 
+
+![Site Map](/static/docs/screenshots/sitemap.png)
+
+
 This is to have a navigation bar for each page:
 -  a 'gallery' of members' works being the initial link,
 - then a link to club activities, 
@@ -141,6 +145,7 @@ The decision is made to store images externally to the database, with the databa
 
 #### Interface Design
 * Public link to wireframes used as mockups : [Balsamiq](https://balsamiq.cloud/)
+
 * [Wireframes in PDF](static/docs/club_administration.pdf) are provided covering a number of different sized viewports.
 
 #### Navigation Design
@@ -155,6 +160,7 @@ Members have the same options, but at the discretion of the club administrators 
 
 Club Administrors have login access and from login can create, read, update and delete member details, activity details and artwork details (CRUD).
 
+Any cancel button should redirect user to 'home' page, i.e. the gallery.
 
 #### Information Design
 
