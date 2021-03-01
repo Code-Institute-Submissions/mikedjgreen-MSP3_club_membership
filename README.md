@@ -164,6 +164,8 @@ Any cancel button should redirect user to 'home' page, i.e. the gallery.
 
 #### Information Design
 
+![Database Schema](static/docs/screenshots/db_schema.png)
+
 Artworks collection would contain the title of the piece, the artist's name who made the piece, the price (if any) of the piece, the height and width of the piece,
 and whether it is to be exhibited that year.
 
@@ -245,6 +247,12 @@ The project concerns club membership, club activities, exhibitions and a record 
 
 - [Font Awesome](https://fontawesome.com/) 
     - to provide additional icons, especially 'facebook'.
+
+- [DB Diagram](https://dbdiagram.io/)
+    - to provide visual database schema.
+
+- [Balsamiq](https://balsamiq.cloud/)
+    - to provide wireframes and site map.
 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
     -  Global cloud database service.
