@@ -146,15 +146,35 @@ The decision is made to store images externally to the database, with the databa
 #### Interface Design
 * Public link to wireframes used as mockups : [Balsamiq](https://balsamiq.cloud/)
 
+Gallery large screen
 ![Galley large wireframe](static/docs/screenshots/gallery_lg.png)
 
+Gallery small screen
+![Gallery small wireframe](static/docs/screenshots/gallery_sm.png)
+
+Activities large screen
 ![Activities large wireframe](static/docs/screenshots/activities_lg.png)
 
+Activities small screen
+![Activities small wireframe](static/docs/screenshots/activities_sm.png)
+
+Exhibition large screen
 ![Exhibition large wireframe](static/docs/screenshots/exhibition_lg.png)
 
+Exhibition small screen
+![Exhibition small wireframe](static/docs/screenshots/exhibition_sm.png)
+
+Membership Request large screen
 ![Membership large wireframe](static/docs/screenshots/membership_request_lg.png)
 
+Membership Request small screen
+![Membership small wireframe](static/docs/screenshots/membership_request_sm.png)
+
+Members List large screen
 ![Members List large wireframe](static/docs/screenshots/members_list_lg.png)
+
+Members List small screen
+![Members List small wireframe](static/docs/screenshots/members_list_sm.png)
 
 * [Wireframes in PDF](static/docs/club_administration.pdf) are provided covering a number of different sized viewports.
 
