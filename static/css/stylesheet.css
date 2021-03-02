@@ -126,9 +126,6 @@ textarea {
     overflow: hidden; 
 }
 
-.card-details:hover {
-    overflow: visible;
-}
 
 .indicator-item {
     background-color: black;

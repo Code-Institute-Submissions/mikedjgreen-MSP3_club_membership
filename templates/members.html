@@ -87,7 +87,7 @@
                                 {% endif %}
                             </div>
                             <div class="row">
-                                {% if page_title == "Membership Due List" %}   
+                                {% if page_title == "Membership Due List" or page_title == "Membership Applications" %}   
                                     <a href="{{ url_for('delete_member', member_id=member._id) }}" 
                                     class="btn-small black-text red darken-1 crud-btn">
                                         Delete
