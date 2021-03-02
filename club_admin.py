@@ -440,7 +440,7 @@ def add_artwork():
     else:
         flash("User not logged in to do this")
         return redirect(url_for("login"))
-    return redirect(url_for("gallery"))
+    return render_template("add_artwork.html", page_title="New Artwork")
 
 
 @app.route("/edit_artwork/<art_id>", methods=["GET", "POST"])

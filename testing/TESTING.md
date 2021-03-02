@@ -655,11 +655,8 @@ Scripts should have boolean attribute ```async``` or ```defer``` set, without ei
 A number of python scripts were written to populate, and if neccessary, repopulate the collections with test data.
 These are found in the testing subdirectory:
 - [Activities insert](../testing/activities_insert.py)
-- [Activities CRUD menu](../testing/activities_crud_menu.py)
 - [Artworks insert](../testing/artworks_insert.py)
-- [Exhibition CRUD menu](../testing/exhibition_crud_menu.py)
 - [Members insert](../testing/members_insert.py)
-- [Members CRUD menu](../testing/members_crud_menu.py)
 
 ## Responsiveness Testing
 

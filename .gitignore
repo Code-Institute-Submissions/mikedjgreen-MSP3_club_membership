@@ -12,3 +12,13 @@ asset-manifest.json
 manifest.webmanifest
 static/img/artclub192.png
 static/img/artclub512.png
+README_copy.md
+static/css/stylesheet_copy.css
+templates/activities_copy.html
+templates/exhibition_copy.html
+templates/gallery_copy.html
+templates/members_copy.html
+templates/membership_copy.html
+templates/reminder_copy.html
+testing/TESTING_copy.md
+club_admin_copy.py

@@ -8,11 +8,11 @@
 	<div class="col s12 m10 l8">
 		<div class="row">
 			<div class="col s12">
-				<button data-target="addartwork" 
-                    onclick="add_artwork()" id="btnaddart"
-                    class="btn-small crud-btn black-text light-blue modal-trigger">Add artwork
+                <button class="btn-small crud-btn black-text light-blue lighten-1" 
+                     onclick="document.location='add_artwork'">
+                    Add Artwork
                     <i class="material-icons right">add</i>
-                </button>
+                </button> 
 			</div>
         </div>
         <div class="row">
@@ -37,192 +37,64 @@
                     </button>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
-
-        <!-- Modal Add Art Work form -->
-<section>
-    <div class="row">
-		<div id="addartwork" class="modal">
-			<div class="modal-content">
-				<h4>New Art Work</h4>
-                <form action="{{ url_for('add_artwork') }}" 
-                      class="col s12 m8 offset-m2"
-					  method="POST">
-						<!-- Artist -->
-						<div class="row">
-							<div class="input-field col s12">
-								<label for="artist" class="inputlabel">Artist</label>
-								<input type="text" class="form-control"  placeholder="Artist"
-                                    name="artist" id="artist"
-                                    minlength="4" required
-                                    data-validation-required-message="Please enter the artist's name."/>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<!-- Title -->
-						<div class="row">
-							<div class="input-field col s12">
-								<label for="title" class="inputlabel">Title</label>
-								<input type="text" class="form-control" placeholder="Untitled"
-                                    name="title" id="title"
-                                    minlength="2" required
-                                    data-validation-required-message="Please enter the artwork's title."/>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<!-- Media -->
-						<div class="row">
-							<div class="input-field col s12">
-								<label for="media" class="inputlabel">Media</label>
-								<input type="text" class="form-control" placeholder="Media, (e.g.) acrylic,oils"
-                                        name="media" id="media"
-                                        minlength="5" required
-                                        data-validation-required-message="Please the principal media used."/>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<!-- Dimensions of artwork in cm. -->
-						<div class="row">
-							<div class="input-field col s6">
-								<label for="height" class="inputlabel">Height</label>
-								<input type="number" class="form-control" placeholder="Height (cm)"
-                                    name="height" id="height"
-                                    required
-                                    data-validation-required-message="Please enter the artworks height in cm."/>
-								<p class="help-block text-danger"></p>
-							</div>
-							<div class="input-field col s6">
-								<label for="width" class="inputlabel">Width</label>
-								<input type="number" class="form-control" placeholder="Width (cm)"
-                                       name="width" id="width"
-                                       required
-                                       data-validation-required-message="Please enter the artworks width in cm."/>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<!-- Image filepath -->
-						<div class="row">
-							<div class="input-field col s12">
-								<label for="image" class="inputlabel">Image filepath</label>
-								<input type="text" class="form-control" placeholder="../static/img/gallery/no_image.jpg"
-                                    value="../static/img/gallery/no_image.jpg"
-                                    name="image" id="image"
-                                    minlength="23" required
-                                    data-validation-required-message="Image filepath: (e.g.) ../static/img/gallery/no_image.jpg."/>
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-						<!--  Price of artwork, whether sold or NFS ? -->
-						<div class="row">
-							<div class="input-field col s6">
-								<label for="price" class="inputlabel">Price</label>
-								<input type="text" class="form-control" placeholder="NFS"
-                                    name="price" id="price"
-                                    minlength="3" required
-                                    data-validation-required-message="Price, if for sale, or 'NFS'."/>
-								<p class="help-block text-danger"></p>
-							</div>
-							<div class="input-field col s6">
-								<p>
-									<label class="inputlabel">
-                                    <input name="sold" type="radio" value=True />
-                                    <span>Sold</span>
-                                    </label>
-								</p>
-								<p class="help-block text-danger"></p>
-							</div>
-                        </div>
-                        <!-- Chosen to exhibit? -->
-                        <div class="row">
-                            <div class="input-field col s12">
-								<p>
-									<label class="inputlabel">
-                                    <input name="exhibit" type="radio" value=True />
-                                    <span>Exhibit</span>
-                                    </label>
-									<label class="inputlabel">
-                                    <input name="exhibit" type="radio" value=False checked />
-                                    <span>Not Exhibit</span>
-                                    </label>
-								</p>
-							</div>
-					    </div>  
-					<div id="success"> 
-						<div class="row">
-                            <div class="col s6">
-							    <button class="btn-small waves-effect waves-light red lighten-3 black-text text-darken-2"
-                                    type="submit" name="action" onclick="{{ url_for('add_artwork') }}" >
-                                    Submit
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
-                            <div class="col s6">
-                                <a href="#!" onclick="close_add_artwork()" 
-                                    class="modal-close btn-small blue waves-effect waves-green">
-                                    Close
-                                    <i class="material-icons right">close</i>
-                                </a>
-                            </div>    
-						</div>
-                    </div> 
-                </form>
-			</div>
+            </form>
+            </div>
         </div>
-    </div>    
-</section>    
+    </div>
+</div>    
+   
         <!-- Artwork Gallery -->
 <section>
+<div class="row card-panel"> 
+	<div class="col s12 m10 l8">    
     <h6> Artworks </h6>
-    <div class="row">    
-        <div class="col s12">		
-        <!-- Text search above could have returned no artworks -->
-        {% if artworks %}
-			{% for artwork in artworks %}
-				<div class="card hoverable">
-					<div class="row">
-						<div class="col s4 m6">
-							<div class="card-image waves-effect waves-block waves-light">
-                                {% if loop.index == 1 %}
-								    <img class="activator responsive-img"
-                                        src="{{ artwork['image'] }}"
-                                        alt="artwork image" width="600" />
-                                {% else %}
-                                    <img class="activator responsive-img"
-                                         loading="lazy"
-                                         src="{{ artwork['image'] }}"
-                                         alt="artwork image" width="600" />
-                                {% endif %}        
-                            </div>
-						</div>
-						<div class="col s8 m6">
-						    <div class="card-content card-title">
-								<span class=" activator grey-text text-darken-4">
-                                {{ artwork['title'] }} <br>{{ artwork['artist'] }}
-                                </span>
-                                <ul class="card-details">
-                                    <li>Media: {{ artwork['media'] }}</li>
-									<li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
-                                    <li>Price : {{ artwork['price'] }}</li> 
-                                    {% if artwork.sold == true %}
-                                        <li style="background-color: red;font-weight: bold;">Sold: {{ artwork['sold'] }}</li>
+        <div class="row">    
+            <div class="col s12">		
+            <!-- Text search above could have returned no artworks -->
+            {% if artworks %}
+                {% for artwork in artworks %}
+                    <div class="row">
+					    <div class="col s12">
+        				    <div class="card hoverable">
+							    <div class="card-image waves-effect waves-block waves-light">
+                                    {% if loop.index == 1 %}
+								        <img class="activator responsive-img"
+                                            src="{{ artwork['image'] }}"
+                                            alt="artwork image" width="600" />
                                     {% else %}
-                                        <li>Sold: {{ artwork['sold'] }}</li>
-                                    {% endif %}
-                                    {% if artwork.exhibit == true %}
-                                        <li style="background-color: lightgreen;font-weight: bold;">Exhibit: {{ artwork['exhibit'] }}</li>
-                                    {% else %}
-                                        <li>Exhibit: {{ artwork['exhibit'] }}</li>
-                                    {% endif %}    
-                                    <li>({{ loop.index }} of {{ loop.length }})</li>
-                                </ul>
+                                        <img class="activator responsive-img"
+                                            loading="lazy"
+                                            src="{{ artwork['image'] }}"
+                                            alt="artwork image" width="600" />
+                                    {% endif %}        
+                                </div>
+						        <div class="card-content card-title">
+								    <span class=" activator grey-text text-darken-4">
+                                    {{ artwork['title'] }} <br>{{ artwork['artist'] }}
+                                    </span>
+                                    <ul class="card-details">
+                                        <li>Media: {{ artwork['media'] }}</li>
+									    <li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
+                                        <li>Price : {{ artwork['price'] }}</li> 
+                                        {% if artwork.sold == true %}
+                                            <li style="background-color: red;font-weight: bold;">Sold: {{ artwork['sold'] }}</li>
+                                        {% else %}
+                                            <li>Sold: {{ artwork['sold'] }}</li>
+                                        {% endif %}
+                                        {% if artwork.exhibit == true %}
+                                            <li style="background-color: lightgreen;font-weight: bold;">Exhibit: {{ artwork['exhibit'] }}</li>
+                                        {% else %}
+                                            <li>Exhibit: {{ artwork['exhibit'] }}</li>
+                                        {% endif %}    
+                                        <li>({{ loop.index }} of {{ loop.length }})</li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">                   
-                            <ul>
+                        <div class="row">
+                            <div class="col s12">                   
+                                <ul>
                                     <li>
                                         <a href="{{ url_for('edit_artwork', art_id=artwork['_id']) }}" 
                                                 class="btn-small black-text light-blue crud-btn">
@@ -237,20 +109,18 @@
                                                 <i class="material-icons right hide-on-small-only">delete</i>
                                         </a>
                                     </li> 
-                            </ul>        
-                        </div>    
-                    </div>        
-                </div>                            
-            {% endfor %} <!-- endfor artworks search -->
-        {% else %}
-            <h3 class="red-text center-align">No Art Works Found</h3>
-        {% endif %}
+                                </ul>        
+                            </div>    
+                        </div>        
+                    </div>                            
+                {% endfor %} <!-- endfor artworks search -->
+            {% else %}
+                <h3 class="red-text center-align">No Art Works Found</h3>
+            {% endif %}
+            </div>
         </div>
     </div>
+</div> 
 </section>
-    </div>
-</div>    
 
-
-
-	{% endblock %}
+{% endblock %}
