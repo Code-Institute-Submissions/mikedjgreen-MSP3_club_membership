@@ -182,7 +182,9 @@ Members List small screen
 
 There are three types of user of the site identified.
 
-Each is first presented with a gallery page of club members works.
+Visitors and members are first presented with a gallery page of club members works.
+
+Administrators, once logged in, are presented with the Members List page.
 
 Casual browsers of the site can then navigate to club activities details, exhibition display or apply for membership.
 
@@ -190,7 +192,6 @@ Members have the same options, but at the discretion of the club administrators 
 
 Club Administrors have login access and from login can create, read, update and delete member details, activity details and artwork details (CRUD).
 
-Any cancel button should redirect user to 'home' page, i.e. the gallery.
 
 #### Information Design
 
@@ -318,10 +319,12 @@ For the sake of brevity, the testing documentation has been separated and linked
 Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/)
 
 #### Metrics
->There are 34 functions in this file.
+
+>There are 32 functions in this file.
 >Function with the largest signature take 1 arguments, while the median is 0.
->Largest function has 15 statements in it, while the median is 2.5.
+>Largest function has 15 statements in it, while the median is 3.5.
 >The most complex function has a cyclomatic complexity value of 3 while the median is 1.
+
 
 ### PEP8 compliant python code
 Passed code through [PEP8](http://pep8online.com/).
