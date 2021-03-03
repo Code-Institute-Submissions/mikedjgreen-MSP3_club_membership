@@ -87,7 +87,7 @@ Artworks, their images, titles and who made them are to be held for view.
 #### The interaction design 
 
 
-![Site Map](/static/docs/screenshots/sitemap.png)
+![Site Map](static/docs/screenshots/sitemap.png)
 
 
 This is to have a navigation bar for each page:
@@ -164,10 +164,10 @@ Exhibition large screen
 Exhibition small screen
 ![Exhibition small wireframe](static/docs/screenshots/exhibition_sm.png)
 
-Membership Request large screen
+Membership Request large screen - 'apply to join'
 ![Membership large wireframe](static/docs/screenshots/membership_request_lg.png)
 
-Membership Request small screen
+Membership Request small screen - 'apply to join'
 ![Membership small wireframe](static/docs/screenshots/membership_request_sm.png)
 
 Members List large screen
