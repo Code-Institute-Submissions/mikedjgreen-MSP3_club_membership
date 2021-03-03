@@ -37,6 +37,40 @@
                     </span>
                 </div>
             </div>
+            <!-- First Name -->
+            <div class="row">
+                <div class="input-field col s12">
+                     <i class="prefix light-blue-text text-darken-4"></i>
+                    <input id="firstname" name="firstname" type="text" 
+                        minlength="5" maxlength="15" 
+                        placeholder="min 5 chars, max 15 chars"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" />
+                    <label for="firstname" 
+                        title="Should only contain lower and uppercase alphabetic">
+                        Firstname
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Should only contain lower and uppercase alphabetic
+                    </span>
+                </div>
+            </div>
+            <!-- Last Name -->
+            <div class="row">
+                <div class="input-field col s12">
+                     <i class="prefix light-blue-text text-darken-4"></i>
+                    <input id="lastname" name="lastname" type="text" 
+                        minlength="5" maxlength="15" 
+                        placeholder="min 5 chars, max 15 chars"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" />
+                    <label for="lastname" 
+                        title="Should only contain lower and uppercase alphabetic">
+                        Lastname
+                    </label>
+                    <span class="helper-text" data-error="wrong" data-success="right">
+                        Should only contain lower and uppercase alphabetic
+                    </span>
+                </div>
+            </div>
         <!-- readonly -->
             <div class="row">
                 <p>
@@ -54,10 +88,14 @@
         
         <!-- register -->
             <div class="row">
-                <button type="submit" class="col s12 btn-large red darken-4 text-shadow">
+                <div class="col s2"></div>
+                <div class="col s8">
+                    <button type="submit" class="btn-large red darken-4 text-shadow">
                         Register
-                    <i class="material-icons right">send</i>
-                </button>
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                <div class="col s2"></div>
             </div>
         </div>
     </form>

@@ -18,6 +18,8 @@
         <hr/>
         {% for user in users %}
             Username: <strong> {{ user.username }} </strong> <br>
+            First Name: {{ user.firstname }} <br>
+            Last Name: {{ user.lastname }} <br>
             Read Only?  {{ user.readonly }}  <br>
             <hr/>
         {% endfor %}

@@ -538,6 +538,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
+            "firstname": request.form.get("firstname"),
+            "lastname": request.form.get("lastname"),
             "readonly": request.form.get("group1").lower(),
             "registered_on": datetime.datetime.now()
         }
