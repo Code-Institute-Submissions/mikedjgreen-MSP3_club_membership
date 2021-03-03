@@ -107,6 +107,9 @@ This is to keep the applicant's experience as clear and concise as possible.
 The onus then is on the administrator to 'fill in the blanks' when needed.
 
 The casual browser of the site will be presented with images of club member's artworks to scroll through.
+
+Initially the artworks would be presented on a carousel, but this was dropped in favour of a more classic scroll-down.
+
 They will have an option on the navigation bar to apply for membership.
 
 A logged-in administrator has further options to:
@@ -220,10 +223,11 @@ Club activities would need the title, date, start time and duration and the lead
 
 ## Features
 ---
-The project concerns club membership, club activities, exhibitions and a record of artists works.
+The project concerns club membership, club activities, an annual exhibition and a record of artists works.
  
 ### Existing Features
 - Membership application form. Both client and server side validation for 'belt-and-braces' defensive programming.
+- Create, update and delete 'CRUD' buttons only displayed when administrator logged in. 
 - Members list of club members details for club administrators, with search facility, if club becomes popular.
 - Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
@@ -231,7 +235,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 - Applications - allows administrator to ascertain new applications and add information to become member.
 - Flag interest in activities - displays a count against each activity of interest shown.
 - Exhibition page showns images and artist names of all artworks flagged for exhibit in club's annual exhibition.
-- Gallery page shows all artworks of members in a carousel, whether for exhibition, or not. 
+- Gallery page shows all artworks of members, whether for exhibition, or not. 
     also shows whether an artwork has been sold.
 - Search facility for members artworks, search against index of artist name or artwork title.
 
@@ -249,6 +253,7 @@ The project concerns club membership, club activities, exhibitions and a record 
 - Date validation, especially validating against entering dates in the past.
 - Email reminders of membership dues needs some refinement. 
   A member can be enmailed, but the email not recorded against the member's document.
+- Email news of activities to all members at once, rather than one member at a time.
 
 
 ## Technologies Used
@@ -274,7 +279,6 @@ The project concerns club membership, club activities, exhibitions and a record 
 - [Materialize Framework](https://materializecss.com/)
     - A front-end, responsive design framework with a unified 'look and feel'.
     - Using a [date picker](https://materializecss.com/pickers.html)
-    - Using a [carousel](https://materializecss.com/carousel.html) for a gallery of art works.
 
 - [Font Awesome](https://fontawesome.com/) 
     - to provide additional icons, especially 'facebook'.

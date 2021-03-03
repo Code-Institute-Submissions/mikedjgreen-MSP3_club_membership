@@ -74,17 +74,17 @@
                                     </span>
                                     <ul class="card-details">
                                         <li>Media: {{ artwork['media'] }}</li>
-									    <li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
-                                        <li>Price : {{ artwork['price'] }}</li> 
+                                        <li>Height:{{ artwork['height']}}cm. Width:{{ artwork['width'] }}cm.</li>
+                                        {% if artwork.price == "NFS" %}
+                                            <li>Not For Sale</li>
+                                        {% else %}    
+                                            <li>Price: &pound{{ artwork['price'] }}</li> 
+                                        {% endif %}    
                                         {% if artwork.sold == true %}
-                                            <li style="background-color: red;font-weight: bold;">Sold: {{ artwork['sold'] }}</li>
-                                        {% else %}
-                                            <li>Sold: {{ artwork['sold'] }}</li>
+                                            <li style="background-color: red;font-weight: bold;">Sold</li>
                                         {% endif %}
                                         {% if artwork.exhibit == true %}
-                                            <li style="background-color: lightgreen;font-weight: bold;">Exhibit: {{ artwork['exhibit'] }}</li>
-                                        {% else %}
-                                            <li>Exhibit: {{ artwork['exhibit'] }}</li>
+                                            <li style="background-color: lightgreen;font-weight: bold;">For Exhibition</li>
                                         {% endif %}    
                                         <li>({{ loop.index }} of {{ loop.length }})</li>
                                     </ul>

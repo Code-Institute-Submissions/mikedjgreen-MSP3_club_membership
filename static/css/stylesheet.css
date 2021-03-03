@@ -122,6 +122,7 @@ textarea {
 
 .card-details {
     font-size: 0.9rem !important;
+    font-weight: bolder;
     text-overflow:ellipsis;
     overflow: hidden; 
 }
