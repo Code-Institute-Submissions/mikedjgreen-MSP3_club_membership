@@ -74,7 +74,7 @@ body{
 textarea {
     font-family: Roboto, Arial, sans-serif;
     resize: none;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 /*
     Activities specific overrides
