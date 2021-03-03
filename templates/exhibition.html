@@ -19,6 +19,9 @@
     <div class="col s12">        
             {% for artwork in artworks %}
                 {% if artwork.exhibit == true %}
+                    {% if loop.index %4 == 1 %}
+                       <div class="row"></div> 
+                    {% endif %}   
                     <div class="responsive">
                         <div class="gallery">
                             <a target="_blank" href="{{ artwork.image }}">

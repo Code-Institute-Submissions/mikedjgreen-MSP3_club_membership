@@ -26,6 +26,8 @@
       - [Client-side form validation](#client-side-form-validation-1)
     + [Editing member's details](#editing-member-s-details)
       - [Findings of member edit](#findings-of-member-edit)
+    + [Exhibition page disordered images](#exhibition-page-disordered-images)
+      - [Using jinja template engine.](#using-jinja-template-engine)
   * [User Story Testing](#user-story-testing)
     + [1 As an art enthusiast I would like to join like-minded people in my local community](#1-as-an-art-enthusiast-i-would-like-to-join-like-minded-people-in-my-local-community)
       - [Membership application](#membership-application)
@@ -54,8 +56,6 @@
   * [Test Scripts](#test-scripts)
   * [Responsiveness Testing](#responsiveness-testing)
     + [Testing different screen sizes](#testing-different-screen-sizes)
-
-
 
 _[TOC](http://ecotrust-canada.github.io/markdown-toc/)_
 
@@ -376,6 +376,20 @@ Even server-side validation did not catch error in phone number.
 2. No client-side validation.
 3. Server-side validation incomplete, allowed alphabetic phone number.
        
+### Exhibition page disordered images
+
+The exhibition page displays artworks destined for the summer exhibition.
+
+The images are a bit spatially disordered.
+
+- ![Exhibition images](../testing/screenshots/exhibition_1.jpg)
+
+#### Using jinja template engine.
+
+Applying the loop.index variable and [modulus math](https://jinja.palletsprojects.com/en/2.11.x/templates/#math), inserted a row after 4 images are displayed on the page.
+
+
+- ![Ordered Exhibition images](../testing/screenshots/exhibition_2.jpg)
 
 ---
 ## User Story Testing
