@@ -1,0 +1,23 @@
+{
+    "short_name": "Prickwillow",
+    "name": "Prickwillow Art Club",
+    "description": "Art Club Administration",
+    "icons": [
+                {"src": "static/img/artclub192.png",
+                "type": "image/png",
+                "sizes": "192x192"},
+                {"src": "static/img/artclub512.png",
+                "type": "image/png",
+                "sizes": "512x512"}
+             ],
+    "start_url": "templates/gallery.html",
+    "background_color": "#D9E6F3",
+    "display": "fullscreen",
+    "prefer_related_applications": true,
+    "related_applications": [
+        {
+            "platform": "play",
+            "id": "com.google.samples.apps.iosched"
+        }
+    ]      
+}
