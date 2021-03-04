@@ -3,6 +3,7 @@
     + [Navigation bar getting 'busy'](#navigation-bar-getting--busy-)
     + [Sending news of club activities](#sending-news-of-club-activities)
       - [Activity news findings](#activity-news-findings)
+    + [Sending reminder of subscriptions due](#sending-reminder-of-subscriptions-due)
     + [CRUD Features for logged in administrators](#crud-features-for-logged-in-administrators)
       - [Drop member](#drop-member)
       - [Findings of dropping art club member.](#findings-of-dropping-art-club-member)
@@ -39,7 +40,7 @@
       - [EmailJS for Activities News](#emailjs-for-activities-news)
       - [Findings of initial EmailJS News implementation](#findings-of-initial-emailjs-news-implementation)
       - [EmailJS News fixes](#emailjs-news-fixes)
-    + [5. As a club administrator I would like to remind members of forthcoming club dues and subscriptions](#5-as-a-club-administrator-i-would-like-to-remind-members-of-forthcoming-club-dues-and-subscriptions)
+    + [5 As a club administrator I would like to remind members of forthcoming club dues and subscriptions](#5-as-a-club-administrator-i-would-like-to-remind-members-of-forthcoming-club-dues-and-subscriptions)
         * [Implementation of EmailJS API for subscription reminders](#implementation-of-emailjs-api-for-subscription-reminders)
       - [Findings of initial EmailJS implementation](#findings-of-initial-emailjs-implementation)
       - [EmailJS fixes](#emailjs-fixes)
@@ -97,6 +98,10 @@ There is no record of an email being set against the activity.
 1. There is a need for one email button to send emails of activity news to each paid-up member at once.
 2. There is a need to keep track of emails news of an activity being sent, to prevent multiple emails ('spam').
 
+### Sending reminder of subscriptions due
+
+Another feature to be tested is the email to be sent to members whose subscriptions are due.
+As this is also a [user story to be tested](#5-as-a-club-administrator-i-would-like-to-remind-members-of-forthcoming-club-dues-and-subscriptions) the testing is documented there.
 
 ### CRUD Features for logged in administrators
 
@@ -511,7 +516,7 @@ A button appears for a logged in administrative user for each activity.
 
 
 ---
-### 5. As a club administrator I would like to remind members of forthcoming club dues and subscriptions
+### 5 As a club administrator I would like to remind members of forthcoming club dues and subscriptions
 
 ##### Implementation of EmailJS API for subscription reminders
 The emailJS implementation is in response to this user story.
