@@ -5,7 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="description" content="MSP3 club membership administration">
-	<meta name="author" content="Mike Green">
+    <meta name="author" content="Mike Green">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/artclub512.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/artclub192.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
 
 	<!--  To be able to hover over an element and display additional information -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
@@ -37,11 +40,7 @@
 		<div class="page-header">
 			<div class="container">
 				<div class="row">
-					<div class="col s4 hide-on-small-only">
-						<a href="{{ url_for('gallery') }}"
-							class="left"><img class="img-icon" src="{{ url_for('static', filename='img/artclub.ico') }}" alt="club icon"/></a>
-					</div>
-					<div class="col s8 club-title">
+					<div class="col s12 club-title">
 						Prickwillow Art Club
 					</div>
 				</div>
