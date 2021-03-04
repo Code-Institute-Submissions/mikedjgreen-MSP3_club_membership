@@ -45,11 +45,9 @@
    
         <!-- Artwork Gallery -->
 <section>
-<div class="row card-panel"> 
-	<div class="col s12 m10 l8">    
     <h6> Artworks </h6>
-        <div class="row">    
-            <div class="col s12">		
+<div class="row card-panel"> 
+	<div class="col s12 m10 l8">    	
             <!-- Text search above could have returned no artworks -->
             {% if artworks %}
                 {% for artwork in artworks %}
@@ -89,36 +87,34 @@
                                         <li>({{ loop.index }} of {{ loop.length }})</li>
                                     </ul>
                                 </div>
-
+                                <div class="row">
+                                    <div class="col s12">                   
+                                        <ul>
+                                            <li>
+                                                <a href="{{ url_for('edit_artwork', art_id=artwork['_id']) }}" 
+                                                    class="btn-small black-text light-blue crud-btn">
+                                                    Edit this artwork 
+                                                    <i class="material-icons right hide-on-small-only">edit</i>
+                                                </a>
+                                            </li>
+                                            <li>       
+                                                <a href="{{ url_for('delete_artwork', art_id=artwork['_id']) }}" 
+                                                    class="btn-small red black-text crud-btn">
+                                                    Drop this artwork
+                                                    <i class="material-icons right hide-on-small-only">delete</i>
+                                                </a>
+                                            </li> 
+                                        </ul>        
+                                    </div>    
+                                </div>  
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col s12">                   
-                                <ul>
-                                    <li>
-                                        <a href="{{ url_for('edit_artwork', art_id=artwork['_id']) }}" 
-                                                class="btn-small black-text light-blue crud-btn">
-                                                Edit this artwork 
-                                                <i class="material-icons right hide-on-small-only">edit</i>
-                                        </a>
-                                    </li>
-                                    <li>       
-                                        <a href="{{ url_for('delete_artwork', art_id=artwork['_id']) }}" 
-                                                class="btn-small red black-text crud-btn">
-                                                Drop this artwork
-                                                <i class="material-icons right hide-on-small-only">delete</i>
-                                        </a>
-                                    </li> 
-                                </ul>        
-                            </div>    
-                        </div>        
+      
                     </div>                            
                 {% endfor %} <!-- endfor artworks search -->
             {% else %}
                 <h3 class="red-text center-align">No Art Works Found</h3>
             {% endif %}
-            </div>
-        </div>
     </div>
 </div> 
 </section>
