@@ -3,10 +3,10 @@
     "name": "Prickwillow Art Club",
     "description": "Art Club Administration",
     "icons": [
-                {"src": "static/img/artclub192.png",
+                {"src": "img/artclub192.png",
                 "type": "image/png",
                 "sizes": "192x192"},
-                {"src": "static/img/artclub512.png",
+                {"src": "img/artclub512.png",
                 "type": "image/png",
                 "sizes": "512x512"}
              ],
