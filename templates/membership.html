@@ -90,14 +90,13 @@
         <!-- Member's brief description or 'bio' -->
         <div class="row">
             <div class="input-field col s12">
-                <label for="bio" class="inputlabel">Brief description</label>
-                <textarea class="form-control" placeholder="Description"
+                <textarea class="materialize-textarea" placeholder="Description"
                     name="bio" id="bio"
                     rows="4" cols="50"
                     minlength="10" required
                     onchange="mem_bio()"
-                    data-validation-required-message="Please enter a brief description of yourself.">
-                </textarea>
+                    data-validation-required-message="Please enter a brief description of yourself."></textarea>
+                <label for="bio" class="inputlabel">Brief description</label>
                 <p class="help-block text-danger"></p>
             </div>
         </div>

@@ -28,7 +28,8 @@ $(document).ready(function() {
   
     $("select").formSelect();
     
-
+    $('input#description, textarea#bio').characterCounter();
+ 
     $(".modal").modal();
     
 });

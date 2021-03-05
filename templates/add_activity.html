@@ -14,8 +14,9 @@
                     <div class="input-field col s12">
                         <i class="prefix light-blue-text text-darken-4"></i>
                     <input id="description" name="description" type="text" 
-                        minlength="10" maxlength="255" 
-                        placeholder="min 10 chars, max 255 chars"
+                        minlength="10" maxlength="120" 
+                        data-length="120"
+                        placeholder="min 10 chars, max 120 chars"
                         onchange="act_desc()"
                         class="validate" required/>
                     <label for="description" 
@@ -31,13 +32,13 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="prefix light-blue-text text-darken-4"></i>
-                        <textarea id="pitch" name="pitch" 
+                        <textarea class="materialize-textarea" 
+                                id="pitch" name="pitch" 
                                 rows="4" cols="50"
                                 minlength="10"  
                                 placeholder="min 10 chars"
                                 onchange="act_pitch()"
-                                class="validate" required>
-                        </textarea>        
+                                class="validate" required></textarea>        
                         <label for="pitch" 
                                 title="Sell it to them!">
                                 Sales Pitch
