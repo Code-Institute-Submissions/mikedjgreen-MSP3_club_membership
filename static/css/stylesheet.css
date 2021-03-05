@@ -110,6 +110,7 @@ textarea {
 
 .card-content {
     padding: 1rem !important;
+    line-height: 1.6;
 }
 
 .card-title {
@@ -128,6 +129,9 @@ textarea {
     font-weight: bolder;
     text-overflow:ellipsis;
     overflow: hidden; 
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.6;
 }
 
 
