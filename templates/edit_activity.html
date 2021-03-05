@@ -47,7 +47,27 @@
                         Briefly describe activity
                     </span> 
                     </div>
-                </div>    
+                </div>
+                <!---   Sales Pitch         -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="prefix light-blue-text text-darken-4"></i>
+                        <input id="pitch" name="pitch"  
+                            type="text"
+                            minlength="10"
+                            placeholder="min 10 chars"
+                            onchange="act_desc()"
+                            value="{{ activity.pitch }}"
+                            class="validate" required />       
+                        <label for="pitch" class="inputlabel"
+                            title="Sell it to them!">
+                            Sales Pitch
+                        </label>
+                        <span class="helper-text" data-error="wrong" data-success="right">
+                            Sell it to them!
+                        </span> 
+                    </div>
+                </div>      
                 <!--    Activity Date       -->
                 <div class="row">
                     <div class="input-field col s12">

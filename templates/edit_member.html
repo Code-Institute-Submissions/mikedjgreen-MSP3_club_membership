@@ -155,14 +155,13 @@
         <div class="row">
             <div class="input-field col s12">       
                 <label for="bio" class="inputlabel">Biography</label>
-                <textarea class="form-control" placeholder="Biography"
+                <input class="form-control" placeholder="Biography"
+                    type="text"
                     name="bio" id="bio"
                     value="{{ member.bio }}"
-                    rows="4" cols="50"
                     minlength="10" required
                     onchange="mem_bio()"
-                    data-validation-required-message="Please enter a brief description of yourself.">
-                </textarea>
+                    data-validation-required-message="Please enter a brief description of yourself."/>
                 <p class="help-block text-danger"></p>
             </div>
         </div>        

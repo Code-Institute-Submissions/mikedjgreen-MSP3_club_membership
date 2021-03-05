@@ -122,6 +122,18 @@ function act_desc() {
     }
 }
 
+function act_pitch() {
+    var x = document.getElementById("pitch").value;
+    if ( x.length < 10 ) {
+        document.getElementById("pitch").style.backgroundColor = "red";
+        document.getElementById("pitch").focus();
+    } else {
+        document.getElementById("pitch").style.backgroundColor = clubBlue;
+        document.getElementById("pitch").style.color = "black";
+        document.getElementById("pitch").style.fontWeight = "bold";
+    }
+}
+
 function act_dur() {
     var x = document.getElementById("activity_duration").value;
     var patHour = new RegExp(/hour/i);

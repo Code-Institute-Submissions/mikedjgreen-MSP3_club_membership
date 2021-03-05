@@ -229,6 +229,7 @@ def add_activity():
             activity = {
                 "activity_date": iso_date,
                 "description": request.form.get("description"),
+                "pitch" : request.form.get("pitch"),
                 "activity_time": request.form.get("activity_time"),
                 "activity_duration": request.form.get("activity_duration"),
                 "activity_location": request.form.get("activity_location"),
@@ -272,6 +273,7 @@ def edit_activity(activity_id):
         submit = {
             "activity_date": iso_date,
             "description": request.form.get("description"),
+            "pitch": request.form.get("pitch"),
             "activity_time": request.form.get("activity_time"),
             "activity_duration": request.form.get("activity_duration"),
             "activity_location": request.form.get("activity_location"),
@@ -283,6 +285,7 @@ def edit_activity(activity_id):
         }
         mongo.db.activities.replace_one({"_id": ObjectId(activity_id)}, submit)
         flash("Activity Successfully Updated")
+        return redirect(url_for("activities"))
 
     activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
     return render_template("edit_activity.html",

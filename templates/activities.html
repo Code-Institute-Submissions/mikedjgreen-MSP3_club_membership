@@ -56,11 +56,26 @@
                             </span>
                         </div>
                     </div>
-                    <div class="card-details">
-                        How long? {{ activity.activity_duration }} <br>
-                        Where? {{ activity.activity_location }} <br>
-                        Led by: {{ activity.lead_firstname }} {{ activity.lead_lastname }}
-                    </div>    
+
+                            <div class="card-details hide-on-small-only">
+                                What is it about? {{ activity.pitch}} <br>
+                                How long? {{ activity.activity_duration }} <br>
+                                Where? {{ activity.activity_location }} <br>
+                                Led by: {{ activity.lead_firstname }} {{ activity.lead_lastname }}
+                            </div> 
+ 
+                </div>
+
+            </div>
+
+            <div class="row show-on-small hide-on-med-and-up">
+                <div class="col s12">
+                    <div class="card-content">
+                            What is it about? {{ activity.pitch}} <br>
+                            How long? {{ activity.activity_duration }} <br>
+                            Where? {{ activity.activity_location }} <br>
+                            Led by: {{ activity.lead_firstname }} {{ activity.lead_lastname }}
+                    </div> 
                 </div>
             </div>
 
