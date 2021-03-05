@@ -9,7 +9,7 @@
     <form class="col s12 m8 offset-m2" method="POST">
       <div class="card-panel">
         <!-- Forename -->      
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <label for="forename" class="inputlabel">Forename</label>
                 <input type="text" class="form-control"  placeholder="Forename"
@@ -21,7 +21,7 @@
             </div>
         </div>
         <!-- Surname -->    
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">       
                 <label for="lastname" class="inputlabel">Lastname</label>
                 <input type="text" class="form-control" placeholder="Surname"
@@ -33,7 +33,7 @@
             </div>
         </div>
         <!-- Email Address -->
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <label for="email" class="inputlabel">Email Address</label>
                 <input type="email" class="form-control" placeholder="Email Address"
@@ -45,7 +45,7 @@
              </div>
         </div>
         <!-- Phone Number -->
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <label for="phone" class="inputlabel">Phone Number</label>
                 <input type="tel" class="form-control" placeholder="Phone Number"
@@ -57,7 +57,7 @@
             </div>
         </div>
         <!-- Membership Status-->
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <p>
                 <label class="inputlabel">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <!--  Family Subscription or Guest ? -->
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <p>
                 <label class="inputlabel">
@@ -88,7 +88,7 @@
             </div>
         </div>
         <!-- Member's brief description or 'bio' -->
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="input-field col s12">
                 <textarea class="materialize-textarea" placeholder="Description"
                     name="bio" id="bio"
@@ -102,7 +102,7 @@
         </div>
         <br />
         <div id="success"></div>
-        <div class="row">
+        <div class="row card-panel-row">
             <div class="col s6">
                  <!-- cancel button -->
                     <a href="{{ url_for('gallery') }}" class="btn-small black-text light-blue lighten-1">
