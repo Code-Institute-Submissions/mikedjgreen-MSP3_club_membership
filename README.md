@@ -227,7 +227,7 @@ The project concerns club membership, club activities, an annual exhibition and 
  
 ### Existing Features
 - Membership application form. Both client and server side validation for 'belt-and-braces' defensive programming.
-- Create, update and delete 'CRUD' buttons only displayed when administrator logged in. 
+- Create, update and delete 'CRUD' buttons only displayed when administrator logged in correctly. 
 - Members list of club members details for club administrators, with search facility, if club becomes popular.
 - Subscriptions - allows a logged-in user to gain a list of members whose subscriptions are due.
               This list excludes those marked in the database collection 'members' as paid or the members are guests (no subscription).
@@ -324,10 +324,10 @@ Passed [code](../static/js/script.js) through [JSHint](https://jshint.com/about/
 
 #### Metrics
 
->There are 32 functions in this file.
+>There are 34 functions in this file.
 >Function with the largest signature take 1 arguments, while the median is 0.
->Largest function has 15 statements in it, while the median is 3.5.
->The most complex function has a cyclomatic complexity value of 3 while the median is 1.
+>Largest function has 15 statements in it, while the median is 4.
+>The most complex function has a cyclomatic complexity value of 6 while the median is 1.5.
 
 
 ### PEP8 compliant python code
@@ -455,3 +455,4 @@ Back to Heroku's deploy tab to ensure that Heroku's app picks up the GitHub's la
 - Further help was found with [w3schools](https://www.w3schools.com/default.asp)
 - More advanced MongoDB queries were garnered from [MongoDB University](https://university.mongodb.com/courses/M001/about)
 - Thanks to mentor, Jonathan Munz, for pointing me to database image store debate article.
+- A late 'bug' was resolved by referring to [stackoverflow](https://stackoverflow.com/), especially [this page](https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form). 

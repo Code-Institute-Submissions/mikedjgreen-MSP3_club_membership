@@ -29,6 +29,8 @@
       - [Findings of member edit](#findings-of-member-edit)
     + [Exhibition page disordered images](#exhibition-page-disordered-images)
       - [Using jinja template engine.](#using-jinja-template-engine)
+    + [User login bypasses CRUD button visibility](#user-login-bypasses-crud-button-visibility)
+      - [Fix with javascript event listener](#fix-with-javascript-event-listener)
   * [User Story Testing](#user-story-testing)
     + [1 As an art enthusiast I would like to join like-minded people in my local community](#1-as-an-art-enthusiast-i-would-like-to-join-like-minded-people-in-my-local-community)
       - [Membership application](#membership-application)
@@ -395,6 +397,26 @@ Applying the loop.index variable and [modulus math](https://jinja.palletsproject
 
 
 - ![Ordered Exhibition images](../testing/screenshots/exhibition_2.jpg)
+
+### User login bypasses CRUD button visibility
+
+It has been found that when logging in by pressing 'Enter' after filling in the password field correctly,
+the administrator does not have CRUD buttons shown, i.e. 'Add, Edit , Delete, Drop', etc.
+
+- ![Login Enter](../testing/screenshots/login_return.jpg)
+
+No 'Edit' button displayed when logged in.
+- ![No CRUD button displayed](../testing/screenshots/login_return_2.jpg)
+
+#### Fix with javascript event listener
+
+Solution found in [Stack Overflow](https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form).
+Once password filled in, the event listener stops the <Enter> key being selected.
+The user has to login via the 'LOGIN' button.
+
+- ![CRUD button visible](../testing/screenshots/login_return_3.jpg)
+
+
 
 ---
 ## User Story Testing
