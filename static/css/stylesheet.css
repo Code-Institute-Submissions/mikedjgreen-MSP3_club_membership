@@ -10,7 +10,6 @@ body{
     overflow: scroll !important;  
 }
 
-
 .club-title {
     margin:0.5rem 0 0.5rem 0;
     text-align: center;
@@ -80,10 +79,10 @@ textarea {
     margin-top: 10px;
 }
 
-
 /*
     Membership form format
 */
+
 .card-panel-row {
     margin-bottom: 5px !important;
 }
@@ -143,7 +142,6 @@ textarea {
     line-height: 1.6;
 }
 
-
 .indicator-item {
     background-color: black;
 }
@@ -184,7 +182,6 @@ div.exhibit_details {
   float: left;
   width: 24.99999%;
 }
-
 
 .clearfix:after {
   content: "";
@@ -254,7 +251,3 @@ footer {
     margin: 0;
     text-align: center;
 }
-
-/*----  Materialize sticky footer ----*/
-
-

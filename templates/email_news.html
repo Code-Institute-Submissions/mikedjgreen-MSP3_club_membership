@@ -8,10 +8,10 @@
 <div id="emailnews" class="news-content">
 
     {% if members %}
-        {% for member in members %} 
+        {% for member in members %}  
         <h4>Email Activity News Form</h4>
         <form onsubmit="return sendNews(this);" method="POST" >
-            <section>    
+            <section>            
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field inline">
@@ -20,7 +20,8 @@
                             <label for="fullname">Full Name</label>
                         </div>
                      </div>
-                </div>                 
+                </div> 
+                               
                 <div class="row">
                     <div class="col s12">                
                         <div class="input-field inline">
@@ -31,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+              
                 <div class="form-row row">
                     <div class="col s12">                
                         <div class="input-field inline">
@@ -130,7 +132,7 @@
             </section>
         </form>
 
-        {% endfor %}
+        {% endfor %}  
 
     {% else %}
         <h3 class="red-text center-align">No Members Found</h3>

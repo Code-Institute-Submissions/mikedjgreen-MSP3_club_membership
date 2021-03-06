@@ -9,10 +9,10 @@
 	<div class="col-lg-8 col-md-10 mx-auto">
 		<!---  Edit Art Work Form -->
 		<div id="editartwork">
-
-				<form action="{{ url_for('edit_artwork', art_id=artworks._id ) }}"
+			<form action="{{ url_for('edit_artwork', art_id=artworks._id ) }}"
                       class="col s12 m8 offset-m2"
-					  method="POST">
+                      method="POST">
+                <div class="card-panel">
 					<div class="row">
 						<div class="input-field col s12">
 							<label for="title" class="inputlabel">Title</label>
@@ -129,7 +129,7 @@
 					<div class="row">
                         <div class="col s6">
                             <a href="{{ url_for('gallery') }}" class="btn-small blue waves-effect waves-green">
-                                Close <i class="material-icons right">close</i>
+                                Cancel <i class="material-icons right">close</i>
                             </a>
 						</div>
 						<div class="col s6">                     
@@ -139,8 +139,9 @@
                                     <i class="material-icons right">send</i>
                             </button>
 						</div>
-					</div>
-				</form>
+                    </div>
+                </div>
+			</form>
 		</div>
 	</div>
 </div>

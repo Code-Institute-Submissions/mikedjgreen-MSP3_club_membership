@@ -73,29 +73,33 @@
             </div>
         <!-- readonly -->
             <div class="row">
-                <p>
+                <div class="col s6">
                     <label class="black-text">
                         <input name="group1" id="readonly" type="radio" value="true" checked />
                         <span>Read Only</span>
                     </label>
-    
+                </div>    
+                <div class="col s6">
                     <label class="black-text">
                         <input name="group1" id="update" type="radio" value="false" disabled="disabled" />
                         <span>Update</span>
                     </label>
-                </p>
+                </div>
             </div>
         
         <!-- register -->
             <div class="row">
-                <div class="col s2"></div>
-                <div class="col s8">
-                    <button type="submit" class="btn-large red darken-4 text-shadow">
+                <div class="col s6">
+                    <a href="{{ url_for('gallery') }}" class="btn-small blue waves-effect waves-green">
+                                Cancel <i class="material-icons right">close</i>
+                    </a>
+                </div>
+                <div class="col s6">
+                    <button type="submit" class="btn-small red darken-4 text-shadow">
                         Register
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
-                <div class="col s2"></div>
             </div>
         </div>
     </form>

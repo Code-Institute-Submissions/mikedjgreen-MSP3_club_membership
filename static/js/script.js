@@ -7,7 +7,6 @@ const clubBlue = "#D9E6F3";
     Select ...
     Modal....[Gallery]
     Materialbox...for enlarging images
-    Tabs
 */
 
 $(document).ready(function() {

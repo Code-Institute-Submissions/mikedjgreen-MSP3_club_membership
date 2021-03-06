@@ -3,10 +3,6 @@
 
 <div class="row">
   <div class="col l8 m10">
-    <div class="row">
-    <p class="col s12 m8 offset-m2">Edit membership request.</p>
-    </div>
-
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_member', member_id=member._id) }}">
       <div class="card-panel">
         <!-- Portrait -->
@@ -167,8 +163,8 @@
         <div class="row">
             <div class="col s6">
                  <!-- cancel button -->
-                    <a href="{{ url_for('members') }}" class="btn-small">
-                        Cancel <i class="material-icons right"></i>
+                    <a href="{{ url_for('members') }}" class="btn-small blue waves-effect waves-green">
+                        Cancel <i class="material-icons right">close</i>
                     </a>
             </div>
             <div class="col s6">        
